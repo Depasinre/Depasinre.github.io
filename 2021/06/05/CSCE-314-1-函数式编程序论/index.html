@@ -16,11 +16,16 @@
 <meta property="og:url" content="https:&#x2F;&#x2F;depasinre.github.io&#x2F;2021&#x2F;06&#x2F;05&#x2F;CSCE-314-1-%E5%87%BD%E6%95%B0%E5%BC%8F%E7%BC%96%E7%A8%8B%E5%BA%8F%E8%AE%BA&#x2F;index.html">
 <meta property="og:site_name" content="Turrim ; Chime">
 <meta property="og:description" content="前言：这篇学习笔记是基于Texas A&amp;M University的Shawn Lupoli在2019年秋季ENGR102的授课。文章中绝大多数涉及的PPT和图片都来源于Dr.Lupoli授课所使用的PPT，如使用其他来源的资源会在文章中另行标注。">
+<meta property="og:image" content="https:&#x2F;&#x2F;depasinre.github.io&#x2F;2021&#x2F;06&#x2F;05&#x2F;CSCE-314-1-%E5%87%BD%E6%95%B0%E5%BC%8F%E7%BC%96%E7%A8%8B%E5%BA%8F%E8%AE%BA&#x2F;review_of_math_function.JPG">
+<meta property="og:image" content="https:&#x2F;&#x2F;depasinre.github.io&#x2F;2021&#x2F;06&#x2F;05&#x2F;CSCE-314-1-%E5%87%BD%E6%95%B0%E5%BC%8F%E7%BC%96%E7%A8%8B%E5%BA%8F%E8%AE%BA&#x2F;function_1.jpg">
+<meta property="og:image" content="https:&#x2F;&#x2F;depasinre.github.io&#x2F;2021&#x2F;06&#x2F;05&#x2F;CSCE-314-1-%E5%87%BD%E6%95%B0%E5%BC%8F%E7%BC%96%E7%A8%8B%E5%BA%8F%E8%AE%BA&#x2F;function_2.jpg">
+<meta property="og:image" content="https:&#x2F;&#x2F;depasinre.github.io&#x2F;2021&#x2F;06&#x2F;05&#x2F;CSCE-314-1-%E5%87%BD%E6%95%B0%E5%BC%8F%E7%BC%96%E7%A8%8B%E5%BA%8F%E8%AE%BA&#x2F;referential_transparency.JPG">
 <meta property="article:published_time" content="2021-06-05T14:46:01.000Z">
-<meta property="article:modified_time" content="2021-06-05T15:41:01.086Z">
+<meta property="article:modified_time" content="2021-06-05T15:46:49.907Z">
 <meta property="article:author" content="Depasinre">
 <meta property="article:tag" content="CSCE 314">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https:&#x2F;&#x2F;depasinre.github.io&#x2F;2021&#x2F;06&#x2F;05&#x2F;CSCE-314-1-%E5%87%BD%E6%95%B0%E5%BC%8F%E7%BC%96%E7%A8%8B%E5%BA%8F%E8%AE%BA&#x2F;review_of_math_function.JPG">
   
     <link rel="alternative" href="/atom.xml" title="Turrim ; Chime" type="application/atom+xml">
   
@@ -237,7 +242,7 @@
       <!-- 百度字体平台:http://fontstore.baidu.com/static/editor/index.html -->
       <i class="icon-statistics"></i>
       <span class="post-meta-item-text"> 字数统计:</span>
-      <span class="post-count">473字</span>
+      <span class="post-count">429字</span>
     </span>
   </span>
 
@@ -281,13 +286,12 @@
 <li><p>简单的如f(x)，g(x)等等</p>
 </li>
 </ul>
-<p>![review of function](C:\Users\Depasinre\Blog\Depasinre_Blog\source_posts\CSCE-314-1-函数式编程序论\review of math function.JPG)</p>
+<p><img src="/2021/06/05/CSCE-314-1-%E5%87%BD%E6%95%B0%E5%BC%8F%E7%BC%96%E7%A8%8B%E5%BA%8F%E8%AE%BA/review_of_math_function.JPG" alt="review of function"></p>
 <h1><span id="函数式编程基础">函数式编程基础</span></h1><p>在之后的课程中会详细介绍</p>
 <h2><span id="函数">函数</span></h2><p>函数式编程是一种<strong>计算的基本的方法是将函数应用于参数</strong>的编程风格</p>
 <p>无论如何，都要返回一个值 (如C++, Java 可以返回void )</p>
-
-
-<p>![haskel exp](function 2.jpg)</p>
+<p><img src="/2021/06/05/CSCE-314-1-%E5%87%BD%E6%95%B0%E5%BC%8F%E7%BC%96%E7%A8%8B%E5%BA%8F%E8%AE%BA/function_1.jpg" alt="function"></p>
+<p><img src="/2021/06/05/CSCE-314-1-%E5%87%BD%E6%95%B0%E5%BC%8F%E7%BC%96%E7%A8%8B%E5%BA%8F%E8%AE%BA/function_2.jpg" alt="haskel exp"></p>
 <h2><span id="纯函数语言">纯函数语言</span></h2><p>和数学函数一样，纯函数语言试图禁止副作用的产生，即至少它们被使用不可改变的数据限制，数据的改变不会影响原函数的效果，来达到没有破坏性赋值的效果</p>
 <ul>
 <li><p>比如: </p>
@@ -307,7 +311,7 @@
 <li><p>这类表达式可以用它的值来替换而不改变程序的行为</p>
 </li>
 </ul>
-<p>![referential transparency](CSCE-314-1-函数式编程序论\referential transparency.JPG)</p>
+<p><img src="/2021/06/05/CSCE-314-1-%E5%87%BD%E6%95%B0%E5%BC%8F%E7%BC%96%E7%A8%8B%E5%BA%8F%E8%AE%BA/referential_transparency.JPG" alt="referential transparency"></p>
 
     
 
