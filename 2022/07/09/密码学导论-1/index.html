@@ -6,27 +6,28 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="https://Depasinre.github.io">
-  <title>[CSCE 314] 1.函数式编程序论 | Turrim ; Chime</title>
+  <title>密码学导论-1 | Turrim ; Chime</title>
   <meta name="generator" content="hexo-theme-yilia-plus">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   
-  <meta name="description" content="前言：这篇学习笔记是基于Texas A&amp;M University的Shawn Lupoli在2019年秋季ENGR102的授课。文章中绝大多数涉及的PPT和图片都来源于Dr.Lupoli授课所使用的PPT，如使用其他来源的资源会在文章中另行标注。">
+  <meta name="description" content="本学习笔记基于CMU的Vipul教授的授课和课堂笔记，文章中绝大多数涉及的PPT和图片都来源于授课所使用的PPT，如使用其他来源的资源会在文章中另行标注。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="[CSCE 314] 1.函数式编程序论">
-<meta property="og:url" content="https://depasinre.github.io/2021/06/05/CSCE-314-1-%E5%87%BD%E6%95%B0%E5%BC%8F%E7%BC%96%E7%A8%8B%E5%BA%8F%E8%AE%BA/index.html">
+<meta property="og:title" content="密码学导论-1">
+<meta property="og:url" content="https://depasinre.github.io/2022/07/09/%E5%AF%86%E7%A0%81%E5%AD%A6%E5%AF%BC%E8%AE%BA-1/index.html">
 <meta property="og:site_name" content="Turrim ; Chime">
-<meta property="og:description" content="前言：这篇学习笔记是基于Texas A&amp;M University的Shawn Lupoli在2019年秋季ENGR102的授课。文章中绝大多数涉及的PPT和图片都来源于Dr.Lupoli授课所使用的PPT，如使用其他来源的资源会在文章中另行标注。">
+<meta property="og:description" content="本学习笔记基于CMU的Vipul教授的授课和课堂笔记，文章中绝大多数涉及的PPT和图片都来源于授课所使用的PPT，如使用其他来源的资源会在文章中另行标注。">
 <meta property="og:locale" content="en_US">
-<meta property="og:image" content="https://depasinre.github.io/2021/06/05/CSCE-314-1-%E5%87%BD%E6%95%B0%E5%BC%8F%E7%BC%96%E7%A8%8B%E5%BA%8F%E8%AE%BA/review_of_math_function.JPG">
-<meta property="og:image" content="https://depasinre.github.io/2021/06/05/CSCE-314-1-%E5%87%BD%E6%95%B0%E5%BC%8F%E7%BC%96%E7%A8%8B%E5%BA%8F%E8%AE%BA/function_1.jpg">
-<meta property="og:image" content="https://depasinre.github.io/2021/06/05/CSCE-314-1-%E5%87%BD%E6%95%B0%E5%BC%8F%E7%BC%96%E7%A8%8B%E5%BA%8F%E8%AE%BA/function_2.jpg">
-<meta property="og:image" content="https://depasinre.github.io/2021/06/05/CSCE-314-1-%E5%87%BD%E6%95%B0%E5%BC%8F%E7%BC%96%E7%A8%8B%E5%BA%8F%E8%AE%BA/referential_transparency.JPG">
-<meta property="article:published_time" content="2021-06-05T14:46:01.000Z">
-<meta property="article:modified_time" content="2021-06-05T17:01:20.115Z">
+<meta property="og:image" content="https://depasinre.github.io/2022/07/09/%E5%AF%86%E7%A0%81%E5%AD%A6%E5%AF%BC%E8%AE%BA-1/1.JPG">
+<meta property="og:image" content="https://depasinre.github.io/2022/07/09/%E5%AF%86%E7%A0%81%E5%AD%A6%E5%AF%BC%E8%AE%BA-1/2.JPG">
+<meta property="og:image" content="https://depasinre.github.io/2022/07/09/%E5%AF%86%E7%A0%81%E5%AD%A6%E5%AF%BC%E8%AE%BA-1/3.JPG">
+<meta property="og:image" content="https://depasinre.github.io/2022/07/09/%E5%AF%86%E7%A0%81%E5%AD%A6%E5%AF%BC%E8%AE%BA-1/4.JPG">
+<meta property="article:published_time" content="2022-07-09T14:06:36.000Z">
+<meta property="article:modified_time" content="2022-07-09T15:14:55.804Z">
 <meta property="article:author" content="Depasinre">
-<meta property="article:tag" content="CSCE 314">
+<meta property="article:tag" content="Cryptography">
+<meta property="article:tag" content="Research">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://depasinre.github.io/2021/06/05/CSCE-314-1-%E5%87%BD%E6%95%B0%E5%BC%8F%E7%BC%96%E7%A8%8B%E5%BA%8F%E8%AE%BA/review_of_math_function.JPG">
+<meta name="twitter:image" content="https://depasinre.github.io/2022/07/09/%E5%AF%86%E7%A0%81%E5%AD%A6%E5%AF%BC%E8%AE%BA-1/1.JPG">
   
     <link rel="alternative" href="/atom.xml" title="Turrim ; Chime" type="application/atom+xml">
   
@@ -210,14 +211,14 @@
               class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-CSCE-314-1-函数式编程序论" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-密码学导论-1" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
   
   
     <h1 class="article-title" itemprop="name">
-      [CSCE 314] 1.函数式编程序论
+      密码学导论-1
     </h1>
   
 
@@ -229,8 +230,8 @@
               <i class="icon-smile icon"></i> 阅读数：<span id="busuanzi_value_page_pv"></span>次
         </span>
 
-<a href="/2021/06/05/CSCE-314-1-%E5%87%BD%E6%95%B0%E5%BC%8F%E7%BC%96%E7%A8%8B%E5%BA%8F%E8%AE%BA/" class="archive-article-date">
-        <time datetime="2021-06-05T14:46:01.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-06-05</time>
+<a href="/2022/07/09/%E5%AF%86%E7%A0%81%E5%AD%A6%E5%AF%BC%E8%AE%BA-1/" class="archive-article-date">
+        <time datetime="2022-07-09T14:06:36.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-07-09</time>
 </a>
 
   
@@ -243,7 +244,7 @@
       <!-- 百度字体平台:http://fontstore.baidu.com/static/editor/index.html -->
       <i class="icon-statistics"></i>
       <span class="post-meta-item-text"> 字数统计:</span>
-      <span class="post-count">429字</span>
+      <span class="post-count">1.1k字</span>
     </span>
   </span>
 
@@ -252,7 +253,7 @@
     <span class="post-meta-item-icon">
       <i class="icon-book icon"></i>
       <span class="post-meta-item-text"> 阅读时长≈</span>
-      <span class="post-count">1分</span>
+      <span class="post-count">3分</span>
     </span>
   </span>
 </div>
@@ -263,17 +264,20 @@
   
   <div class="article-entry" itemprop="articleBody">
     
-    <p>前言：这篇学习笔记是基于Texas A&amp;M University的Shawn Lupoli在2019年秋季ENGR102的授课。<strong>文章中绝大多数涉及的PPT和图片都来源于Dr.Lupoli授课所使用的PPT，如使用其他来源的资源会在文章中另行标注。</strong></p>
+    <p>本学习笔记基于CMU的Vipul教授的授课和课堂笔记，<strong>文章中绝大多数涉及的PPT和图片都来源于授课所使用的PPT，如使用其他来源的资源会在文章中另行标注。</strong></p>
 <a id="more"></a>
 
 <!-- toc -->
 
 <ul>
-<li><a href="#数学函数复习">数学函数复习</a></li>
-<li><a href="#函数式编程基础">函数式编程基础</a><ul>
-<li><a href="#函数">函数</a></li>
-<li><a href="#纯函数语言">纯函数语言</a><ul>
-<li><a href="#参照透明性">参照透明性</a></li>
+<li><a href="#写在最前">写在最前</a></li>
+<li><a href="#学习密码学的目的">学习密码学的目的</a></li>
+<li><a href="#第一个目标加密通信">第一个目标：加密通信</a></li>
+<li><a href="#私钥加密-private-key-encryption">私钥加密 Private Key Encryption</a><ul>
+<li><a href="#私钥加密中的算法">私钥加密中的算法</a><ul>
+<li><a href="#1-gen">1. Gen</a></li>
+<li><a href="#2-enc">2. Enc</a></li>
+<li><a href="#3-dec">3. Dec</a></li>
 </ul>
 </li>
 </ul>
@@ -281,38 +285,33 @@
 </ul>
 <!-- tocstop -->
 
-<h1><span id="数学函数复习">数学函数复习</span></h1><ul>
-<li><p>一个数学上的函数是一个集合，称为<strong>domain set</strong>,  到 另一个集合，称为<strong>range set</strong>， 成员之间的<strong>映射</strong>。</p>
-</li>
-<li><p>简单的如f(x)，g(x)等等</p>
-</li>
-</ul>
-<p><img src="/2021/06/05/CSCE-314-1-%E5%87%BD%E6%95%B0%E5%BC%8F%E7%BC%96%E7%A8%8B%E5%BA%8F%E8%AE%BA/review_of_math_function.JPG" alt="review of function"></p>
-<h1><span id="函数式编程基础">函数式编程基础</span></h1><p>在之后的课程中会详细介绍</p>
-<h2><span id="函数">函数</span></h2><p>函数式编程是一种<strong>计算的基本的方法是将函数应用于参数</strong>的编程风格</p>
-<p>无论如何，都要返回一个值 (如C++, Java 可以返回void )</p>
-<p><img src="/2021/06/05/CSCE-314-1-%E5%87%BD%E6%95%B0%E5%BC%8F%E7%BC%96%E7%A8%8B%E5%BA%8F%E8%AE%BA/function_1.jpg" alt="function"></p>
-<p><img src="/2021/06/05/CSCE-314-1-%E5%87%BD%E6%95%B0%E5%BC%8F%E7%BC%96%E7%A8%8B%E5%BA%8F%E8%AE%BA/function_2.jpg" alt="haskel exp"></p>
-<h2><span id="纯函数语言">纯函数语言</span></h2><p>和数学函数一样，纯函数语言试图禁止副作用的产生，即至少它们被使用不可改变的数据限制，数据的改变不会影响原函数的效果，来达到没有破坏性赋值的效果</p>
-<ul>
-<li><p>比如: </p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">a &#x3D; 1;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line">a &#x3D; 2;</span></pre></td></tr></table></figure>
-
-<p>这在纯函数语言中通常是不合规范的， 因为它的副作用是“改变了内存中存储的数据并重新存储”</p>
-</li>
-</ul>
-<p>这里使用了参照透明度(referential transparency)</p>
-<h3><span id="参照透明性">参照透明性</span></h3><ul>
-<li><p>如果程序中两个表达式在每次调用时都产生相同的值，那么就不会产生副作用</p>
-</li>
-<li><p>任意一个表达式都可以相互替代</p>
-</li>
-<li><p>有助于推理（在AI里）</p>
-</li>
-<li><p>这类表达式可以用它的值来替换而不改变程序的行为</p>
-</li>
-</ul>
-<p><img src="/2021/06/05/CSCE-314-1-%E5%87%BD%E6%95%B0%E5%BC%8F%E7%BC%96%E7%A8%8B%E5%BA%8F%E8%AE%BA/referential_transparency.JPG" alt="referential transparency"></p>
+<p><img src="/2022/07/09/%E5%AF%86%E7%A0%81%E5%AD%A6%E5%AF%BC%E8%AE%BA-1/1.JPG" alt="Intro"></p>
+<h1><span id="写在最前">写在最前</span></h1><p>关于密码学，推荐教科书 <em>Katz and Lindell book: Introduction to Modern Cryptography</em>。</p>
+<p>更多相关视频课程可以在<a href="https://www.coursera.org/" target="_blank" rel="noopener">coursera</a>，Youtube中找到。</p>
+<p>本学习笔记基于CMU的Vipul教授的授课和课堂笔记，<strong>文章中绝大多数涉及的PPT和图片都来源于授课所使用的PPT，如使用其他来源的资源会在文章中另行标注。</strong></p>
+<h1><span id="学习密码学的目的">学习密码学的目的</span></h1><p>随着计算机的发展，现代生活变得越来越数字化，智能化。而随着发展，人们对数字社会的秩序与规则也有更多的需求，而密码学定义了数字世界的规则。</p>
+<p>如今，在计算机科学的各个领域中，密码学和计算机安全也是发展的最为迅速的主题之一。随之而来的也是日臻完善的网络攻击技术，新发布的网站每时每刻都有被网络攻击的风险，据统计，新上线的网站每月都会遭受恶意网络攻击。</p>
+<p>而在网络安全领域，目前的人才仍然短缺，多数互联网公司无法招聘到足够的技术人员来满足自身对安全的需求。</p>
+<p>同时在研究领域这也是一个活跃的领域，每时每刻都有新技术出现，最近的革命性的热潮比如比特币等加密货币等。</p>
+<h1><span id="第一个目标加密通信">第一个目标：加密通信</span></h1><p>人们对于网络安全的最主要的一个目的之一就是<strong>加密通信（Secret Communication）</strong>。</p>
+<p>以下是一个经典场景：</p>
+<p><img src="/2022/07/09/%E5%AF%86%E7%A0%81%E5%AD%A6%E5%AF%BC%E8%AE%BA-1/2.JPG" alt="Secret Communication"></p>
+<p>通常情况下，我们很难阻止敌对窃听者获得我们传输的信息，这时，如果我们想要保持沟通的秘密性，就需要对讯息进行加密（<strong>Encryption</strong>）。</p>
+<p>而对方想要理解我们所发送的信息，就需要进行解密(<strong>Decryption</strong>)。这就是密码学的基本思想之一。</p>
+<p><img src="/2022/07/09/%E5%AF%86%E7%A0%81%E5%AD%A6%E5%AF%BC%E8%AE%BA-1/3.JPG" alt="Secret Communication 2"></p>
+<p>而其中的一种做法就是私钥加密-<strong>Private Key Encryption</strong>， 也叫 <strong><em>Ciphers</em></strong>。</p>
+<h1><span id="私钥加密-private-key-encryption">私钥加密 Private Key Encryption</span></h1><p>私钥，也称为密钥，是密码学中的一个变量，与算法一起用于加密和解密数据。</p>
+<p>首先，密钥本身要保证安全，如果密钥本身泄露，那么信息一定会被破解，因为你所传输信息的对方需要密钥来解密数据。所以密钥的交换可以选择在线下的私下里进行，对密钥的保存暂时不属于目前这里密码学讨论的范围。</p>
+<p>在此基础上，首先我们通过密钥<strong>K</strong>，以一定的<strong>算法</strong>来将所传输的信息<strong>M</strong>转换成密码文本<strong>C</strong>，这时，在传输中的信息就变成了加密后的信息C，在这种情况下，只要密钥K和加密用的算法没有被破解，这次的传输就是安全的。只需要接收方根据手中的密钥将算法反过来执行就可以得到解密后的信息。</p>
+<p><img src="/2022/07/09/%E5%AF%86%E7%A0%81%E5%AD%A6%E5%AF%BC%E8%AE%BA-1/4.JPG" alt="Secret Communication 3"></p>
+<p>密钥通常为一定长度的字符或者数字（字母和特殊符号在某种意义上也可以用数字表示），这时，要保证加密的安全性，算法部分就至关重要了。</p>
+<h2><span id="私钥加密中的算法">私钥加密中的算法</span></h2><p>一个私钥加密secret key encryption (SKE)， 具备<strong>3</strong>个部分的算法，<strong>Gen</strong>，<strong>Enc</strong>，<strong>Dec</strong>。</p>
+<h3><span id="1-gen">1. Gen</span></h3><p>又叫做<strong>密钥生成算法key generation algorithm</strong>。 这个算法不需要任何输入，运行Gen算法将生成一个密钥K。</p>
+<h3><span id="2-enc">2. Enc</span></h3><p>又叫做<strong>加密算法encryption algorithm</strong>。Enc算法接收加密前的信息M和密钥K作为输入，输出加密后的密码文本C。</p>
+<h3><span id="3-dec">3. Dec</span></h3><p>又叫做<strong>解密算法decryption algorithm</strong>。 Dec算法接收密码文本C和密钥K作为输入，输出初始信息M。</p>
+<blockquote>
+<p>在考虑安全时，通常我们需要做最坏的打算，即永远假设窃听者知道任何信息除了密钥K，同时，假设窃听者知道部分信息，并且了解Enc和Dec算法。</p>
+</blockquote>
 
     
 
@@ -327,7 +326,7 @@
         </li>
         <li>
           <strong>本文链接：</strong>
-          <a href="https:/Depasinre.github.io/2021/06/05/CSCE-314-1-函数式编程序论/" title="[CSCE 314] 1.函数式编程序论" target="_blank">https:/Depasinre.github.io/2021/06/05/CSCE-314-1-函数式编程序论/</a>
+          <a href="https:/Depasinre.github.io/2022/07/09/密码学导论-1/" title="密码学导论-1" target="_blank">https:/Depasinre.github.io/2022/07/09/密码学导论-1/</a>
         </li>
         
         <li>
@@ -349,7 +348,11 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">CSCE 314</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Cryptography</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">Research</a>
         		</li>
       		
 		</ul>
@@ -416,7 +419,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-     <!-- <img src="//pan.baidu.com/share/qrcode?url=https://depasinre.github.io/2021/06/05/CSCE-314-1-%E5%87%BD%E6%95%B0%E5%BC%8F%E7%BC%96%E7%A8%8B%E5%BA%8F%E8%AE%BA/" alt="微信分享二维码"> -->
+     <!-- <img src="//pan.baidu.com/share/qrcode?url=https://depasinre.github.io/2022/07/09/%E5%AF%86%E7%A0%81%E5%AD%A6%E5%AF%BC%E8%AE%BA-1/" alt="微信分享二维码"> -->
     </div>
 </div>
 
@@ -431,18 +434,9 @@
 
 <nav id="article-nav">
   
-    <a href="/2022/07/09/%E5%AF%86%E7%A0%81%E5%AD%A6%E5%AF%BC%E8%AE%BA-1/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          密码学导论-1
-        
-      </div>
-    </a>
   
-  
-    <a href="/2021/05/31/template/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">template</div>
+    <a href="/2021/06/05/CSCE-314-1-%E5%87%BD%E6%95%B0%E5%BC%8F%E7%BC%96%E7%A8%8B%E5%BA%8F%E8%AE%BA/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">[CSCE 314] 1.函数式编程序论</div>
       <i class="icon-circle-right"></i>
     </a>
   
