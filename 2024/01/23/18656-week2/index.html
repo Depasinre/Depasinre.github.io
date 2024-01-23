@@ -6,16 +6,24 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="https://Depasinre.github.io">
-  <title>Archives: 2024 | Turrim ; Chime</title>
+  <title>18656 Functional Programming in Practice Week 2 | Turrim ; Chime</title>
   <meta name="generator" content="hexo-theme-yilia-plus">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   
-  <meta property="og:type" content="website">
-<meta property="og:title" content="Turrim ; Chime">
-<meta property="og:url" content="https://depasinre.github.io/archives/2024/index.html">
+  <meta name="description" content="This Note contains:   Function Syntax Reminder, Function as Values, Function Scope Lambda Expression Currying Function Composition">
+<meta property="og:type" content="article">
+<meta property="og:title" content="18656 Functional Programming in Practice Week 2">
+<meta property="og:url" content="https://depasinre.github.io/2024/01/23/18656-week2/index.html">
 <meta property="og:site_name" content="Turrim ; Chime">
+<meta property="og:description" content="This Note contains:   Function Syntax Reminder, Function as Values, Function Scope Lambda Expression Currying Function Composition">
 <meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2024-01-23T21:02:38.000Z">
+<meta property="article:modified_time" content="2024-01-23T22:56:19.761Z">
 <meta property="article:author" content="Depasinre">
+<meta property="article:tag" content="CMU">
+<meta property="article:tag" content="18656">
+<meta property="article:tag" content="Functional Programming in Practice">
+<meta property="article:tag" content="F#">
 <meta name="twitter:card" content="summary">
   
     <link rel="alternative" href="/atom.xml" title="Turrim ; Chime" type="application/atom+xml">
@@ -200,41 +208,306 @@
               class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
+            <article id="post-18656-week2" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
   
   
-    
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2024" class="archive-year">2024</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	
+    <h1 class="article-title" itemprop="name">
+      18656 Functional Programming in Practice Week 2
+    </h1>
+  
+
+
+  
+  
+        
+        <span id="busuanzi_container_page_pv" style='display:none' class="archive-article-date">
+              <i class="icon-smile icon"></i> 阅读数：<span id="busuanzi_value_page_pv"></span>次
+        </span>
+
 <a href="/2024/01/23/18656-week2/" class="archive-article-date">
         <time datetime="2024-01-23T21:02:38.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2024-01-23</time>
 </a>
 
-        </div>
-    	 
   
-    <h1 itemprop="name">
-	
-	  <a class="archive-article-title" href="/2024/01/23/18656-week2/">18656 Functional Programming in Practice Week 2</a>
-	
-    </h1>
   
+    
+<div style="margin-top:10px;">
+  <span class="post-time">
+    <span class="post-meta-item-icon">
+      <!-- fonts.scss -->
+      <!-- 百度字体平台:http://fontstore.baidu.com/static/editor/index.html -->
+      <i class="icon-statistics"></i>
+      <span class="post-meta-item-text"> 字数统计:</span>
+      <span class="post-count">1.2k字</span>
+    </span>
+  </span>
+
+  <span class="post-time">
+    &nbsp; | &nbsp;
+    <span class="post-meta-item-icon">
+      <i class="icon-book icon"></i>
+      <span class="post-meta-item-text"> 阅读时长≈</span>
+      <span class="post-count">7分</span>
+    </span>
+  </span>
+</div>
 
 
-        <div class="article-info info-on-right">
+  
+  </header>
+  
+  <div class="article-entry" itemprop="articleBody">
+    
+    <p>This Note contains: </p>
+<ul>
+<li>Function Syntax Reminder, Function as Values, Function Scope</li>
+<li>Lambda Expression</li>
+<li>Currying</li>
+<li>Function Composition</li>
+</ul>
+<a id="more"></a>
+
+<!-- toc -->
+
+<ul>
+<li><a href="#functions-syntax-reminder">Functions Syntax Reminder</a><ul>
+<li><a href="#input-output-type">Input / Output type</a></li>
+<li><a href="#local-identifier">Local Identifier</a></li>
+</ul>
+</li>
+<li><a href="#function-scope">Function Scope</a></li>
+<li><a href="#functions-as-values">Functions as values</a><ul>
+<li><a href="#high-order-function-example">High order function example</a></li>
+<li><a href="#high-order-function-key-take-ways">High Order Function: Key Take ways</a></li>
+</ul>
+</li>
+<li><a href="#lambda-expression">Lambda Expression</a><ul>
+<li><a href="#closure">Closure</a></li>
+<li><a href="#usage">Usage</a></li>
+</ul>
+</li>
+<li><a href="#currying">Currying</a><ul>
+<li><a href="#example-1">Example #1</a></li>
+<li><a href="#exercise-1">Exercise #1</a><ul>
+<li><a href="#solution">Solution</a></li>
+</ul>
+</li>
+<li><a href="#key-takeaways">Key takeaways</a></li>
+<li><a href="#example-2">Example #2</a></li>
+<li><a href="#exercise-2">Exercise #2</a><ul>
+<li><a href="#solution-1">Solution</a></li>
+<li><a href="#step-2">Step 2</a></li>
+<li><a href="#solution-2">Solution</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#function-composition">Function Composition</a><ul>
+<li><a href="#types">Types</a></li>
+<li><a href="#backwards-compose">Backwards Compose</a></li>
+<li><a href="#exercise">Exercise</a><ul>
+<li><a href="#solution-3">Solution</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<!-- tocstop -->
+
+<h2><span id="functions-syntax-reminder">Functions Syntax Reminder</span></h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">let cylinderVolume radius length &#x3D;</span><br><span class="line">	length * 3.14159 * radius * radius</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><p>Declared with <code>let</code> keyword and a name</p>
+</li>
+<li></li>
+<li></li>
+<li></li>
+</ul>
+<h3><span id="input-output-type">Input / Output type</span></h3><p>Type inference avoids the need to declare input / output types</p>
+<p>To specify a return type, add a colon and the type after the parameters list</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">let cylinderVolume radius length : float &#x3D;</span><br></pre></td></tr></table></figure>
+
+<h3><span id="local-identifier">Local Identifier</span></h3><p>It can contain definitions of </p>
+<h2><span id="function-scope">Function Scope</span></h2><p>Names can be reused at any level other than <strong>module</strong> scope.</p>
+<ul>
+<li>Later declaration shadow previous one</li>
+</ul>
+<figure class="highlight fsharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> list1 = [<span class="number">1</span>;<span class="number">2</span>;<span class="number">3</span>]</span><br><span class="line"><span class="keyword">let</span> list1 = []</span><br><span class="line"><span class="keyword">let</span> function1 () = </span><br><span class="line">	<span class="keyword">let</span> list1 = []</span><br><span class="line">	list1</span><br></pre></td></tr></table></figure>
+
+<p>​    <code>Error: duplicate definition</code></p>
+<p>​    This code Error because Name reused in implicit top-level module</p>
+<blockquote>
+<p>This code will run if we comment line 2 out and the function will return a empty records.</p>
+</blockquote>
+<h2><span id="functions-as-values">Functions as values</span></h2><p>All function are considered values.</p>
+<p>Function accept another function as parameter.</p>
+<p>Function can return another function as the value of the function call.</p>
+<blockquote>
+<p>High order function: </p>
+</blockquote>
+<h3><span id="high-order-function-example">High order function example</span></h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">let twice f v &#x3D; &#x2F;&#x2F; this function will call f function twice with parameter v and (f v)</span><br><span class="line">	f (f v) </span><br><span class="line"></span><br><span class="line">let add4 x &#x3D; </span><br><span class="line">	x + 4</span><br><span class="line"></span><br><span class="line">twice add4 10</span><br><span class="line"></span><br><span class="line">(*The output is 18*)</span><br></pre></td></tr></table></figure>
+
+<p><code>Twice</code> is a higher order function because it accepts a function as parameter and returns a function</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">let applyToPair f (x, y) &#x3D;  &#x2F;&#x2F; parameter: f as function, (x, y) as tuple</span><br><span class="line">	(f x, f y)</span><br><span class="line">	</span><br><span class="line">let square x &#x3D; </span><br><span class="line">	x * x</span><br><span class="line">	</span><br><span class="line">applyToPair square (10, 100)</span><br></pre></td></tr></table></figure>
+
+<h3><span id="high-order-function-key-take-ways">High Order Function: Key Take ways</span></h3><ul>
+<li>A frequently used technique to construct new function from exist …</li>
+</ul>
+<h2><span id="lambda-expression">Lambda Expression</span></h2><p>Lambda Expression is a function without a name (anonymous).</p>
+<ul>
+<li>It defined by using the <code>fun</code> keyword</li>
+<li><code>-&gt;</code> separates the arguments from the function body</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">fun x y -&gt; x + y</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>Multi-line lambda are encompassed by paratheses</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&#96;&#96;&#96;</span><br><span class="line"></span><br><span class="line">- A lambda expression can be assigned to an identifier</span><br><span class="line"></span><br><span class="line">&#96;&#96;&#96;F#</span><br><span class="line">let square &#x3D; fun x -&gt; x * x</span><br><span class="line">let result &#x3D; square 6  &#x2F;&#x2F; function evaluation</span><br></pre></td></tr></table></figure>
+
+<p><em>How can the function ?</em></p>
+<p><em>?</em></p>
+<h3><span id="closure">Closure</span></h3><p>A function using identifier from the lexical scope that is defined within. </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">let square &#x3D; fun x -&gt; x * x</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>parameter of both square function and lambda expression *”close over”*</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">let result &#x3D; square 6 &#x2F;&#x2F; function evaluation</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>The bidirectional interaction allow function to “remember” identifiers fron their environment when they were created.</li>
+</ul>
+<h3><span id="usage">Usage</span></h3><ol>
+<li><p>Passed as argument to other function (sort, filter, …)</p>
+</li>
+<li><p>A function is used a limited number of times</p>
+</li>
+<li><p>Creation of small helper functions on the spot</p>
+</li>
+</ol>
+<h2><span id="currying">Currying</span></h2><p>A functional method of handling argument</p>
+<p><em>Reminder: l</em></p>
+<blockquote>
+<p>Technique for simulating a multi-parameter function by sequentially returning ifferent single parameter</p>
+</blockquote>
+<h3><span id="example-1">Example #1</span></h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">let printTwoParameters x y &#x3D; </span><br><span class="line">	printfn &#39;x&#x3D;%i y &#x3D;%i&#39; x y</span><br></pre></td></tr></table></figure>
+
+<p>To , Translate the definition into one-parameterfunction. </p>
+<p>Inside, construct a function that takes in the nex parameter.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">let printTwoParameter x &#x3D; </span><br><span class="line">	let innerFun y &#x3D; </span><br><span class="line">		printfn &#39;x&#x3D;%i y &#x3D;%i&#39; x y &#x2F;&#x2F; x in scope of innerFun</span><br></pre></td></tr></table></figure>
+
+<p>It return the newly created subfunction <code>innerFun</code>.</p>
+<h3><span id="exercise-1">Exercise #1</span></h3><p>Re-write as a set of curried functions: </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">let addThreeParameters x y z &#x3D; </span><br><span class="line">	x + y + z</span><br></pre></td></tr></table></figure>
+
+<h4><span id="solution">Solution</span></h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">let addThreeParameters x &#x3D; </span><br><span class="line">	let subMethod1 y &#x3D; </span><br><span class="line">		let subMethod2 z &#x3D; </span><br><span class="line">			x + y + z</span><br><span class="line">		subMethod2</span><br><span class="line">	subMethod1</span><br><span class="line">(*</span><br><span class="line">subMethod1 return subMethod2</span><br><span class="line">addThreeParameter return subMethod2</span><br><span class="line">subMethod2 do the job which calculate x + y + z</span><br><span class="line">*)</span><br></pre></td></tr></table></figure>
+
+<p>For both implementation, they have the same function signature.</p>
+<h3><span id="key-takeaways">Key takeaways</span></h3><p>It ensure all F# functions accept only 1 inut ….</p>
+<p>…</p>
+<h3><span id="example-2">Example #2</span></h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">let sum x y &#x3D;</span><br><span class="line">	x + y</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>Fix the <code>x</code> parameter and vary <code>y</code> only</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">sum 2 3</span><br><span class="line">sum 2 4</span><br><span class="line">sum 2 5</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>Write a function to make 2 —-</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">&#96;&#96;&#96;</span><br><span class="line"></span><br><span class="line">### Wrapper Function</span><br><span class="line"></span><br><span class="line">Example: creation of &#96;DateTime&#96; Object</span><br><span class="line"></span><br><span class="line">&#96;&#96;&#96;F#</span><br><span class="line">open system</span><br><span class="line">let buildDt year month day &#x3D; DateTime(year, month, day)</span><br><span class="line">let buildDtThisYear month day &#x3D; buildDt DateTime.UtcNow.Year month day</span><br><span class="line">let buildDtThisMonth day &#x3D; buildDtThisYear DateTime.YtcNow.Month day</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>Function refactored to <em>bake-in</em> parameters</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">open system</span><br><span class="line">let buildDt year month day &#x3D; DateTime(year, month, day)</span><br><span class="line">let buildDtThisYear &#x3D; buildDt DateTime.UtcNow.Year</span><br><span class="line">let buildDtThisMonth &#x3D; buildDtThisYear DateTime.UtcNow.Month</span><br></pre></td></tr></table></figure>
+
+<h3><span id="exercise-2">Exercise #2</span></h3><p>Create a wrapper function, <code>writeToFile</code>, for writing data to a text file :</p>
+<ul>
+<li>The function should take in 3 argument in this specific order: <ul>
+<li>date - The current date (<code>DateTime</code> type)</li>
+<li>filename - a filename</li>
+<li>text - the text to write out</li>
+</ul>
+</li>
+<li>The body should create a filename in the form <code>{date}-{filename}.txt</code></li>
+<li>Construct date part of the filename by using <code>ToString(&quot;yyMMdd&quot;)</code></li>
+</ul>
+<h4><span id="solution">Solution</span></h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">open System</span><br><span class="line"></span><br><span class="line">let writeToFile (date:DateTime) filename text &#x3D; </span><br><span class="line">	let path &#x3D; date.ToString(&quot;yyMMdd&quot;) + filename + &quot;.txt&quot;</span><br><span class="line">	System.IO.File.WriteAllText(path, text)</span><br></pre></td></tr></table></figure>
+
+<h4><span id="step-2">Step 2</span></h4><p>Create more-constrained version of <code>writeToFile</code>:</p>
+<ol>
+<li>a version of the function to print with today’s date (hint: use <code>DateTime.Today</code>)</li>
+<li>a version of the function to print with a specific fixed file name and today’s date</li>
+<li>a version of function where only the text is fixed with “test”</li>
+</ol>
+<h4><span id="solution">Solution</span></h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">open System</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F; 1</span><br><span class="line">let writeToFileToday &#x3D; writeToFile DateTime.today</span><br><span class="line">	</span><br><span class="line">&#x2F;&#x2F; 2 </span><br><span class="line">let writeToFileSpecificName &#x3D; writeToFile &quot;some specific name&quot;</span><br><span class="line">	</span><br><span class="line">&#x2F;&#x2F; 3</span><br><span class="line">let writeFixedText &#x3D; writeToFile date filename &quot;test&quot;</span><br></pre></td></tr></table></figure>
+
+
+
+<h2><span id="function-composition">Function Composition</span></h2><p>Function can be composed by *”gluing them together”* to create a new function</p>
+<ul>
+<li>given functions <code>a -&gt; b</code> and <code>b -&gt; c</code></li>
+<li>generate a new function <code>a -&gt; c</code></li>
+</ul>
+<p>Compopse <code>&gt;&gt;</code> operater is used for this purpose</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">let function1 x &#x3D; x + 1</span><br><span class="line">let function2 x &#x3D; x * 2</span><br><span class="line"></span><br><span class="line">let h &#x3D; function1 &gt;&gt; function2</span><br><span class="line"></span><br><span class="line">let result &#x3D; h 100</span><br><span class="line"></span><br><span class="line">(*</span><br><span class="line">First, 100 apply to function1 which output 101</span><br><span class="line">Then, 101 apply to function2, the final result is 202</span><br><span class="line">*)</span><br></pre></td></tr></table></figure>
+
+<h3><span id="types">Types</span></h3><p>Function can be composed as long as the output type of the first function ….</p>
+<p><strong>pic</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">let f (x:int) &#x3D; float x * 3.0</span><br><span class="line">let g (x:float) &#x3D; x &gt; 4.0</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>Output of f is compatible with input of g hence functions can be composed</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">let h &#x3D; f &gt;&gt; g</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F; the function signature of h is int to boolean</span><br></pre></td></tr></table></figure>
+
+<h3><span id="backwards-compose">Backwards Compose</span></h3><p><code>&lt;&lt;</code> operator composes two functions in reverse order</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">let square x &#x3D; x * x</span><br><span class="line">let substractTwo x &#x3D; x - 2</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F; final result is 49</span><br></pre></td></tr></table></figure>
+
+<h3><span id="exercise">Exercise</span></h3><p>Which of the following lines will compile? If there is and issue, what is it? </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">let add n x &#x3D; x + n</span><br><span class="line">let times n x &#x3D; x * n</span><br><span class="line">let compare a b &#x3D; (a &#x3D; b)</span><br><span class="line"></span><br><span class="line">let composed1 &#x3D; add &gt;&gt; times &gt;&gt; compare</span><br><span class="line">let composed2 &#x3D; (add, times) &gt;&gt; compare</span><br><span class="line">let composed3 &#x3D; times &lt;&lt; add 2</span><br><span class="line">let composed4 &#x3D; add 2 &gt;&gt; times</span><br><span class="line">let composed5 &#x3D; add 2 &lt;&lt; times</span><br></pre></td></tr></table></figure>
+
+<h4><span id="solution">Solution</span></h4><p><code>composed1</code> won’t compile because <code>compare</code> is short of one parameter. <code>times</code> only output one parameter </p>
+<p><code>composed2</code> won’t compile because <code>(add, times)</code> is one object as a tuple but 2 value expect</p>
+<p><code>composed3</code> will compile which partial application makes this work</p>
+<p>composed4 will compile and it’s equivalent of composed3</p>
+<p><code>composed5</code> won’t compile because <code>times</code> is lack of parameter and will evaluated first</p>
+
+    
+
+    
+
+    
+    <div class="declare"> 
+      <ul class="post-copyright">
+        <li>
+          <strong>本文作者：</strong>
+          Depasinre
+        </li>
+        <li>
+          <strong>本文链接：</strong>
+          <a href="https:/Depasinre.github.io/2024/01/23/18656-week2/" title="18656 Functional Programming in Practice Week 2" target="_blank">https:/Depasinre.github.io/2024/01/23/18656-week2/</a>
+        </li>
+        
+        <li>
+          <strong>版权声明： </strong>
           
+          本博客所有文章除特别声明外，均采用 <a href="https://github.com/JoeyBling/hexo-theme-yilia-plus/blob/master/LICENSE" rel="external nofollow" target="_blank">MIT</a> 许可协议。转载请注明出处！
+        </li>
+        
+      </ul>
+    </div>
+    
+
+  </div>
+  <div class="article-info article-info-index">
+    
+    
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
@@ -258,7 +531,7 @@
 		</ul>
 	</div>
 
-          
+    
 	<div class="article-category tagcloud">
 		<i class="icon-book icon"></i>
 		<ul class="article-tag-list">
@@ -271,239 +544,105 @@
 	</div>
 
 
+    
+
+    
+    
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <!-- <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a> -->
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+     <!-- <img src="//pan.baidu.com/share/qrcode?url=https://depasinre.github.io/2024/01/23/18656-week2/" alt="微信分享二维码"> -->
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+
+    
+    <div class="clearfix"></div>
+  </div>
   </div>
 </article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	
-<a href="/2024/01/23/18631-week1/" class="archive-article-date">
-        <time datetime="2024-01-23T08:16:04.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2024-01-23</time>
-</a>
 
+
+<nav id="article-nav">
+  
+  
+    <a href="/2024/01/23/18631-week1/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">18631-week1</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
-  
-    <h1 itemprop="name">
-	
-	  <a class="archive-article-title" href="/2024/01/23/18631-week1/">18631-week1</a>
-	
-    </h1>
-  
+        
+        
+    </div>
+</aside>
 
 
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	
-<a href="/2024/01/23/18656-week1/" class="archive-article-date">
-        <time datetime="2024-01-23T08:15:37.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2024-01-23</time>
-</a>
-
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-	
-	  <a class="archive-article-title" href="/2024/01/23/18656-week1/">18656 Functional Programming in Practice Week 1</a>
-	
-    </h1>
-  
 
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">CMU</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">18656</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Functional Programming in Practice</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">F#</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/studynotes//" class="article-tag-list-link color5">学习笔记</a>
-        		</li>
-      		
-		</ul>
-	</div>
 
 
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	
-<a href="/2024/01/23/18652-week2/" class="archive-article-date">
-        <time datetime="2024-01-23T08:15:23.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2024-01-23</time>
-</a>
-
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-	
-	  <a class="archive-article-title" href="/2024/01/23/18652-week2/">18652 Foundation of Software Engineering week 2</a>
-	
-    </h1>
-  
 
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Foundation of Software Engineering</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">18652</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">CMU</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/studynotes//" class="article-tag-list-link color5">学习笔记</a>
-        		</li>
-      		
-		</ul>
-	</div>
 
 
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	
-<a href="/2024/01/23/18652-week1/" class="archive-article-date">
-        <time datetime="2024-01-23T08:00:56.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2024-01-23</time>
-</a>
-
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-	
-	  <a class="archive-article-title" href="/2024/01/23/18652-week1/">18652 Foundation of Software Engineering week 1</a>
-	
-    </h1>
-  
 
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Foundation of Software Engineering</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">18652</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">CMU</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/studynotes//" class="article-tag-list-link color5">学习笔记</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
-  
-
-    
 
 
           </div>
@@ -544,8 +683,8 @@
 	var yiliaConfig = {
 		mathjax: true,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,
