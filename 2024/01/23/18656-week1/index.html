@@ -6,20 +6,23 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="https://Depasinre.github.io">
-  <title>Hello World | Turrim ; Chime</title>
+  <title>18656 Functional Programming in Practice Week 1 | Turrim ; Chime</title>
   <meta name="generator" content="hexo-theme-yilia-plus">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   
-  <meta name="description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub.">
+  <meta name="description" content="This Notes contains:   Introductin of functional Programming F# ide setup F# Syntax F# types">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Hello World">
-<meta property="og:url" content="https://depasinre.github.io/2019/12/09/hello-world/index.html">
+<meta property="og:title" content="18656 Functional Programming in Practice Week 1">
+<meta property="og:url" content="https://depasinre.github.io/2024/01/23/18656-week1/index.html">
 <meta property="og:site_name" content="Turrim ; Chime">
-<meta property="og:description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub.">
+<meta property="og:description" content="This Notes contains:   Introductin of functional Programming F# ide setup F# Syntax F# types">
 <meta property="og:locale" content="en_US">
-<meta property="article:published_time" content="2019-12-10T04:27:15.438Z">
-<meta property="article:modified_time" content="2019-12-10T08:38:27.832Z">
+<meta property="article:published_time" content="2024-01-23T08:15:37.000Z">
+<meta property="article:modified_time" content="2024-01-23T08:22:57.156Z">
 <meta property="article:author" content="Depasinre">
+<meta property="article:tag" content="CMU">
+<meta property="article:tag" content="18656">
+<meta property="article:tag" content="Functional Programming in Practice">
 <meta name="twitter:card" content="summary">
   
     <link rel="alternative" href="/atom.xml" title="Turrim ; Chime" type="application/atom+xml">
@@ -204,14 +207,14 @@
               class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-hello-world" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-18656-week1" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
   
   
     <h1 class="article-title" itemprop="name">
-      Hello World
+      18656 Functional Programming in Practice Week 1
     </h1>
   
 
@@ -223,8 +226,8 @@
               <i class="icon-smile icon"></i> 阅读数：<span id="busuanzi_value_page_pv"></span>次
         </span>
 
-<a href="/2019/12/09/hello-world/" class="archive-article-date">
-        <time datetime="2019-12-10T04:27:15.438Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-12-09</time>
+<a href="/2024/01/23/18656-week1/" class="archive-article-date">
+        <time datetime="2024-01-23T08:15:37.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2024-01-23</time>
 </a>
 
   
@@ -237,7 +240,7 @@
       <!-- 百度字体平台:http://fontstore.baidu.com/static/editor/index.html -->
       <i class="icon-statistics"></i>
       <span class="post-meta-item-text"> 字数统计:</span>
-      <span class="post-count">74字</span>
+      <span class="post-count">476字</span>
     </span>
   </span>
 
@@ -246,7 +249,7 @@
     <span class="post-meta-item-icon">
       <i class="icon-book icon"></i>
       <span class="post-meta-item-text"> 阅读时长≈</span>
-      <span class="post-count">1分</span>
+      <span class="post-count">2分</span>
     </span>
   </span>
 </div>
@@ -257,21 +260,149 @@
   
   <div class="article-entry" itemprop="articleBody">
     
-    <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
+    <p>This Notes contains: </p>
+<ul>
+<li>Introductin of functional Programming</li>
+<li>F# ide setup</li>
+<li>F# Syntax</li>
+<li>F# types </li>
+</ul>
 <a id="more"></a>
 
-<h2><span id="hello-hexo">Hello Hexo</span></h2><h2><span id="quick-start">Quick Start</span></h2><h3><span id="create-a-new-post">Create a new post</span></h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
+<!-- toc -->
 
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
-<h3><span id="run-server">Run server</span></h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
+<ul>
+<li><a href="#mathematical-function-example-in-f">Mathematical function example in F#</a></li>
+<li><a href="#syntax">Syntax</a><ul>
+<li><a href="#f-type-inference">F# type inference</a></li>
+<li><a href="#function-signature">Function signature</a></li>
+</ul>
+</li>
+<li><a href="#function-type">Function Type</a></li>
+<li><a href="#types-in-f">Types in F#</a><ul>
+<li><a href="#basic-type">Basic type</a></li>
+<li><a href="#composition-type">Composition type</a><ul>
+<li><a href="#tuple"><strong>Tuple</strong></a></li>
+<li><a href="#records">Records</a></li>
+<li><a href="#discriminated-union">Discriminated Union</a></li>
+<li><a href="#option">Option</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<!-- tocstop -->
 
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
-<h3><span id="generate-static-files">Generate static files</span></h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
+<p>he</p>
+<blockquote>
+<p> Functional programming is a programming paradigm characterized by the use of mathematical functions and the avoidance of side effect</p>
+</blockquote>
+<h2><span id="mathematical-function-example-in-f">Mathematical function example in F#</span></h2><p>increment a number by 1 : <code>Add1(x) = x + 1</code></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">let add1 x &#x3D; x + 1</span><br></pre></td></tr></table></figure>
 
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
-<h3><span id="deploy-to-remote-sites">Deploy to remote sites</span></h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
+<p><code>let</code> keyword defines a function</p>
+<p>Function binding includes <em>function name</em> and <em>function body</em></p>
+<h2><span id="syntax">Syntax</span></h2><ul>
+<li>parameters are separated by space</li>
+<li>the output of the function is the last expression</li>
+</ul>
+<h3><span id="f-type-inference">F# type inference</span></h3><h3><span id="function-signature">Function signature</span></h3><p>F# use type syntax for function signatures</p>
+<h2><span id="function-type">Function Type</span></h2><p>All functions are values therefore have a type.</p>
+<p>Function type is prescribed by its input and output types.</p>
+<ul>
+<li><p>function with generic types: </p>
+<ul>
+<li>if a function works with any type, the compiler automatically infers a generic type</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">let areEqual x y &#x3D; </span><br><span class="line">	(x &#x3D; y)</span><br></pre></td></tr></table></figure>
 
-<p>More info: <a href="https://hexo.io/docs/one-command-deployment.html" target="_blank" rel="noopener">Deployment</a></p>
+
+</li>
+</ul>
+<h2><span id="types-in-f">Types in F#</span></h2><blockquote>
+<p>A <strong>type</strong> is a description of a set of values. A value is a member of a type. A identifier is a name supply for a type or a function in  program.</p>
+</blockquote>
+<h3><span id="basic-type">Basic type</span></h3><p>Data type built into F#</p>
+<ul>
+<li>byte, int, float, double</li>
+<li>string, char</li>
+<li>bool</li>
+<li>unit<ul>
+<li>indicates the absence of an actual value</li>
+<li>one possible value: 0</li>
+<li>strong sign of possible side effects</li>
+</ul>
+</li>
+</ul>
+<h3><span id="composition-type">Composition type</span></h3><p>Gather types into large structures</p>
+<p>composition with <strong>And</strong> or <strong>Or</strong> operation.</p>
+<h4><span id="tuple"><strong>Tuple</strong></span></h4><p><em>A grouping of unnamed but ordered values, possibly of different types.</em></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">(1, 2)</span><br><span class="line">(&quot;Haoming&quot;, &quot;Yuan&quot;)</span><br></pre></td></tr></table></figure>
+
+<p><strong>Types</strong>: The type of a tuple is multiplication of type of each of its components</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">let personalInfo &#x3D; (&quot;Ted&quot;, &quot;Lester&quot;, 32, 6.4, 94101)</span><br><span class="line"> &#x2F;&#x2F; type: (string * string * int * float * int)</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>The <strong>order</strong> of the multiplication is important! </li>
+</ul>
+<p>Accessing tuple element via library function</p>
+<ul>
+<li>fst : return the first element of a tuple</li>
+<li>snd: return the second element of a tuple</li>
+</ul>
+<p><strong>pros &amp; cons</strong></p>
+<ul>
+<li><p>Pros:  </p>
+<ul>
+<li>Available without definition</li>
+<li>Can contain values of different types</li>
+<li>lightweight structure</li>
+</ul>
+</li>
+<li><p>Cons:</p>
+<ul>
+<li><p>Difficult to figure out meaning of values</p>
+</li>
+<li><p>when dealing with multiple values, order might be confused</p>
+</li>
+</ul>
+</li>
+</ul>
+<h4><span id="records">Records</span></h4><p><em>A grouping of named values</em> </p>
+<p><strong>Definition:</strong> </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">type Point3D &#x3D; &#123;X: float; Y:float; Z:float&#125;</span><br></pre></td></tr></table></figure>
+<p><strong>Construction:</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">let point3D1 &#x3D; &#123;Point3D.X &#x3D; 0.1; </span><br><span class="line">				Point3D.Y&#x3D; 0.2;</span><br><span class="line">				Point3D.Z&#x3D; 0.3&#125;</span><br></pre></td></tr></table></figure>
+
+<p> <strong>Copy and update record expression</strong>:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">let point3D2 &#x3D; &#123;point3D1 with Y &#x3D; 0.4&#125;</span><br></pre></td></tr></table></figure>
+
+<p><strong>Pros &amp; Cons:</strong> </p>
+<ul>
+<li><p>Pros: </p>
+<ul>
+<li><p>Allow to organize values into a type</p>
+</li>
+<li><p>Named field helps understand what a program is doing</p>
+</li>
+<li><p>Provide Class-like feature</p>
+</li>
+</ul>
+</li>
+<li><p>Cons:</p>
+<ul>
+<li><p>Immutable</p>
+</li>
+<li><p>Has to define before using</p>
+</li>
+</ul>
+</li>
+</ul>
+<h4><span id="discriminated-union">Discriminated Union</span></h4><p>/////  Blank /////</p>
+<h4><span id="option">Option</span></h4><p><em>A Discriminated Union with two cases: value of some type and None</em></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">type MiddleName &#x3D; </span><br><span class="line">	| Name of string</span><br><span class="line">	| None</span><br></pre></td></tr></table></figure>
+
+<p>Used when anticipated that there might or might not be a value.</p>
 
     
 
@@ -286,7 +417,7 @@
         </li>
         <li>
           <strong>本文链接：</strong>
-          <a href="https:/Depasinre.github.io/2019/12/09/hello-world/" title="Hello World" target="_blank">https:/Depasinre.github.io/2019/12/09/hello-world/</a>
+          <a href="https:/Depasinre.github.io/2024/01/23/18656-week1/" title="18656 Functional Programming in Practice Week 1" target="_blank">https:/Depasinre.github.io/2024/01/23/18656-week1/</a>
         </li>
         
         <li>
@@ -303,7 +434,37 @@
   <div class="article-info article-info-index">
     
     
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">CMU</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">18656</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Functional Programming in Practice</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
     
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/studynotes//" class="article-tag-list-link color5">学习笔记</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
 
     
 
@@ -353,7 +514,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-     <!-- <img src="//pan.baidu.com/share/qrcode?url=https://depasinre.github.io/2019/12/09/hello-world/" alt="微信分享二维码"> -->
+     <!-- <img src="//pan.baidu.com/share/qrcode?url=https://depasinre.github.io/2024/01/23/18656-week1/" alt="微信分享二维码"> -->
     </div>
 </div>
 
@@ -368,15 +529,20 @@
 
 <nav id="article-nav">
   
-    <a href="/2021/05/31/template/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2024/01/23/18631-week1/" id="article-nav-newer" class="article-nav-link-wrap">
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
-          template
+          18631-week1
         
       </div>
     </a>
   
+  
+    <a href="/2024/01/23/18652-week2/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">18652 Foundation of Software Engineering week 2</div>
+      <i class="icon-circle-right"></i>
+    </a>
   
 </nav>
 
