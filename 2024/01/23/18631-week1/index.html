@@ -10,15 +10,15 @@
   <meta name="generator" content="hexo-theme-yilia-plus">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   
-  <meta name="description" content="This Notes contains:   Intro to Security Security Approach and Analysis">
+  <meta name="description" content="This Notes contains:   Intro to Security Security Approach and Analysis Threat Model">
 <meta property="og:type" content="article">
 <meta property="og:title" content="18631 Intro To Info Security Week 1">
 <meta property="og:url" content="https://depasinre.github.io/2024/01/23/18631-week1/index.html">
 <meta property="og:site_name" content="Turrim ; Chime">
-<meta property="og:description" content="This Notes contains:   Intro to Security Security Approach and Analysis">
+<meta property="og:description" content="This Notes contains:   Intro to Security Security Approach and Analysis Threat Model">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2024-01-23T08:16:04.000Z">
-<meta property="article:modified_time" content="2024-01-24T23:56:52.769Z">
+<meta property="article:modified_time" content="2024-01-25T01:15:01.014Z">
 <meta property="article:author" content="Depasinre">
 <meta property="article:tag" content="CMU">
 <meta property="article:tag" content="Intro To Information Security">
@@ -236,7 +236,7 @@
       <!-- 百度字体平台:http://fontstore.baidu.com/static/editor/index.html -->
       <i class="icon-statistics"></i>
       <span class="post-meta-item-text"> 字数统计:</span>
-      <span class="post-count">253字</span>
+      <span class="post-count">769字</span>
     </span>
   </span>
 
@@ -245,7 +245,7 @@
     <span class="post-meta-item-icon">
       <i class="icon-book icon"></i>
       <span class="post-meta-item-text"> 阅读时长≈</span>
-      <span class="post-count">1分</span>
+      <span class="post-count">4分</span>
     </span>
   </span>
 </div>
@@ -260,7 +260,7 @@
 <ul>
 <li>Intro to Security</li>
 <li>Security Approach and Analysis</li>
-<li></li>
+<li>Threat Model</li>
 </ul>
 <a id="more"></a>
 
@@ -273,6 +273,25 @@
 </ul>
 </li>
 <li><a href="#security-engineering">Security Engineering</a></li>
+<li><a href="#threat-model">Threat Model</a><ul>
+<li><a href="#benefit-of-doing-threat-modeling">Benefit of Doing Threat Modeling</a></li>
+<li><a href="#how-to-threat-model">How to threat model?</a><ul>
+<li><a href="#key-question">Key Question:</a></li>
+</ul>
+</li>
+<li><a href="#system-model">System Model</a><ul>
+<li><a href="#things-to-consider">Things to consider:</a></li>
+</ul>
+</li>
+<li><a href="#mind-set-on-threat-modeling">Mind-Set on Threat Modeling</a></li>
+<li><a href="#technique">Technique</a><ul>
+<li><a href="#boolean-attack-tree">Boolean Attack Tree</a></li>
+<li><a href="#parameterized-attack-tree">Parameterized Attack Tree</a></li>
+<li><a href="#stride">STRIDE</a></li>
+</ul>
+</li>
+</ul>
+</li>
 </ul>
 <!-- tocstop -->
 
@@ -357,7 +376,137 @@
 <p>Security is something you have to build into a system.</p>
 <p>Security is perfectly to think at design stage.</p>
 <p>Retrofitting security usually produce poor results.</p>
-<p>To become a security engineering is by living, breathing and thinking about security all the time, instead of taking a class or getting a certification.</p>
+<p>To become a security engineering is by living, breathing and thinking about security all the time, instead of taking a class or getting a certification. </p>
+<h2><span id="threat-model">Threat Model</span></h2><p>What is threat modeling? </p>
+<ul>
+<li><p>It can mean many things: </p>
+<ul>
+<li>Finding out what may go wrong with your system</li>
+<li>Build a set of attackers</li>
+<li>Categorizing threats into classes</li>
+<li>…</li>
+</ul>
+</li>
+<li><p>Usually need two types of models</p>
+<ul>
+<li>Model your systems</li>
+<li>Model of the threats</li>
+</ul>
+</li>
+</ul>
+<h3><span id="benefit-of-doing-threat-modeling">Benefit of Doing Threat Modeling</span></h3><ul>
+<li>Find security bugs early</li>
+<li>Understand security requirement (more later)</li>
+<li>Achieve better - more <strong>robust</strong>, <strong>secure</strong> - system design and architecture. </li>
+</ul>
+<h3><span id="how-to-threat-model">How to threat model?</span></h3><p><strong><em>There is no one-size fits all system.</em></strong></p>
+<p>Threat modeling is and iterative process. We need to develop a repertoire and learn to think about new threat every time we make change to the system. </p>
+<p>Attacks, mitigations, requirement are intertwined. </p>
+<h4><span id="key-question">Key Question:</span></h4><ol>
+<li>What are you building?</li>
+<li>What can we go wrong?</li>
+<li>What should you do about things than can go wrong? </li>
+<li>Did you do a good job of analysis? </li>
+</ol>
+<h3><span id="system-model">System Model</span></h3><p>To do system modeling, consider following points : </p>
+<ul>
+<li>Diagrams of the system<ul>
+<li>What are the components?</li>
+<li>How data flow through the system?</li>
+</ul>
+</li>
+<li>Trust boundaries<ul>
+<li>Who control/have access to each components? </li>
+<li>E.g., account/network interface/VMs, …</li>
+</ul>
+</li>
+<li>Attack surface<ul>
+<li>It’s similar to trust boundary</li>
+<li>Think about the set of APIs that the attackers can launch attacks</li>
+</ul>
+</li>
+</ul>
+<h4><span id="things-to-consider">Things to consider:</span></h4><ol>
+<li>What attacker wants<ul>
+<li>User password, credentials</li>
+<li>Social security number</li>
+<li>Credit car number</li>
+<li>Confidential business data</li>
+<li>…</li>
+</ul>
+</li>
+<li>Asset to protect<ul>
+<li>Customer data</li>
+<li>Company reputation</li>
+<li>Government information</li>
+<li>…</li>
+</ul>
+</li>
+<li>What are the stepping stones to get to either of the above<ul>
+<li>Computing resources</li>
+<li>Software</li>
+<li>…</li>
+</ul>
+</li>
+</ol>
+<h3><span id="mind-set-on-threat-modeling">Mind-Set on Threat Modeling</span></h3><ul>
+<li>Focusing on asset<ul>
+<li>How can attacker cooud threaten each asset? </li>
+</ul>
+</li>
+<li>Focusing on attackers<ul>
+<li>What attacker would do?</li>
+</ul>
+</li>
+<li>Focusing on software and system<ul>
+<li>Build models that focus on software being built, or system being deployed</li>
+<li>Detail assumption made</li>
+</ul>
+</li>
+</ul>
+<h3><span id="technique">Technique</span></h3><p>There are multiple techniques to do Threat modeling.</p>
+<h4><span id="boolean-attack-tree">Boolean Attack Tree</span></h4><p>List all possible failure modes</p>
+<p>Example : safe (<em>This example is still incomplete</em>)</p>
+<img>
+
+<h4><span id="parameterized-attack-tree">Parameterized Attack Tree</span></h4><p>It can be used to assess the cost of an attack and can use other quantities, such as, probabilities, instead.</p>
+<p>Example: </p>
+<img>
+
+<h4><span id="stride">STRIDE</span></h4><p>Stride is a threat model by Microsoft, used to help reason and find threats to a system. </p>
+<p>It is used in conjunction with a model of the target system that can be constructed in parallel. This includes a full breakdown of processes, data stores, data flows, and trust boundaries</p>
+<p>It has 6 categories of threat: </p>
+<ol>
+<li><strong>S</strong>poofing of user identity<ul>
+<li>Pretending to be something or someone other than yourself</li>
+</ul>
+</li>
+<li><strong>T</strong>ampering<ul>
+<li>Modifying something on disk, network, memory, or elsewhere</li>
+</ul>
+</li>
+<li><strong>R</strong>epudiation<ul>
+<li>Claiming that you didn’t do something or were not responsible; can be honest or false</li>
+</ul>
+</li>
+<li><strong>I</strong>nformation disclosure (privacy breach or data leak)<ul>
+<li>Providing information to someone not authorized to access it</li>
+</ul>
+</li>
+<li><strong>D</strong>enial of service (D.o.S)<ul>
+<li>Exhausting resources needed to provide service</li>
+</ul>
+</li>
+<li><strong>E</strong>levation of privilege<ul>
+<li>Allowing someone to do something they are not authorized to do</li>
+</ul>
+</li>
+</ol>
+<p>To do Stride analysis: </p>
+<ul>
+<li>Draw a picture of the system. </li>
+<li>Anywhere you see communication, this is a trust boundary where you should do analysis.</li>
+</ul>
 
     
 
