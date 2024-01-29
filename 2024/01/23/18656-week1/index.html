@@ -17,14 +17,18 @@
 <meta property="og:site_name" content="Turrim ; Chime">
 <meta property="og:description" content="This Notes contains:   Introduction of functional Programming F# ide setup F# Syntax F# types">
 <meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://depasinre.github.io/2024/01/23/18656-week1/1.JPG">
+<meta property="og:image" content="https://depasinre.github.io/2024/01/23/18656-week1/2.JPG">
+<meta property="og:image" content="https://depasinre.github.io/2024/01/23/18656-week1/3.JPG">
 <meta property="article:published_time" content="2024-01-23T08:15:37.000Z">
-<meta property="article:modified_time" content="2024-01-23T22:13:45.384Z">
+<meta property="article:modified_time" content="2024-01-29T06:53:19.595Z">
 <meta property="article:author" content="Depasinre">
 <meta property="article:tag" content="CMU">
 <meta property="article:tag" content="18656">
 <meta property="article:tag" content="Functional Programming in Practice">
 <meta property="article:tag" content="F#">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://depasinre.github.io/2024/01/23/18656-week1/1.JPG">
   
     <link rel="alternative" href="/atom.xml" title="Turrim ; Chime" type="application/atom+xml">
   
@@ -236,7 +240,7 @@
       <!-- 百度字体平台:http://fontstore.baidu.com/static/editor/index.html -->
       <i class="icon-statistics"></i>
       <span class="post-meta-item-text"> 字数统计:</span>
-      <span class="post-count">475字</span>
+      <span class="post-count">2k字</span>
     </span>
   </span>
 
@@ -245,7 +249,7 @@
     <span class="post-meta-item-icon">
       <i class="icon-book icon"></i>
       <span class="post-meta-item-text"> 阅读时长≈</span>
-      <span class="post-count">2分</span>
+      <span class="post-count">12分</span>
     </span>
   </span>
 </div>
@@ -268,13 +272,33 @@
 <!-- toc -->
 
 <ul>
+<li><a href="#what-is-functional-programming">What is functional programming?</a><ul>
+<li><a href="#what-constitutes-a-function">What constitutes a function?</a></li>
+<li><a href="#properties-of-function">Properties of function</a></li>
+<li><a href="#side-effect">Side Effect</a><ul>
+<li><a href="#example">Example</a></li>
+</ul>
+</li>
+<li><a href="#pure-function">Pure function</a></li>
+<li><a href="#referential-transparency">Referential Transparency</a></li>
+</ul>
+</li>
+<li><a href="#f-ide-setup">F# IDE Setup</a><ul>
+<li><a href="#visual-studio-code">Visual Studio Code</a></li>
+<li><a href="#jetbrain-rider">JetBrain Rider</a></li>
+</ul>
+</li>
 <li><a href="#mathematical-function-example-in-f">Mathematical function example in F#</a></li>
 <li><a href="#syntax">Syntax</a><ul>
+<li><a href="#your-first-f-function">Your first F# function</a></li>
 <li><a href="#f-type-inference">F# type inference</a></li>
 <li><a href="#function-signature">Function signature</a></li>
 </ul>
 </li>
 <li><a href="#function-type">Function Type</a></li>
+<li><a href="#function-application">Function application</a></li>
+<li><a href="#function-interactive">Function interactive</a></li>
+<li><a href="#the-power-of-functions">The power of functions</a></li>
 <li><a href="#types-in-f">Types in F#</a><ul>
 <li><a href="#basic-type">Basic type</a></li>
 <li><a href="#composition-type">Composition type</a><ul>
@@ -284,38 +308,181 @@
 <li><a href="#option">Option</a></li>
 </ul>
 </li>
+<li><a href="#exercise-match-usage-scenario-with-data-type">Exercise: Match usage scenario with data type</a></li>
+<li><a href="#f-specific-types">F# specific types</a><ul>
+<li><a href="#common-net-types">Common .NET types</a></li>
+<li><a href="#designed-for-pure-functional-programming">Designed for pure functional programming</a></li>
+</ul>
+</li>
+<li><a href="#f-functional-types-advantage">F# functional types - Advantage</a></li>
 </ul>
 </li>
 </ul>
 <!-- tocstop -->
 
-<blockquote>
-<p> Functional programming is a programming paradigm characterized by the use of mathematical functions and the avoidance of side effect</p>
+<h2><span id="what-is-functional-programming">What is functional programming?</span></h2><blockquote>
+<p>Functional programming is a programming paradigm characterized by the use of mathematical functions and the avoidance of side effect</p>
+<ul>
+<li>fundamental approach to structuring programs</li>
+<li>via application and composition of functions</li>
+</ul>
 </blockquote>
+<h3><span id="what-constitutes-a-function">What constitutes a function?</span></h3><p>A function include: </p>
+<ul>
+<li>The input</li>
+<li>The relationship</li>
+<li>The output</li>
+</ul>
+<p>A function is anything which accepts exactly one input value and, when this is supplied, evaluates an expression<br>to generate exactly one output value.</p>
+<h3><span id="properties-of-function">Properties of function</span></h3><ol>
+<li><p>One input - one output</p>
+<p>There is always exactly one input and one output</p>
+</li>
+<li><p>Immutability</p>
+<ul>
+<li>Value once created, can never be altered</li>
+<li>The input and output values are immutable</li>
+<li>Work with copies of data instead</li>
+</ul>
+</li>
+<li><p>Depending only on  input</p>
+<ul>
+<li>Function output is solely determined by its input parameter</li>
+<li>Can your function possibly return a different result when given the same input?<ul>
+<li>Mutable global variables</li>
+<li>User input</li>
+<li>Random numbers generator </li>
+</ul>
+</li>
+</ul>
+</li>
+</ol>
+<h3><span id="side-effect">Side Effect</span></h3><p>Side effect is <em>an unwanted or unexpected result or condition that comes along with the desired effects of something.</em></p>
+<p>There is also <strong>“functional” side effect</strong></p>
+<ul>
+<li>Observable interaction of a function with anything outside of it</li>
+<li>Anything more than computation of a result based on input parameters</li>
+</ul>
+<h4><span id="example">Example</span></h4><ul>
+<li>Altering a variable outside of the function</li>
+<li>Writing data to a file</li>
+<li>Displaying something on the screen</li>
+<li>Sending data over the network</li>
+</ul>
+<p>A function should have no side effect. It doesn’t change the input or output.</p>
+<h3><span id="pure-function">Pure function</span></h3><p>Two properties make a function “pure”</p>
+<ol>
+<li>Its output depends only on its input</li>
+<li>It has no side-effects</li>
+</ol>
+<h3><span id="referential-transparency">Referential Transparency</span></h3><p>Calling a function with the same input results in the same output</p>
+<ul>
+<li>One can replace a function call with its result, without affecting the behavior of the program</li>
+<li>It makes your code easy to read and understand</li>
+</ul>
+<h2><span id="f-ide-setup">F# IDE Setup</span></h2><h3><span id="visual-studio-code">Visual Studio Code</span></h3><ol>
+<li>Download Visual Studio Code: <a href="https://code.visualstudio.com/download" target="_blank" rel="noopener">https://code.visualstudio.com/downloadLinks to an external site.</a>.</li>
+<li>Open VS Code by launching the downloaded file and go to the “<strong>Extensions</strong>“ tab (on the left). Install plugins: Ionide F#, C# (Microsoft’s plugin) and <strong>fsharp-language-server</strong> for Visual Studio Code.</li>
+<li>Download and install the latest version of SDK from <a href="https://dotnet.microsoft.com/en-us/download/dotnet/6.0" target="_blank" rel="noopener">https://dotnet.microsoft.com/en-us/download/dotnet/6.0Links to an external site.</a></li>
+<li>Open a command line.</li>
+<li>Check the home directory of .NET SDK on your machine (most likely on MacOS: /usr/local/share/dotnet/dotnet) by typing the following command:<br><code>find / -name dotnet</code></li>
+<li>Add .NET to the PATH (update the last part to reflect your local settings looked up in step 5):<br><code>export PATH=$PATH:/usr/local/share/dotnet/dotnet</code></li>
+<li>Restart your machine</li>
+<li>Navigate to a parent directory of choice for your F# project.</li>
+<li>Create a new project with the .NET CLI by executing the command:<br><code>dotnet new console -lang &quot;F#&quot; -o NameOfTheProject</code></li>
+<li>Open the parent folder of the project in VS Code and you’re ready to code!</li>
+<li>Follow <a href="https://www.youtube.com/watch?v=G-F8xAR03E4&list=PLlzAi3ycg2x0TScJb7czq7-4LrQoyTB0I&index=7" target="_blank" rel="noopener">this tutorialLinks to an external site.</a> to put in place DEBUG support in VS Code.</li>
+</ol>
+<h3><span id="jetbrain-rider">JetBrain Rider</span></h3><p>JetBrains Rider is a cross-platform .NET IDE built using IntelliJ and ReSharper technology. It offers support for .NET and .NET Core applications on all platforms.</p>
+<ol>
+<li>Get a students license <a href="https://www.jetbrains.com/community/education/#students" target="_blank" rel="noopener">hereLinks to an external site.</a> before installing the tool.</li>
+<li>Download the <a href="https://www.jetbrains.com/rider/download/" target="_blank" rel="noopener">installerLinks to an external site.</a> and follow the installation wizard. You can refer to this <a href="https://www.youtube.com/watch?v=Ar20aMQxR7I&t=690s" target="_blank" rel="noopener">YT tutorialLinks to an external site.</a> (optional).</li>
+<li>Check the F# support plugin is enabled:<ul>
+<li>3a. Press Ctrl + Alt + S to open the IDE settings and then select Plugins. Alternatively, click on “Jetbrains Rider”/Preferences in the Mac menu bar.</li>
+<li>3b. Open the “Installed” tab, find the “F# Support” plugin, and select the checkbox next to the plugin name. </li>
+</ul>
+</li>
+<li>Create a F# Console project:<ul>
+<li>4a. In the side panel on startup select Projects -&gt; New Solution</li>
+<li>4b. Search for F#</li>
+<li>4c. Click on console application</li>
+</ul>
+</li>
+<li>Check that F# interactive is activated as per <a href="https://www.jetbrains.com/help/rider/Settings_Languages_FSHARP_Interactive.html" target="_blank" rel="noopener">this documentLinks to an external site.</a>.</li>
+<li>Using the F# interactive:<ul>
+<li>6a. Select the code to evaluate and click “Alt + Enter”</li>
+<li>6b. Assign a shortcut of your choice</li>
+</ul>
+</li>
+<li>Debugging in JetBrains Rider: refer to <a href="https://www.jetbrains.com/help/rider/Debugging_Code.html" target="_blank" rel="noopener">this documentLinks to an external site.</a>.</li>
+</ol>
 <h2><span id="mathematical-function-example-in-f">Mathematical function example in F#</span></h2><p>increment a number by 1 : <code>Add1(x) = x + 1</code></p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">let add1 x &#x3D; x + 1</span><br></pre></td></tr></table></figure>
 
-<p><code>let</code> keyword defines a function</p>
-<p>Function binding includes <em>function name</em> and <em>function body</em></p>
+<p><code>let</code> keyword defines a function and binds an identifier with a function</p>
+<p>Function binding includes <em>function name</em> and <em>function parameter</em></p>
+<p>Function body is an <strong>expression</strong> that generates a return value</p>
 <h2><span id="syntax">Syntax</span></h2><ul>
-<li>parameters are separated by space</li>
-<li>the output of the function is the last expression</li>
+<li>Parameters are separated by space</li>
+<li>The output of the function is the last expression in its definition</li>
+<li>Use indents for multi-line functions</li>
 </ul>
-<h3><span id="f-type-inference">F# type inference</span></h3><h3><span id="function-signature">Function signature</span></h3><p>F# use type syntax for function signatures</p>
+<h3><span id="your-first-f-function">Your first F# function</span></h3><p>BMI calculator</p>
+<p>$BMI = 703 * weight / height^{2}$</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">let bmi weight height &#x3D; </span><br><span class="line">	703.0 * weight &#x2F; (height * height) &#x2F;&#x2F; Note: use 703.0 to make the output as float type</span><br></pre></td></tr></table></figure>
+
+<h3><span id="f-type-inference">F# type inference</span></h3><blockquote>
+<p>F# infers the parameter and return types when they’re not explicitly specified</p>
+</blockquote>
+<ul>
+<li>When argument type is not specified, function body is used to infer it.</li>
+<li>When return type is not specified, final body expression is used to infer it</li>
+</ul>
+<h3><span id="function-signature">Function signature</span></h3><p>F# use type syntax for function signatures.</p>
+<p>It denotes the types used and produced by a function.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F; example of function signature</span><br><span class="line">int -&gt; int -&gt; int</span><br></pre></td></tr></table></figure>
+
 <h2><span id="function-type">Function Type</span></h2><p>All functions are values therefore have a type.</p>
 <p>Function type is prescribed by its input and output types.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F; function signature </span><br><span class="line">t_in -&gt; t_out</span><br></pre></td></tr></table></figure>
+
 <ul>
 <li><p>function with generic types: </p>
 <ul>
 <li>if a function works with any type, the compiler automatically infers a generic type</li>
+<li>Notation: letter preceded by a tick: `a</li>
 </ul>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">let areEqual x y &#x3D; </span><br><span class="line">	(x &#x3D; y)</span><br></pre></td></tr></table></figure>
 
-
 </li>
 </ul>
+<blockquote>
+<p>Equality test in F# is <code>=</code> operator</p>
+</blockquote>
+<h2><span id="function-application">Function application</span></h2><p>Function definition and application are separate.</p>
+<p>Function is applied by providing its input, separated by a space</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">let bmi weight height &#x3D; </span><br><span class="line">	703.0 * weight &#x2F; (height * height) </span><br><span class="line">bmi 140.65 71.6</span><br></pre></td></tr></table></figure>
+
+<h2><span id="function-interactive">Function interactive</span></h2><p>To run F# code in the console: </p>
+<ul>
+<li>Select the code you want to execute</li>
+<li>Click on “Option” + “Enter” in Mac OS<ul>
+<li>“Alt” + “Enter” in Window instead</li>
+</ul>
+</li>
+</ul>
+<h2><span id="the-power-of-functions">The power of functions</span></h2><p>Functions can be bound to identifiers.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">let plus3 x &#x3D; x + 3</span><br></pre></td></tr></table></figure>
+
+<p>Functions can be stored in data structures.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">let listofFunctions &#x3D; [plus; times2]</span><br></pre></td></tr></table></figure>
+
+<p>Functions can be passed down as an argument to other functions.</p>
+<p>Functions can be a return value from a function call.</p>
 <h2><span id="types-in-f">Types in F#</span></h2><blockquote>
-<p>A <strong>type</strong> is a description of a set of values. A value is a member of a type. A identifier is a name supply for a type or a function in  program.</p>
+<p>A <strong>type</strong> is a description of a set of values and a set of allowed operations on those values</p>
+<p> A <strong>value</strong> is a member of a type. </p>
+<p>A <strong>identifier</strong> is a name supply for a type or a function in program.</p>
 </blockquote>
 <h3><span id="basic-type">Basic type</span></h3><p>Data type built into F#</p>
 <ul>
@@ -324,16 +491,20 @@
 <li>bool</li>
 <li>unit<ul>
 <li>indicates the absence of an actual value</li>
-<li>one possible value: 0</li>
+<li>one possible value:  ( )</li>
 <li>strong sign of possible side effects</li>
 </ul>
 </li>
 </ul>
 <h3><span id="composition-type">Composition type</span></h3><p>Gather types into large structures</p>
 <p>composition with <strong>And</strong> or <strong>Or</strong> operation.</p>
+<img src="/2024/01/23/18656-week1/1.JPG">
+
 <h4><span id="tuple"><strong>Tuple</strong></span></h4><p><em>A grouping of unnamed but ordered values, possibly of different types.</em></p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">(1, 2)</span><br><span class="line">(&quot;Haoming&quot;, &quot;Yuan&quot;)</span><br></pre></td></tr></table></figure>
 
+<p>Value separated by coma, encompassed by parentheses.</p>
+<p>Tuples can contain values of multiple types.</p>
 <p><strong>Types</strong>: The type of a tuple is multiplication of type of each of its components</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">let personalInfo &#x3D; (&quot;Ted&quot;, &quot;Lester&quot;, 32, 6.4, 94101)</span><br><span class="line"> &#x2F;&#x2F; type: (string * string * int * float * int)</span><br></pre></td></tr></table></figure>
 
@@ -345,6 +516,7 @@
 <li>fst : return the first element of a tuple</li>
 <li>snd: return the second element of a tuple</li>
 </ul>
+<p><em>fst and snd functions require that the tuple be a pair (2-element tuple)</em></p>
 <p><strong>pros &amp; cons</strong></p>
 <ul>
 <li><p>Pros:  </p>
@@ -363,14 +535,24 @@
 </ul>
 </li>
 </ul>
+<p><strong>Comparison:</strong></p>
+<p>If all the values in a tuple are comparable, then the tuple is comparable to another tuple of the same type. </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">let myName &#x3D; (&quot;Rafal&quot;, &quot;Wlodarski&quot;)</span><br><span class="line">let herName &#x3D; (&quot;Sarah&quot;, &quot;Jessica&quot;, &quot;Parker&quot;)</span><br><span class="line">let cityState &#x3D; (&quot;San Francisco&quot;, &quot;CA&quot;)</span><br></pre></td></tr></table></figure>
+
+<p>Tuples can be compared using equality operation.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">myName &#x3D; cityState &#x2F;&#x2F; false</span><br></pre></td></tr></table></figure>
+
 <h4><span id="records">Records</span></h4><p><em>A grouping of named values</em> </p>
 <p><strong>Definition:</strong> </p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">type Point3D &#x3D; &#123;X: float; Y:float; Z:float&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">type GeoCoord &#x3D; &#123; Lat: float; Long: float &#125;</span><br><span class="line">type Point3D &#x3D; &#123;X: float; Y:float; Z:float&#125;</span><br></pre></td></tr></table></figure>
 <p><strong>Construction:</strong></p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">let point3D1 &#x3D; &#123;Point3D.X &#x3D; 0.1; </span><br><span class="line">				Point3D.Y&#x3D; 0.2;</span><br><span class="line">				Point3D.Z&#x3D; 0.3&#125;</span><br></pre></td></tr></table></figure>
 
 <p> <strong>Copy and update record expression</strong>:</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">let point3D2 &#x3D; &#123;point3D1 with Y &#x3D; 0.4&#125;</span><br></pre></td></tr></table></figure>
+
+<p><strong>Accessing</strong> record elements via “dot” notation.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">let geoCoord1 &#x3D; &#123; Lat &#x3D; 1.1; Long &#x3D; 2.2 &#125;</span><br><span class="line">let x &#x3D; geoCoord1.Lat</span><br><span class="line">let y &#x3D; geoCoord1.Long</span><br></pre></td></tr></table></figure>
 
 <p><strong>Pros &amp; Cons:</strong> </p>
 <ul>
@@ -393,11 +575,78 @@
 </ul>
 </li>
 </ul>
-<h4><span id="discriminated-union">Discriminated Union</span></h4><p>/////  Blank /////</p>
-<h4><span id="option">Option</span></h4><p><em>A Discriminated Union with two cases: value of some type and None</em></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">type MiddleName &#x3D; </span><br><span class="line">	| Name of string</span><br><span class="line">	| None</span><br></pre></td></tr></table></figure>
+<p><strong>Comparison:</strong></p>
+<p>Like tuples, records have structural equality semantics</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">let geoCoord1 &#x3D; &#123; Lat &#x3D; 1.1; Long &#x3D; 2.2 &#125;</span><br><span class="line">let geoCoord2 &#x3D; &#123; geoCoord1 with Lat &#x3D; 2.2 &#125;</span><br><span class="line">geoCoord1 &#x3D; geoCoord2 &#x2F;&#x2F; false</span><br></pre></td></tr></table></figure>
 
-<p>Used when anticipated that there might or might not be a value.</p>
+<p>Two records are equal if they have the same type and the values in each slot are equal.</p>
+<h4><span id="discriminated-union">Discriminated Union</span></h4><p>Data structure representing a set of choices.</p>
+<ul>
+<li>Supports values from a number of named cases</li>
+<li>Each alternative is called a case</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">type AppleVariety &#x3D;</span><br><span class="line">	| GrannySmith &#x2F;&#x2F; a case</span><br><span class="line">	| PinkLady</span><br><span class="line">	| Fuji</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>Each case must be tagged with a label, also called identifier or tag</li>
+<li>Each case identifier must start with am <strong>UPPERCASE LETTER</strong></li>
+<li>Case values are optional</li>
+<li>Each case can have different values and types</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">type FruitSnack &#x3D;</span><br><span class="line">| Apple of AppleVariety &#x2F;&#x2F; identifier of type</span><br><span class="line">| Banana of BananaVariety &#x2F;&#x2F;BananaVariety needs to be defined</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>*”of type”* syntax allows to indicate the data type of a case</li>
+</ul>
+<p><strong>Construction</strong></p>
+<p>Use a constructor that refers to one of the possible union cases.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">type AppleVariety &#x3D;</span><br><span class="line">	| GrannySmith</span><br><span class="line">	| PinkLady</span><br><span class="line">let anApple &#x3D; PinkLady &#x2F;&#x2F; use the &quot;PinkLady&quot; constructor</span><br><span class="line"></span><br><span class="line">type FruitSnack &#x3D;</span><br><span class="line">	| Apple of AppleVariety</span><br><span class="line">	| Banana of BananaVariety</span><br><span class="line">let aSnack &#x3D; Apple PinkLady &#x2F;&#x2F; use &quot;Apple&quot; constructor,</span><br><span class="line">							&#x2F;&#x2F; then &quot;PinkLady&quot; constructor</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">type Shape &#x3D;</span><br><span class="line">	| Rectangle of width : float * length : float</span><br><span class="line">	| Circle of radius : float</span><br></pre></td></tr></table></figure>
+
+<p> During initialization use the named fields or rely on ordering of fields</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">let rectangle2 &#x3D; Rectangle (width &#x3D; 1.5, length &#x3D; 2.2)</span><br><span class="line">let rectanble1 &#x3D; Rectangle(2.4, 3.2)</span><br></pre></td></tr></table></figure>
+
+<p><strong>Simple Type:</strong></p>
+<p>A simple type discriminated union is a Discriminated Union with one case only.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">type ProductCode &#x3D;</span><br><span class="line">| ProductCode of string</span><br><span class="line">&#x2F;&#x2F; simplified notation</span><br><span class="line">type ProductCode &#x3D; ProductCode of string</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>Used as a wrapper data type for primitive values</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">let a &#x3D; ProductCode &quot;ABC123&quot;</span><br><span class="line">let b &#x3D; &quot;ABC223&quot;</span><br></pre></td></tr></table></figure>
+
+<p><strong>Comparison:</strong></p>
+<p>Two unions are equal if they have the same type and the same case and the values for that case is equal.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">type Contact &#x3D;</span><br><span class="line">	| Email of string</span><br><span class="line">	| Phone of int</span><br><span class="line">let email1 &#x3D; Email &quot;bob@gmail.com&quot;</span><br><span class="line">let email2 &#x3D; Email &quot;bobBarley@gmail.com&quot;</span><br><span class="line">email1 &#x3D; email2 &#x2F;&#x2F; false</span><br></pre></td></tr></table></figure>
+
+<h4><span id="option">Option</span></h4><p><em>A Discriminated Union with two cases: value of some type and None</em></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">type MiddleName &#x3D; </span><br><span class="line">	| Name of string</span><br><span class="line">	| None</span><br><span class="line">type MiddleName &#x3D; string option &#x2F;&#x2F; simplified notation</span><br></pre></td></tr></table></figure>
+
+<p>Used when anticipated that there might or might not be a value. </p>
+<h3><span id="exercise-match-usage-scenario-with-data-type">Exercise: Match usage scenario with data type</span></h3><img src="/2024/01/23/18656-week1/2.JPG" width="70%" height="70%">
+
+<img src="/2024/01/23/18656-week1/3.JPG" width="70%" height="70%">
+
+<h3><span id="f-specific-types">F# specific types</span></h3><h4><span id="common-net-types">Common .NET types</span></h4><ul>
+<li>User-defined value types (enum and struct)</li>
+<li>Classes and interfaces</li>
+<li>Arrays</li>
+</ul>
+<h4><span id="designed-for-pure-functional-programming">Designed for pure functional programming</span></h4><ul>
+<li>The unit type</li>
+<li>Tuples</li>
+<li>Records</li>
+<li>Discriminated Unions</li>
+<li>Option types</li>
+<li>Lists</li>
+</ul>
+<h3><span id="f-functional-types-advantage">F# functional types - Advantage</span></h3><ol>
+<li>They are immutable</li>
+<li>They cannot be null</li>
+<li>They have built-in structural equality  and comparison</li>
+<li>They have built-in pretty printing</li>
+</ol>
 
     
 
@@ -528,11 +777,11 @@
 
 <nav id="article-nav">
   
-    <a href="/2024/01/23/18631-week1/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2024/01/23/18656-week2/" id="article-nav-newer" class="article-nav-link-wrap">
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
-          18631 Intro To Info Security Week 1
+          18656 Functional Programming in Practice Week 2
         
       </div>
     </a>
@@ -739,18 +988,6 @@
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">F#</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">Intro To Information Security</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">18631</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">cybersecurity</a>
               </li>
             
             <div class="clearfix"></div>

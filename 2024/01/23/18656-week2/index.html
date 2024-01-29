@@ -10,21 +10,28 @@
   <meta name="generator" content="hexo-theme-yilia-plus">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   
-  <meta name="description" content="This Note contains:   Function Syntax Reminder, Function as Values, Function Scope Lambda Expression Currying Function Composition">
+  <meta name="description" content="This Note contains:   Function Syntax Reminder, Function as Values, Function Scope Lambda Expression Currying Function Composition Building an app from functions Pattern Matching for structural decomp">
 <meta property="og:type" content="article">
 <meta property="og:title" content="18656 Functional Programming in Practice Week 2">
 <meta property="og:url" content="https://depasinre.github.io/2024/01/23/18656-week2/index.html">
 <meta property="og:site_name" content="Turrim ; Chime">
-<meta property="og:description" content="This Note contains:   Function Syntax Reminder, Function as Values, Function Scope Lambda Expression Currying Function Composition">
+<meta property="og:description" content="This Note contains:   Function Syntax Reminder, Function as Values, Function Scope Lambda Expression Currying Function Composition Building an app from functions Pattern Matching for structural decomp">
 <meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://depasinre.github.io/2024/01/23/18656-week2/1.JPG">
+<meta property="og:image" content="https://depasinre.github.io/2024/01/23/18656-week2/2.JPG">
+<meta property="og:image" content="https://depasinre.github.io/2024/01/23/18656-week2/3.JPG">
+<meta property="og:image" content="https://depasinre.github.io/2024/01/23/18656-week2/4.JPG">
+<meta property="og:image" content="https://depasinre.github.io/2024/01/23/18656-week2/5.JPG">
+<meta property="og:image" content="https://depasinre.github.io/2024/01/23/18656-week2/6.JPG">
 <meta property="article:published_time" content="2024-01-23T21:02:38.000Z">
-<meta property="article:modified_time" content="2024-01-24T00:06:53.396Z">
+<meta property="article:modified_time" content="2024-01-29T06:53:19.635Z">
 <meta property="article:author" content="Depasinre">
 <meta property="article:tag" content="CMU">
 <meta property="article:tag" content="18656">
 <meta property="article:tag" content="Functional Programming in Practice">
 <meta property="article:tag" content="F#">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://depasinre.github.io/2024/01/23/18656-week2/1.JPG">
   
     <link rel="alternative" href="/atom.xml" title="Turrim ; Chime" type="application/atom+xml">
   
@@ -236,7 +243,7 @@
       <!-- 百度字体平台:http://fontstore.baidu.com/static/editor/index.html -->
       <i class="icon-statistics"></i>
       <span class="post-meta-item-text"> 字数统计:</span>
-      <span class="post-count">1.2k字</span>
+      <span class="post-count">2.9k字</span>
     </span>
   </span>
 
@@ -245,7 +252,7 @@
     <span class="post-meta-item-icon">
       <i class="icon-book icon"></i>
       <span class="post-meta-item-text"> 阅读时长≈</span>
-      <span class="post-count">7分</span>
+      <span class="post-count">17分</span>
     </span>
   </span>
 </div>
@@ -262,6 +269,9 @@
 <li>Lambda Expression</li>
 <li>Currying</li>
 <li>Function Composition</li>
+<li>Building an app from functions</li>
+<li>Pattern Matching for structural decomposition</li>
+<li>Match Expressions: Advanced</li>
 </ul>
 <a id="more"></a>
 
@@ -292,6 +302,7 @@
 </li>
 <li><a href="#key-takeaways">Key takeaways</a></li>
 <li><a href="#example-2">Example #2</a></li>
+<li><a href="#wrapper-function">Wrapper Function</a></li>
 <li><a href="#exercise-2">Exercise #2</a><ul>
 <li><a href="#solution-1">Solution</a></li>
 <li><a href="#step-2">Step 2</a></li>
@@ -309,6 +320,36 @@
 </li>
 </ul>
 </li>
+<li><a href="#building-an-app-from-functions">Building an app from functions</a></li>
+<li><a href="#match-expression">Match Expression</a><ul>
+<li><a href="#syntax">Syntax</a></li>
+<li><a href="#expression">Expression</a></li>
+<li><a href="#return-value">Return Value</a></li>
+<li><a href="#wildcard-operator">Wildcard Operator</a></li>
+<li><a href="#nested-match-expressions">Nested Match Expressions</a></li>
+<li><a href="#guard">Guard</a><ul>
+<li><a href="#when-not-to-use-when">When not to use when?</a></li>
+</ul>
+</li>
+<li><a href="#shortcut-syntax">Shortcut Syntax</a></li>
+</ul>
+</li>
+<li><a href="#pattern-matching-for-structural-decomposition">Pattern Matching for Structural Decomposition</a><ul>
+<li><a href="#tuple">Tuple</a><ul>
+<li><a href="#exercise-1">Exercise</a><ul>
+<li><a href="#solution">Solution:</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#records">Records</a></li>
+<li><a href="#discriminated-union">Discriminated Union</a></li>
+</ul>
+</li>
+<li><a href="#exercise-quiz">Exercise Quiz</a><ul>
+<li><a href="#answer">Answer</a></li>
+</ul>
+</li>
 </ul>
 <!-- tocstop -->
 
@@ -317,15 +358,28 @@
 <ul>
 <li><p>Declared with <code>let</code> keyword and a name</p>
 </li>
-<li></li>
-<li></li>
-<li></li>
+<li><p>Parameters added after a space, their type automatically inferred</p>
+</li>
+<li><p>Indentation mandatory to indicate a function body</p>
+</li>
+<li><p>Last expression evaluates to the return value</p>
+</li>
 </ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">let cylinderVolume radius length &#x3D;</span><br><span class="line">	length * 3.14159 * radius * radius</span><br></pre></td></tr></table></figure>
+
 <h3><span id="input-output-type">Input / Output type</span></h3><p>Type inference avoids the need to declare input / output types</p>
 <p>To specify a return type, add a colon and the type after the parameters list</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">let cylinderVolume radius length : float &#x3D;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">let cylinderVolume radius length : float &#x3D;</span><br><span class="line">	length * 3.14159 * radius * radius</span><br></pre></td></tr></table></figure>
 
-<h3><span id="local-identifier">Local Identifier</span></h3><p>It can contain definitions of </p>
+<p>For input parameters, encompass each om brackets and provide type after a colon.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">let cylinderVolume (radius : float) (length : float) : float &#x3D;</span><br><span class="line">	length * 3.14159 * radius * radius</span><br></pre></td></tr></table></figure>
+
+<h3><span id="local-identifier">Local Identifier</span></h3><p>It can contain definitions of of local identifies and functions</p>
+<ul>
+<li>Accessible only in scope of the body of the current function</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">let cylinderVolume radius length &#x3D;</span><br><span class="line">	let pi &#x3D; 3.14159</span><br><span class="line">	length * pi * radius * radius</span><br></pre></td></tr></table></figure>
+
 <h2><span id="function-scope">Function Scope</span></h2><p>Names can be reused at any level other than <strong>module</strong> scope.</p>
 <ul>
 <li>Later declaration shadow previous one</li>
@@ -341,7 +395,7 @@
 <p>Function accept another function as parameter.</p>
 <p>Function can return another function as the value of the function call.</p>
 <blockquote>
-<p>High order function: </p>
+<p>High order function: a function that takes another function as a parameter, or a function that returns another function as a value, or a function that does both.</p>
 </blockquote>
 <h3><span id="high-order-function-example">High order function example</span></h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">let twice f v &#x3D; &#x2F;&#x2F; this function will call f function twice with parameter v and (f v)</span><br><span class="line">	f (f v) </span><br><span class="line"></span><br><span class="line">let add4 x &#x3D; </span><br><span class="line">	x + 4</span><br><span class="line"></span><br><span class="line">twice add4 10</span><br><span class="line"></span><br><span class="line">(*The output is 18*)</span><br></pre></td></tr></table></figure>
 
@@ -349,7 +403,8 @@
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">let applyToPair f (x, y) &#x3D;  &#x2F;&#x2F; parameter: f as function, (x, y) as tuple</span><br><span class="line">	(f x, f y)</span><br><span class="line">	</span><br><span class="line">let square x &#x3D; </span><br><span class="line">	x * x</span><br><span class="line">	</span><br><span class="line">applyToPair square (10, 100)</span><br></pre></td></tr></table></figure>
 
 <h3><span id="high-order-function-key-take-ways">High Order Function: Key Take ways</span></h3><ul>
-<li>A frequently used technique to construct new function from exist …</li>
+<li>A frequently used technique to construct new function from existing functions and reuse them</li>
+<li>Allow to express algorithms and pass functionality as parameters</li>
 </ul>
 <h2><span id="lambda-expression">Lambda Expression</span></h2><p>Lambda Expression is a function without a name (anonymous).</p>
 <ul>
@@ -361,10 +416,13 @@
 <ul>
 <li>Multi-line lambda are encompassed by paratheses</li>
 </ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&#96;&#96;&#96;</span><br><span class="line"></span><br><span class="line">- A lambda expression can be assigned to an identifier</span><br><span class="line"></span><br><span class="line">&#96;&#96;&#96;F#</span><br><span class="line">let square &#x3D; fun x -&gt; x * x</span><br><span class="line">let result &#x3D; square 6  &#x2F;&#x2F; function evaluation</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">(fun elem a -&gt;</span><br><span class="line">	printfn $&quot;A long line to format the value: %d&#123;a + elem&#125;&quot;)</span><br></pre></td></tr></table></figure>
 
-<p><em>How can the function ?</em></p>
-<p><em>?</em></p>
+<ul>
+<li>A lambda expression can be assigned to an identifier</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">let square &#x3D; fun x -&gt; x * x</span><br><span class="line">let result &#x3D; square 6  &#x2F;&#x2F; function evaluation</span><br></pre></td></tr></table></figure>
+
 <h3><span id="closure">Closure</span></h3><p>A function using identifier from the lexical scope that is defined within. </p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">let square &#x3D; fun x -&gt; x * x</span><br></pre></td></tr></table></figure>
 
@@ -385,9 +443,13 @@
 </li>
 </ol>
 <h2><span id="currying">Currying</span></h2><p>A functional method of handling argument</p>
-<p><em>Reminder: l</em></p>
+<p><em>Reminder:</em></p>
+<ul>
+<li>Function can accept only 1 parameter</li>
+<li>Function values can be returned from a function</li>
+</ul>
 <blockquote>
-<p>Technique for simulating a multi-parameter function by sequentially returning ifferent single parameter</p>
+<p>Technique for simulating a multi-parameter function by sequentially returning different single parameter</p>
 </blockquote>
 <h3><span id="example-1">Example #1</span></h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">let printTwoParameters x y &#x3D; </span><br><span class="line">	printfn &#39;x&#x3D;%i y &#x3D;%i&#39; x y</span><br></pre></td></tr></table></figure>
 
@@ -402,8 +464,8 @@
 <h4><span id="solution">Solution</span></h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">let addThreeParameters x &#x3D; </span><br><span class="line">	let subMethod1 y &#x3D; </span><br><span class="line">		let subMethod2 z &#x3D; </span><br><span class="line">			x + y + z</span><br><span class="line">		subMethod2</span><br><span class="line">	subMethod1</span><br><span class="line">(*</span><br><span class="line">subMethod1 return subMethod2</span><br><span class="line">addThreeParameter return subMethod2</span><br><span class="line">subMethod2 do the job which calculate x + y + z</span><br><span class="line">*)</span><br></pre></td></tr></table></figure>
 
 <p>For both implementation, they have the same function signature.</p>
-<h3><span id="key-takeaways">Key takeaways</span></h3><p>It ensure all F# functions accept only 1 inut ….</p>
-<p>…</p>
+<h3><span id="key-takeaways">Key takeaways</span></h3><p>It ensure all F# functions accept only 1 input and evaluate to 1 output</p>
+<p>It shows a lot of <strong>syntactic sugar</strong> exist in F#</p>
 <h3><span id="example-2">Example #2</span></h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">let sum x y &#x3D;</span><br><span class="line">	x + y</span><br></pre></td></tr></table></figure>
 
 <ul>
@@ -412,15 +474,21 @@
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">sum 2 3</span><br><span class="line">sum 2 4</span><br><span class="line">sum 2 5</span><br></pre></td></tr></table></figure>
 
 <ul>
-<li>Write a function to make 2 —-</li>
+<li>Write a function to make 2 a constant parameter</li>
 </ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">&#96;&#96;&#96;</span><br><span class="line"></span><br><span class="line">### Wrapper Function</span><br><span class="line"></span><br><span class="line">Example: creation of &#96;DateTime&#96; Object</span><br><span class="line"></span><br><span class="line">&#96;&#96;&#96;F#</span><br><span class="line">open system</span><br><span class="line">let buildDt year month day &#x3D; DateTime(year, month, day)</span><br><span class="line">let buildDtThisYear month day &#x3D; buildDt DateTime.UtcNow.Year month day</span><br><span class="line">let buildDtThisMonth day &#x3D; buildDtThisYear DateTime.YtcNow.Month day</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">let sumBy2 y &#x3D; sum 2 y</span><br></pre></td></tr></table></figure>
+
+<h3><span id="wrapper-function">Wrapper Function</span></h3><p>Example: creation of <code>DateTime</code> Object</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">open system</span><br><span class="line">let buildDt year month day &#x3D; DateTime(year, month, day)</span><br><span class="line">let buildDtThisYear month day &#x3D; buildDt DateTime.UtcNow.Year month day</span><br><span class="line">let buildDtThisMonth day &#x3D; buildDtThisYear DateTime.YtcNow.Month day</span><br></pre></td></tr></table></figure>
 
 <ul>
 <li>Function refactored to <em>bake-in</em> parameters</li>
 </ul>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">open system</span><br><span class="line">let buildDt year month day &#x3D; DateTime(year, month, day)</span><br><span class="line">let buildDtThisYear &#x3D; buildDt DateTime.UtcNow.Year</span><br><span class="line">let buildDtThisMonth &#x3D; buildDtThisYear DateTime.UtcNow.Month</span><br></pre></td></tr></table></figure>
 
+<blockquote>
+<p><strong>Partial Application</strong>: the act of calling a curried function to get back a new function</p>
+</blockquote>
 <h3><span id="exercise-2">Exercise #2</span></h3><p>Create a wrapper function, <code>writeToFile</code>, for writing data to a text file :</p>
 <ul>
 <li>The function should take in 3 argument in this specific order: <ul>
@@ -442,18 +510,17 @@
 </ol>
 <h4><span id="solution">Solution</span></h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">open System</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F; 1</span><br><span class="line">let writeToFileToday &#x3D; writeToFile DateTime.today</span><br><span class="line">	</span><br><span class="line">&#x2F;&#x2F; 2 </span><br><span class="line">let writeToFileSpecificName &#x3D; writeToFile &quot;some specific name&quot;</span><br><span class="line">	</span><br><span class="line">&#x2F;&#x2F; 3</span><br><span class="line">let writeFixedText &#x3D; writeToFile date filename &quot;test&quot;</span><br></pre></td></tr></table></figure>
 
-
-
 <h2><span id="function-composition">Function Composition</span></h2><p>Function can be composed by *”gluing them together”* to create a new function</p>
 <ul>
 <li>given functions <code>a -&gt; b</code> and <code>b -&gt; c</code></li>
 <li>generate a new function <code>a -&gt; c</code></li>
 </ul>
-<p>Compopse <code>&gt;&gt;</code> operater is used for this purpose</p>
+<p>Compose <code>&gt;&gt;</code> operater is used for this purpose</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">let function1 x &#x3D; x + 1</span><br><span class="line">let function2 x &#x3D; x * 2</span><br><span class="line"></span><br><span class="line">let h &#x3D; function1 &gt;&gt; function2</span><br><span class="line"></span><br><span class="line">let result &#x3D; h 100</span><br><span class="line"></span><br><span class="line">(*</span><br><span class="line">First, 100 apply to function1 which output 101</span><br><span class="line">Then, 101 apply to function2, the final result is 202</span><br><span class="line">*)</span><br></pre></td></tr></table></figure>
 
-<h3><span id="types">Types</span></h3><p>Function can be composed as long as the output type of the first function ….</p>
-<p><strong>pic</strong></p>
+<h3><span id="types">Types</span></h3><p>Function can be composed as long as the output type of the first one is the same as the input type of the second one</p>
+<img src="/2024/01/23/18656-week2/1.JPG">
+
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">let f (x:int) &#x3D; float x * 3.0</span><br><span class="line">let g (x:float) &#x3D; x &gt; 4.0</span><br></pre></td></tr></table></figure>
 
 <ul>
@@ -462,8 +529,9 @@
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">let h &#x3D; f &gt;&gt; g</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F; the function signature of h is int to boolean</span><br></pre></td></tr></table></figure>
 
 <h3><span id="backwards-compose">Backwards Compose</span></h3><p><code>&lt;&lt;</code> operator composes two functions in reverse order</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">let square x &#x3D; x * x</span><br><span class="line">let substractTwo x &#x3D; x - 2</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F; final result is 49</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">let square x &#x3D; x * x</span><br><span class="line">let substractTwo x &#x3D; x - 2</span><br><span class="line">let negate x &#x3D; -x</span><br><span class="line">let composedFunction &#x3D; square &lt;&lt; subtractTwo &lt;&lt; negate</span><br><span class="line">let result &#x3D; composedFunction 5</span><br><span class="line">&#x2F;&#x2F; final result is 49</span><br></pre></td></tr></table></figure>
 
+<p>Function composition is a way to achieve <strong>information hiding</strong> in F#</p>
 <h3><span id="exercise">Exercise</span></h3><p>Which of the following lines will compile? If there is and issue, what is it? </p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">let add n x &#x3D; x + n</span><br><span class="line">let times n x &#x3D; x * n</span><br><span class="line">let compare a b &#x3D; (a &#x3D; b)</span><br><span class="line"></span><br><span class="line">let composed1 &#x3D; add &gt;&gt; times &gt;&gt; compare</span><br><span class="line">let composed2 &#x3D; (add, times) &gt;&gt; compare</span><br><span class="line">let composed3 &#x3D; times &lt;&lt; add 2</span><br><span class="line">let composed4 &#x3D; add 2 &gt;&gt; times</span><br><span class="line">let composed5 &#x3D; add 2 &lt;&lt; times</span><br></pre></td></tr></table></figure>
 
@@ -472,6 +540,164 @@
 <p><code>composed3</code> will compile which partial application makes this work</p>
 <p><code>composed4</code> will compile and it’s equivalent of composed3</p>
 <p><code>composed5</code> won’t compile because <code>times</code> is lack of parameter and will evaluated first</p>
+<h2><span id="building-an-app-from-functions">Building an app from functions</span></h2><ol>
+<li><p>Basic functions as building blocks</p>
+<img src="/2024/01/23/18656-week2/2.JPG">
+</li>
+<li><p>Composing multiple basic functions to service</p>
+<img src="/2024/01/23/18656-week2/3.JPG">
+</li>
+<li><p>Composing services into a business workflow</p>
+<img src="/2024/01/23/18656-week2/4.JPG">
+</li>
+<li><p>Composing workflows into an application</p>
+<img src="/2024/01/23/18656-week2/5.JPG">
+
+</li>
+</ol>
+<h2><span id="match-expression">Match Expression</span></h2><p>F# Example: </p>
+<figure class="highlight fsharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> x = <span class="number">2</span></span><br><span class="line"><span class="keyword">let</span> text =</span><br><span class="line">	<span class="keyword">match</span> x <span class="keyword">with</span> <span class="comment">// test expression</span></span><br><span class="line">	| <span class="number">0</span> -&gt; <span class="string">"zero”</span></span><br><span class="line"><span class="string">	| 1 -&gt; "</span>one<span class="string">"</span></span><br><span class="line"><span class="string">	| 2 -&gt; "</span>two<span class="string">"  // pattern -&gt; result expression</span></span><br><span class="line"><span class="string">	| _ -&gt; "</span>other”</span><br><span class="line"><span class="comment">// result is "two"</span></span><br></pre></td></tr></table></figure>
+
+<h3><span id="syntax">Syntax</span></h3><ul>
+<li>The <code>match</code> keyword, preceding the expression to be evaluated</li>
+<li>The <code>with</code> keyword, indicating start of the values to compare against</li>
+<li>The vertical <code>pipe</code> character (<code>|</code>) for every pattern that will be evaluated for a match</li>
+<li>The arrow (<code>-&gt;</code>), preceding the expression to execute if the match is found</li>
+<li>Pattern matching compares a test expression with a set of patterns</li>
+<li>Upon a match, the corresponding result-expression is evaluated.</li>
+<li>Resulting value is returned from the match expression. test expression</li>
+</ul>
+<h3><span id="expression">Expression</span></h3><p>Expressions are constructs that evaluate to a value.<br>Statements are actions that a program takes.</p>
+<img src="/2024/01/23/18656-week2/6.JPG">
+
+<p>Functional programming paradigm firmly encourages expressions as the default way of working</p>
+<ul>
+<li>No notion of void functions</li>
+<li>Branching mechanisms are expressions</li>
+</ul>
+<h3><span id="return-value">Return Value</span></h3><ul>
+<li>A match expression always returns a value</li>
+<li>All clauses in the match expression must yield compatibly</li>
+</ul>
+<p>Incomplete match expression will give a warnning</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">let name &#x3D; &quot;Rafal&quot;</span><br><span class="line">let result &#x3D; </span><br><span class="line">	match name with </span><br><span class="line">	| &quot;John&quot; -&gt; &quot;the name is John&quot;</span><br><span class="line">	| &quot;Bob&quot; -&gt; &quot;Hi Bob&quot;</span><br><span class="line">	</span><br><span class="line">&#x2F;&#x2F; Compiler: warning FS0025: Incomplete pattern matches on this expression</span><br></pre></td></tr></table></figure>
+
+<h3><span id="wildcard-operator">Wildcard Operator</span></h3><p><strong>“_” matches any value</strong></p>
+<p>Anything that doesn’t match against preceding clauses will match against this one</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">let name &#x3D; &quot;Rafal”</span><br><span class="line">let result &#x3D;</span><br><span class="line">	match name with</span><br><span class="line">	| &quot;John&quot; -&gt; &quot;The name is John”</span><br><span class="line">	| &quot;Bob&quot; -&gt; &quot;Hi Bob!”</span><br><span class="line">	| _ -&gt; &quot;I don&#39;t know you!</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>Pattern matching works top down. Put the most specific patterns first and the most general last.</p>
+</blockquote>
+<h3><span id="nested-match-expressions">Nested Match Expressions</span></h3><p>Nesting match expressions introduces code complexity and should be used only for a significant number of repeated elements.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">let customer &#x3D; (&quot;good&quot;, 0)</span><br><span class="line">let limit &#x3D;</span><br><span class="line">	match customer with</span><br><span class="line">	| &quot;medium&quot;, 1 -&gt; 500</span><br><span class="line">	| &quot;good&quot;, years -&gt;</span><br><span class="line">			match years with</span><br><span class="line">			| 0 | 1 -&gt; 750</span><br><span class="line">			| 2 -&gt; 1000</span><br><span class="line">			| _ -&gt; 2000</span><br><span class="line">	| _ -&gt; 250</span><br></pre></td></tr></table></figure>
+
+<h3><span id="guard">Guard</span></h3><p>When clause (guard) allows to specify additional conditions in a match expression.</p>
+<blockquote>
+<p> A guard allows to introduce any form of a check within a pattern rather than just matching against values</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">let customer &#x3D; (&quot;good&quot;, 0)</span><br><span class="line">let limit &#x3D;</span><br><span class="line">	match customer with</span><br><span class="line">	| &quot;medium&quot;, 1 -&gt; 500</span><br><span class="line">	| &quot;good&quot;, years when years &lt;2 -&gt; 750</span><br><span class="line">	| &quot;good&quot;, 2 -&gt; 1000</span><br><span class="line">	| &quot;good&quot;, _ -&gt; 2000</span><br><span class="line">	| _ -&gt; 250</span><br></pre></td></tr></table></figure>
+
+<p>Comparing the bound values from a test expression.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F; comparing values in a when clause</span><br><span class="line">let makeOrdered aTuple &#x3D;</span><br><span class="line">	match aTuple with</span><br><span class="line">	&#x2F;&#x2F; swap if x is bigger than y</span><br><span class="line">	| (x,y) when x &gt; y -&gt; (y,x)</span><br><span class="line">	&#x2F;&#x2F; otherwise leave alone</span><br><span class="line">	| _ -&gt; aTuple</span><br></pre></td></tr></table></figure>
+
+<p>Testing properties as part of the when clause.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">let isAm aDate &#x3D;</span><br><span class="line">	match aDate:System.DateTime with </span><br><span class="line">	| x when x.Hour &lt;&#x3D; 12 -&gt; printfn &quot;AM&quot;</span><br><span class="line">	| _ -&gt; printfn &quot;PM&quot;</span><br></pre></td></tr></table></figure>
+
+<h4><span id="when-not-to-use-when">When not to use when?</span></h4><p>The compiler won’t figure out anything that happens inside the guard.</p>
+<ul>
+<li>Exhaustive pattern matching is not performed.</li>
+<li>One needs to define the default (wildcard operator) case.</li>
+</ul>
+<h3><span id="shortcut-syntax">Shortcut Syntax</span></h3><p>Parameter and <code>match .. with</code> can be omitted thanks to currying</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">let getPrice1 food &#x3D;</span><br><span class="line">	match food with</span><br><span class="line">	| &quot;banana&quot; -&gt; 0.79</span><br><span class="line">	| ”apple&quot; -&gt; 2.1</span><br><span class="line">	| &quot;tofu&quot; -&gt; 3.09</span><br><span class="line">	| _ -&gt; 0.0</span><br><span class="line"></span><br><span class="line">let getPrice &#x3D; function</span><br><span class="line">	| &quot;banana&quot; -&gt; 0.79</span><br><span class="line">	| ”apple&quot; -&gt; 2.1</span><br><span class="line">	| &quot;tofu&quot; -&gt; 3.09</span><br><span class="line">	| _ -&gt; 0.0</span><br></pre></td></tr></table></figure>
+
+<h2><span id="pattern-matching-for-structural-decomposition">Pattern Matching for Structural Decomposition</span></h2><p>Extraction and binding of specific data from within a data structure.</p>
+<p>Pattern matching is available for all the built-in F# types.</p>
+<h3><span id="tuple">Tuple</span></h3><p>“<code>,</code>“ (comma) is needed to construct (and deconstruct) tuples</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">let z &#x3D; 1, true, &quot;hello&quot;, 3.14 &#x2F;&#x2F; &quot;construct&quot; a tuple</span><br><span class="line">let z1, z2, z3, z4 &#x3D; z &#x2F;&#x2F; &quot;deconstruct&quot; a tuple</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>A new set of individual identifiers are bound to values from inside the tuple</li>
+</ul>
+<p>“<code>_</code>“ matches any input, but that the input is discarded instead of assigned to an identifier</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">let z &#x3D; 1, true, &quot;hello&quot;, 3.14</span><br><span class="line">let _,z5,_,z6 &#x3D; z &#x2F;&#x2F; ignore 1st and 3rd elements</span><br></pre></td></tr></table></figure>
+
+<h4><span id="exercise">Exercise</span></h4><p>For the code snippet below write down patterns to extract :</p>
+<ol>
+<li>The value 3 from <code>a</code> and bind it to the identifier <code>t</code></li>
+<li>The value 3 from <code>a</code> and true from <code>b</code> and bind them to the identifiers <code>c</code> and <code>d</code> respectively.</li>
+</ol>
+<p><em>Implement it in 1 line (you can start with a 2-line notation first)</em><br>3. The values <code>true</code> and <code>83</code> from <code>b</code> and bind them to the identifiers <code>e</code>and <code>f</code> respectively</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">let a &#x3D; 2, 3</span><br><span class="line">let b &#x3D; 9.0, true, ((5, 83), a)</span><br></pre></td></tr></table></figure>
+
+<h5><span id="solution">Solution:</span></h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">let _ , t &#x3D; a &#x2F;&#x2F; solution 1</span><br><span class="line">let (_, c), (_, d, _) &#x3D; a , b &#x2F;&#x2F; solution 2</span><br><span class="line">let _, e, ((_, f), _) &#x3D; b &#x2F;&#x2F; solution 3</span><br></pre></td></tr></table></figure>
+
+<h3><span id="records">Records</span></h3><p>“<code>=</code>“ sign is used to create record values</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">type ComplexNumber &#x3D; &#123;Real: float; Imaginary: float&#125;</span><br></pre></td></tr></table></figure>
+
+<p>Construction and deconstruction syntaxes are <strong>Symmetric</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">let myComplexNumber &#x3D; &#123; Real &#x3D; 1.1; Imaginary &#x3D; 2.2 &#125;</span><br><span class="line">let &#123;Real &#x3D; a; Imaginary &#x3D; b&#125; &#x3D; myComplexNumber</span><br></pre></td></tr></table></figure>
+
+<p>“<code>_</code>“ discards part of a record one doesn’t need</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">let &#123;Real &#x3D; a ; Imaginary &#x3D; _&#125; &#x3D; myComplexNumber</span><br></pre></td></tr></table></figure>
+
+<p>Alternatively, one can simply ignore an unwanted label from a Record</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">let &#123;Real &#x3D; a&#125; &#x3D; myComplexNumber</span><br></pre></td></tr></table></figure>
+
+<h3><span id="discriminated-union">Discriminated Union</span></h3><p> Use a “constructor” that refers to one of the possible union cases</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">type CardType &#x3D; Debit | Credit</span><br><span class="line">type Payment &#x3D;</span><br><span class="line">	| CreditCard of CardType</span><br><span class="line">	| Cash of float &#x2F;&#x2F; simple type (“wrapper” DU)</span><br><span class="line">	</span><br><span class="line">let myPayment &#x3D; CreditCard Debit &#x2F;&#x2F; use “CreditCard” constructor</span><br><span class="line">let yourPayment &#x3D; Cash 120.1 &#x2F;&#x2F; use “Cash” constructo</span><br></pre></td></tr></table></figure>
+
+<p> Each case must return the same data type (Payment)</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">let deconstructor x &#x3D;</span><br><span class="line">	match x with</span><br><span class="line">	| CreditCard cardType -&gt; CreditCard cardType</span><br><span class="line">	| Cash amount -&gt; Cash amount</span><br></pre></td></tr></table></figure>
+
+<p>Evaluate “deconstructor” match expression to deconstruct a discriminated union</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">let myPayment &#x3D; CreditCard Debit &#x2F;&#x2F; use “CreditCard” constructor</span><br><span class="line">let yourPayment &#x3D; Cash 120.1 &#x2F;&#x2F; use “Cash” constructor</span><br><span class="line">let result1 &#x3D; deconstructor myPayment</span><br><span class="line">let result2 &#x3D; deconstructor yourPayment</span><br></pre></td></tr></table></figure>
+
+<p> A payment processing function that accepts Debit cards and cash only</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">let processPayment payment &#x3D;</span><br><span class="line">	match payment with</span><br><span class="line">	| CreditCard Debit -&gt; printfn ”Payment with Debit card&quot;</span><br><span class="line">	| CreditCard _ -&gt; printfn &quot;This card is not accepted&quot; &#x2F;&#x2F; wildcard operator</span><br><span class="line">	| Cash amount -&gt; printfn ”Cash payment of %f&quot; amount</span><br></pre></td></tr></table></figure>
+
+<h2><span id="exercise-quiz">Exercise Quiz</span></h2><p>In programming, assignment refers to the process of storing a value in a variable. It is typically performed using the assignment operator, represented by the equals sign (=).</p>
+<p>In functional programming, binding is the action of linking an identifier and a value. In F# it is typically performed using the let keyword.</p>
+<p>There are four important differences between “assignment” and pattern-matching &amp; binding.</p>
+<p>Please fill in the text below using the following options (each is used only once):</p>
+<ol>
+<li><p>assignment</p>
+</li>
+<li><p>assignment</p>
+</li>
+<li><p>binding</p>
+</li>
+<li><p>shadowing</p>
+</li>
+<li><p>pattern-matching, </p>
+</li>
+<li><p>pattern-matching.</p>
+</li>
+<li><p>___ cannot fail</p>
+<p>___ can</p>
+</li>
+<li><p>Assignment must assign a value to at least one variable. ___ does not necessarily result in any identifiers being bound.</p>
+</li>
+<li><p>___ always makes a copy</p>
+<p>___ never causes any copies to be made</p>
+</li>
+<li><p>Re-assignment to an existing variable changes the value that is linked to that variable name. Rebinding a name does not affect any existing binding. What takes place is instead is ____.</p>
+<p>This means that the new binding takes precedence over the existing one.</p>
+</li>
+</ol>
+<h3><span id="answer">Answer</span></h3><ol>
+<li><p><strong>Assignment</strong> cannot fail. </p>
+<p><strong>Pattern-matching</strong> can.</p>
+</li>
+<li><p>Assignment must assign a value to at least one variable. <strong>Pattern-matching</strong> does not necessarily result in any identifiers being bound.</p>
+</li>
+<li><p><strong>Assignment</strong> always makes a copy</p>
+<p><strong>Binding</strong> never causes any copies to be made</p>
+</li>
+<li><p>Re-assignment to an existing variable changes the value that is linked to that variable name. Rebinding a name does not affect any existing binding. What takes place is instead is <strong>Shadowing</strong>.</p>
+<p>This means that the new binding takes precedence over the existing one.</p>
+</li>
+</ol>
 
     
 
@@ -602,9 +828,18 @@
 
 <nav id="article-nav">
   
+    <a href="/2024/01/28/18652-week3/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          18652 Foundation of Software Engineering Week 3
+        
+      </div>
+    </a>
   
-    <a href="/2024/01/23/18631-week1/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">18631 Intro To Info Security Week 1</div>
+  
+    <a href="/2024/01/23/18656-week1/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">18656 Functional Programming in Practice Week 1</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -804,18 +1039,6 @@
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">F#</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">Intro To Information Security</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">18631</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">cybersecurity</a>
               </li>
             
             <div class="clearfix"></div>
