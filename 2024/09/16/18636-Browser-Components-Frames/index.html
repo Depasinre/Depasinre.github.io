@@ -6,16 +6,23 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="https://Depasinre.github.io">
-  <title>Tag: 18636 | Turrim ; Chime</title>
+  <title>Browser Components: Frames | Turrim ; Chime</title>
   <meta name="generator" content="hexo-theme-yilia-plus">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   
-  <meta property="og:type" content="website">
-<meta property="og:title" content="Turrim ; Chime">
-<meta property="og:url" content="https://depasinre.github.io/tags/18636/index.html">
+  <meta name="description" content="This Note contains:   Security problems and mitigation strategies Browser frames iframes  Problem with un-constrained frame communication HTML5 PostMessage">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Browser Components: Frames">
+<meta property="og:url" content="https://depasinre.github.io/2024/09/16/18636-Browser-Components-Frames/index.html">
 <meta property="og:site_name" content="Turrim ; Chime">
+<meta property="og:description" content="This Note contains:   Security problems and mitigation strategies Browser frames iframes  Problem with un-constrained frame communication HTML5 PostMessage">
 <meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2024-09-16T16:53:05.000Z">
+<meta property="article:modified_time" content="2024-10-07T01:55:19.870Z">
 <meta property="article:author" content="Depasinre">
+<meta property="article:tag" content="CMU">
+<meta property="article:tag" content="Browser Security">
+<meta property="article:tag" content="18636">
 <meta name="twitter:card" content="summary">
   
     <link rel="alternative" href="/atom.xml" title="Turrim ; Chime" type="application/atom+xml">
@@ -200,103 +207,171 @@
               class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
+            <article id="post-18636-Browser-Components-Frames" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
   
   
-    
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2024" class="archive-year">2024</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	
-<a href="/2024/09/16/18636-Browser-Architecture/" class="archive-article-date">
-        <time datetime="2024-09-16T18:13:21.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2024-09-16</time>
-</a>
-
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-	
-	  <a class="archive-article-title" href="/2024/09/16/18636-Browser-Architecture/">Browser Architecture</a>
-	
+    <h1 class="article-title" itemprop="name">
+      Browser Components: Frames
     </h1>
   
 
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">CMU</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Browser Security</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">18636</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/studynotes//" class="article-tag-list-link color5">学习笔记</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	
+  
 <a href="/2024/09/16/18636-Browser-Components-Frames/" class="archive-article-date">
         <time datetime="2024-09-16T16:53:05.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2024-09-16</time>
 </a>
 
-        </div>
-    	 
   
-    <h1 itemprop="name">
-	
-	  <a class="archive-article-title" href="/2024/09/16/18636-Browser-Components-Frames/">Browser Components: Frames</a>
-	
-    </h1>
   
+    
+<div style="margin-top:10px;">
+  <span class="post-time">
+    <span class="post-meta-item-icon">
+      <!-- fonts.scss -->
+      <!-- 百度字体平台:http://fontstore.baidu.com/static/editor/index.html -->
+      <i class="icon-statistics"></i>
+      <span class="post-meta-item-text"> 字数统计:</span>
+      <span class="post-count">447字</span>
+    </span>
+  </span>
+
+  <span class="post-time">
+    &nbsp; | &nbsp;
+    <span class="post-meta-item-icon">
+      <i class="icon-book icon"></i>
+      <span class="post-meta-item-text"> 阅读时长≈</span>
+      <span class="post-count">2分</span>
+    </span>
+  </span>
+</div>
 
 
-        <div class="article-info info-on-right">
+  
+  </header>
+  
+  <div class="article-entry" itemprop="articleBody">
+    
+    <p>This Note contains: </p>
+<ul>
+<li>Security problems and mitigation strategies</li>
+<li>Browser frames</li>
+<li>iframes </li>
+<li>Problem with un-constrained frame communication</li>
+<li>HTML5 PostMessage</li>
+</ul>
+<a id="more"></a>
+
+<!-- toc -->
+
+<ul>
+<li><a href="#frames"><strong>Frames</strong></a></li>
+<li><a href="#inline-frames-iframes"><strong>Inline Frames (iframes)</strong></a><ul>
+<li><a href="#security-issues-with-iframes"><strong>Security Issues with iframes</strong></a></li>
+</ul>
+</li>
+<li><a href="#frame-busting-techniques"><strong>Frame-Busting Techniques</strong></a><ul>
+<li><a href="#attacker-defeats-frame-busting"><strong>Attacker Defeats Frame-Busting</strong></a></li>
+<li><a href="#defense-against-clickjacking"><strong>Defense Against Clickjacking</strong></a></li>
+</ul>
+</li>
+</ul>
+<!-- tocstop -->
+
+<h2><span id="frames"><strong>Frames</strong></span></h2><ul>
+<li><p><strong>Old Days:</strong><br>Frames were used primarily to organize webpage layouts but are now obsolete.</p>
+</li>
+<li><p><strong>Example:</strong></p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">HTML</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">FRAMESET</span> <span class="attr">cols</span>=<span class="string">"20%, 80%"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">FRAME</span> <span class="attr">src</span>=<span class="string">"http://cnn.com"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">FRAME</span> <span class="attr">src</span>=<span class="string">"http://nytimes.com"</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">FRAMESET</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">HTML</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>This format allowed different sections of the page to load from different URLs.</p>
+</li>
+</ul>
+<h2><span id="inline-frames-iframes"><strong>Inline Frames (iframes)</strong></span></h2><ul>
+<li><p><strong>Purpose:</strong><br>iframes embed another webpage into a sub-window on the current page. The parent page controls the size and position of the sub-window.</p>
+</li>
+<li><p><strong>New Features in HTML5:</strong></p>
+<ol>
+<li><strong>Seamless:</strong> The iframe inherits some styles from the parent page.</li>
+<li>Sandbox:<br> A security feature where iframe content is treated as originating from a unique domain, which restricts actions like:<ul>
+<li>Disabling forms and scripts</li>
+<li>Disabling plugins<br>(These restrictions can be relaxed using specific attributes, e.g., <code>sandbox=&quot;allow-forms&quot;</code>)</li>
+</ul>
+</li>
+</ol>
+<p>Example:</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">iframe</span> <span class="attr">src</span>=<span class="string">"login.html"</span> <span class="attr">sandbox</span>=<span class="string">"allow-forms"</span>&gt;</span><span class="tag">&lt;/<span class="name">iframe</span>&gt;</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p><strong>Benefits of iframes:</strong></p>
+<ul>
+<li><strong>Modular design</strong></li>
+<li><strong>Isolated content</strong>: Useful for embedding ads or videos from other domains.</li>
+</ul>
+</li>
+</ul>
+<h3><span id="security-issues-with-iframes"><strong>Security Issues with iframes</strong></span></h3><p><strong>User Confusion:</strong></p>
+<p>The source of the iframe content is not clearly visible, which can mislead users:</p>
+<ul>
+<li>The URL bar might show a trusted domain (e.g., trusted.com), but the iframe might load content from an untrusted source (e.g., ad.com).</li>
+<li>Phishing example: A fake URL like <a href="http://www.paypa1.com" target="_blank" rel="noopener">www.paypa1.com</a> could iframe actual PayPal content to trick users.</li>
+</ul>
+<p><strong>Phishing/Clickjacking Attacks:</strong></p>
+<ul>
+<li><strong>Clickjacking:</strong> Attacker embeds the victim’s page into an iframe, tricking the user into interacting with it.</li>
+<li><strong>Cross-Origin Embedding:</strong> Many websites allow cross-origin embedding, which attackers can exploit.</li>
+</ul>
+<h2><span id="frame-busting-techniques"><strong>Frame-Busting Techniques</strong></span></h2><p>Websites use <strong>JavaScript</strong> to detect and prevent their pages from being embedded in iframes. Example:</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> (top != self) &#123;</span><br><span class="line">  top.location = self.location;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">if</span> (top.location != self.location) &#123;</span><br><span class="line">  parent.location = self.location;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<h3><span id="attacker-defeats-frame-busting"><strong>Attacker Defeats Frame-Busting</strong></span></h3><p>Attackers can exploit iframe sandboxing options to disable frame-busting scripts, creating a fundamental security challenge:</p>
+<ul>
+<li><strong>Who to trust?</strong><br>Both defenders and attackers can use iframes, making it difficult to determine trustworthy content.</li>
+</ul>
+<h3><span id="defense-against-clickjacking"><strong>Defense Against Clickjacking</strong></span></h3><ol>
+<li><strong>X-Frame-Options Header:</strong><br>This header tells the browser not to allow iframe embedding of your page.</li>
+<li><strong>Content Security Policy (CSP) - frame-ancestors:</strong><br>Specifies allowed sources for embedding (or disables embedding entirely).</li>
+<li><strong>JavaScript Frame-Busting Scripts:</strong><ul>
+<li>Use well-established scripts for this; custom scripts may be vulnerable to attacks.</li>
+<li>Scripts should either prevent the page from being embedded or stop rendering if they cannot break from the iframe.</li>
+</ul>
+</li>
+</ol>
+
+    
+
+    
+
+    
+    <div class="declare"> 
+      <ul class="post-copyright">
+        <li>
+          <strong>本文作者：</strong>
+          Depasinre
+        </li>
+        <li>
+          <strong>本文链接：</strong>
+          <a href="https:/Depasinre.github.io/2024/09/16/18636-Browser-Components-Frames/" title="Browser Components: Frames" target="_blank">https:/Depasinre.github.io/2024/09/16/18636-Browser-Components-Frames/</a>
+        </li>
+        
+        <li>
+          <strong>版权声明： </strong>
           
+          本博客所有文章除特别声明外，均采用 <a href="https://github.com/JoeyBling/hexo-theme-yilia-plus/blob/master/LICENSE" rel="external nofollow" target="_blank">MIT</a> 许可协议。转载请注明出处！
+        </li>
+        
+      </ul>
+    </div>
+    
+
+  </div>
+  <div class="article-info article-info-index">
+    
+    
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
@@ -316,7 +391,7 @@
 		</ul>
 	</div>
 
-          
+    
 	<div class="article-category tagcloud">
 		<i class="icon-book icon"></i>
 		<ul class="article-tag-list">
@@ -329,203 +404,114 @@
 	</div>
 
 
+    
+
+    
+    
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <!-- <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a> -->
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+     <!-- <img src="//pan.baidu.com/share/qrcode?url=https://depasinre.github.io/2024/09/16/18636-Browser-Components-Frames/" alt="微信分享二维码"> -->
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+
+    
+    <div class="clearfix"></div>
+  </div>
   </div>
 </article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	
-<a href="/2024/09/16/18636-Browser-Components-Cookies/" class="archive-article-date">
-        <time datetime="2024-09-16T15:20:21.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2024-09-16</time>
-</a>
 
+
+<nav id="article-nav">
+  
+    <a href="/2024/09/16/18636-Browser-Architecture/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          Browser Architecture
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2024/09/16/18636-Browser-Components-Cookies/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Browser Components: Cookies</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
-  
-    <h1 itemprop="name">
-	
-	  <a class="archive-article-title" href="/2024/09/16/18636-Browser-Components-Cookies/">Browser Components: Cookies</a>
-	
-    </h1>
-  
+        
+        
+    </div>
+</aside>
 
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">CMU</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Browser Security</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">18636</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/studynotes//" class="article-tag-list-link color5">学习笔记</a>
-        		</li>
-      		
-		</ul>
-	</div>
 
 
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	
-<a href="/2024/09/04/18636-Browser-Components-Policies/" class="archive-article-date">
-        <time datetime="2024-09-04T19:31:49.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2024-09-04</time>
-</a>
-
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-	
-	  <a class="archive-article-title" href="/2024/09/04/18636-Browser-Components-Policies/">Browser Components: Policies</a>
-	
-    </h1>
-  
 
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">CMU</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Browser Security</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">18636</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/studynotes//" class="article-tag-list-link color5">学习笔记</a>
-        		</li>
-      		
-		</ul>
-	</div>
 
 
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	
-<a href="/2024/09/03/18636-Browser-Security-Introduction/" class="archive-article-date">
-        <time datetime="2024-09-04T03:38:28.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2024-09-03</time>
-</a>
-
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-	
-	  <a class="archive-article-title" href="/2024/09/03/18636-Browser-Security-Introduction/">Browser Security Introduction</a>
-	
-    </h1>
-  
 
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">CMU</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Browser Security</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">18636</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/studynotes//" class="article-tag-list-link color5">学习笔记</a>
-        		</li>
-      		
-		</ul>
-	</div>
 
 
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
-  
-
-    
 
 
           </div>
@@ -566,9 +552,9 @@
 	var yiliaConfig = {
 		mathjax: true,
 		isHome: false,
-		isPost: false,
+		isPost: true,
 		isArchive: false,
-		isTag: true,
+		isTag: false,
 		isCategory: false,
 		open_in_new: false,
 		toc_hide_index: true,

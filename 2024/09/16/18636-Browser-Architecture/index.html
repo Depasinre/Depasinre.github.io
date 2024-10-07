@@ -6,16 +6,23 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="https://Depasinre.github.io">
-  <title>Tag: 18636 | Turrim ; Chime</title>
+  <title>Browser Architecture | Turrim ; Chime</title>
   <meta name="generator" content="hexo-theme-yilia-plus">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   
-  <meta property="og:type" content="website">
-<meta property="og:title" content="Turrim ; Chime">
-<meta property="og:url" content="https://depasinre.github.io/tags/18636/index.html">
+  <meta name="description" content="This Note contains:   Security problems and mitigation strategies">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Browser Architecture">
+<meta property="og:url" content="https://depasinre.github.io/2024/09/16/18636-Browser-Architecture/index.html">
 <meta property="og:site_name" content="Turrim ; Chime">
+<meta property="og:description" content="This Note contains:   Security problems and mitigation strategies">
 <meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2024-09-16T18:13:21.000Z">
+<meta property="article:modified_time" content="2024-09-19T11:42:12.021Z">
 <meta property="article:author" content="Depasinre">
+<meta property="article:tag" content="CMU">
+<meta property="article:tag" content="Browser Security">
+<meta property="article:tag" content="18636">
 <meta name="twitter:card" content="summary">
   
     <link rel="alternative" href="/atom.xml" title="Turrim ; Chime" type="application/atom+xml">
@@ -200,41 +207,173 @@
               class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
+            <article id="post-18636-Browser-Architecture" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
   
   
-    
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2024" class="archive-year">2024</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	
+    <h1 class="article-title" itemprop="name">
+      Browser Architecture
+    </h1>
+  
+
+
+  
+  
 <a href="/2024/09/16/18636-Browser-Architecture/" class="archive-article-date">
         <time datetime="2024-09-16T18:13:21.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2024-09-16</time>
 </a>
 
-        </div>
-    	 
   
-    <h1 itemprop="name">
-	
-	  <a class="archive-article-title" href="/2024/09/16/18636-Browser-Architecture/">Browser Architecture</a>
-	
-    </h1>
   
+    
+<div style="margin-top:10px;">
+  <span class="post-time">
+    <span class="post-meta-item-icon">
+      <!-- fonts.scss -->
+      <!-- 百度字体平台:http://fontstore.baidu.com/static/editor/index.html -->
+      <i class="icon-statistics"></i>
+      <span class="post-meta-item-text"> 字数统计:</span>
+      <span class="post-count">667字</span>
+    </span>
+  </span>
+
+  <span class="post-time">
+    &nbsp; | &nbsp;
+    <span class="post-meta-item-icon">
+      <i class="icon-book icon"></i>
+      <span class="post-meta-item-text"> 阅读时长≈</span>
+      <span class="post-count">4分</span>
+    </span>
+  </span>
+</div>
 
 
-        <div class="article-info info-on-right">
+  
+  </header>
+  
+  <div class="article-entry" itemprop="articleBody">
+    
+    <p>This Note contains: </p>
+<ul>
+<li>Security problems and mitigation strategies</li>
+<li></li>
+</ul>
+<a id="more"></a>
+
+<!-- toc -->
+
+
+
+<!-- tocstop -->
+
+<p>Recall history of the web</p>
+<p>By 2000s the web is fully dynamic</p>
+<p>Ajax: Async JavaScript and XML</p>
+<p>Plugin: </p>
+<p>Modern browser: </p>
+<p>Browsers Maintain a complex distributed execution environment for programs from the web</p>
+<p>Infrastructure is too old. Same Software architecture designed for browsing static pages</p>
+<p>Patches and more patches</p>
+<p>Monolithic browsers: </p>
+<p>No architectural help for security</p>
+<p>Components often have full privileges of user</p>
+<p>No isolation: Failure/insecurity of one component affects other components</p>
+<p>Not following least privilege principle.</p>
+<p>CVE of Microsoft Internet Explorer (IE)</p>
+<p>A dew consecutive CVEs among a very long list of them.</p>
+<p>CVE of Mozilla Firefox.</p>
+<p>Examine two proposals + one real browser<br>OP, Chrome, Gazelle</p>
+<p>Secure web browsing with the OP web browser</p>
+<p>Goal: Limit the damage of web attacks</p>
+<p>Approach:<br>OS design principles<br>Formal method for verification<br>Auditing</p>
+<p>OP Design</p>
+<p>Decompose monolithic design into browser subsystems</p>
+<p>Run in separate OS-level processes</p>
+<p>Use messages passing</p>
+<p>All message through browser kernel</p>
+<p>Components are monitored</p>
+<p>Host OS sandboxing</p>
+<p>SELinux</p>
+<p>Modified Linux kernel that enforces MAC</p>
+<p>Web Instance</p>
+<p>Communication through the browser kernel<br>HTML rending engine and the plugins communicate directly with a vnc server</p>
+<p>Svnc server renders the elements locally</p>
+<p>Design enables security<br>Partitioning and constrained communication enable new security mechanisms<br>Clean separation of browser functionality and security</p>
+<p>Use a type safe language to reduce the chance of memory correction attacks<br>policy<br>plugin security policies<br>Formal methods</p>
+<p>Certify SOP + URL address bar invariant under the assumption that a component is compromised</p>
+<p>Plugin<br>Each plugin runs in its own process</p>
+<p>Security policies:<br>Provider domain policy<br>embedded plugin has the origin of content provider’s domain, not the embedding page’s domain</p>
+<p>Freedom policy<br>can access any network resource but gibe up DOM and local storage access</p>
+<p>Model checking OP design</p>
+<p>Define transition rules for the major events</p>
+<p>A transition rule</p>
+<p>An execution trace</p>
+<p>Define properties of traces</p>
+<p>Ask Model checker to check properties</p>
+<p>From initial state, can the system reach a state where the URL is updated by an attacker? </p>
+<p>Design vs implementation</p>
+<p>Suppose we prove that URL bar cannot be modified by an attacker for the model</p>
+<p>Is OP browser secure against URL bar spoofing attacks</p>
+<p>It depends:<br>Model is true to implementation: Does not miss key details<br>Implementation is correct w.r.t the model</p>
+<p>Implementation transition steps wrong, e.g., has a buffer overrun</p>
+<p>What about we verified the source code of OP?<br>the complier could have errors and generate buggy machine code</p>
+<p>Logs for auditing attacks<br>Build dependency graphs to reveal causal relation<br>Audit algorithm traverses the graph and find relevant slices<br>Challenges: Too much data or too little data</p>
+<p>Pros:<br>partitioning and constrained communication enable new security mechanisms<br>clean separation of browser functionality and security<br>Use a  type safe language to reduce the chance of memory correction attacks<br>Policy: Plugin security polices<br>Formal methods<br>Audit</p>
+<p>Cons:<br>Complexity, performance<br>Formal verification is not on source code<br>Audit can be difficult</p>
+<p>Chromium<br>Modularize Browser<br>Don’t run all parts of browser with full privileges<br>Some parts more likely to be hacked than others<br>Use Privilege separation<br>Limit impact of main exploits<br>Divided</p>
+<p><strong><strong>**</strong></strong>D<em>SD*SD</em></p>
+<p>Chrome Arch<br>Modular design<br>sandbox</p>
+<p>Render engine:<br>Render HTTP responses into bitmaps<br>Parse HTML, CSS, SVG, XML, etc.</p>
+<p>Manage of cookies, history, cache<br>Network stack<br>File System</p>
+<p>Enforce xxxxx</p>
+<p>SandBox<br>Goal: What runs inside of sandbox can’t affect outside world, exxcept via exposed API<br>Block access to all objects, resources<br>Allow certain System calls</p>
+<p>Approach:<br>Start process establish inter process<br>Xxxxx</p>
+<p>Plugin: </p>
+<p>Pose a Dilemma: widely used, but not under browser’s control<br>in browser kernel? No: Bad for reliability and security</p>
+<p>In rendering engine to be sandboxed?<br>can’t do it: not compatibility with existing plug-ins<br>At most one plug-in instance per browser</p>
+<p>Put in its own process, one per plug-in type, has full user privilege</p>
+<p>xxx</p>
+<p>xxx</p>
+<p>Security evaluation<br>Look at past vulnerabilities in other browsers.</p>
+<p>Results: Modular design can only mitgate certain attacks<br>Vulnerabilitirs caused by arbitrary code injectuoin in rendering engines</p>
+<p>can be mitigated</p>
+<p>Insufficient validation of system calls to browser kernel</p>
+<p>cannot be mitigated by sandboxing</p>
+<p>XXE (XML eXternal Entity): cause file theft</p>
+<p>Is only prevented after modifying browser kernel to block request  to file://</p>
+
+    
+
+    
+
+    
+    <div class="declare"> 
+      <ul class="post-copyright">
+        <li>
+          <strong>本文作者：</strong>
+          Depasinre
+        </li>
+        <li>
+          <strong>本文链接：</strong>
+          <a href="https:/Depasinre.github.io/2024/09/16/18636-Browser-Architecture/" title="Browser Architecture" target="_blank">https:/Depasinre.github.io/2024/09/16/18636-Browser-Architecture/</a>
+        </li>
+        
+        <li>
+          <strong>版权声明： </strong>
           
+          本博客所有文章除特别声明外，均采用 <a href="https://github.com/JoeyBling/hexo-theme-yilia-plus/blob/master/LICENSE" rel="external nofollow" target="_blank">MIT</a> 许可协议。转载请注明出处！
+        </li>
+        
+      </ul>
+    </div>
+    
+
+  </div>
+  <div class="article-info article-info-index">
+    
+    
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
@@ -254,7 +393,7 @@
 		</ul>
 	</div>
 
-          
+    
 	<div class="article-category tagcloud">
 		<i class="icon-book icon"></i>
 		<ul class="article-tag-list">
@@ -267,265 +406,114 @@
 	</div>
 
 
+    
+
+    
+    
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <!-- <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a> -->
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+     <!-- <img src="//pan.baidu.com/share/qrcode?url=https://depasinre.github.io/2024/09/16/18636-Browser-Architecture/" alt="微信分享二维码"> -->
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+
+    
+    <div class="clearfix"></div>
+  </div>
   </div>
 </article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	
-<a href="/2024/09/16/18636-Browser-Components-Frames/" class="archive-article-date">
-        <time datetime="2024-09-16T16:53:05.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2024-09-16</time>
-</a>
 
+
+<nav id="article-nav">
+  
+    <a href="/2024/09/19/LeetCode-%E5%AD%A6%E4%B9%A0-1/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          LeetCode 学习 - 1
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2024/09/16/18636-Browser-Components-Frames/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Browser Components: Frames</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
-  
-    <h1 itemprop="name">
-	
-	  <a class="archive-article-title" href="/2024/09/16/18636-Browser-Components-Frames/">Browser Components: Frames</a>
-	
-    </h1>
-  
+        
+        
+    </div>
+</aside>
 
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">CMU</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Browser Security</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">18636</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/studynotes//" class="article-tag-list-link color5">学习笔记</a>
-        		</li>
-      		
-		</ul>
-	</div>
 
 
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	
-<a href="/2024/09/16/18636-Browser-Components-Cookies/" class="archive-article-date">
-        <time datetime="2024-09-16T15:20:21.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2024-09-16</time>
-</a>
-
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-	
-	  <a class="archive-article-title" href="/2024/09/16/18636-Browser-Components-Cookies/">Browser Components: Cookies</a>
-	
-    </h1>
-  
 
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">CMU</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Browser Security</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">18636</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/studynotes//" class="article-tag-list-link color5">学习笔记</a>
-        		</li>
-      		
-		</ul>
-	</div>
 
 
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	
-<a href="/2024/09/04/18636-Browser-Components-Policies/" class="archive-article-date">
-        <time datetime="2024-09-04T19:31:49.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2024-09-04</time>
-</a>
-
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-	
-	  <a class="archive-article-title" href="/2024/09/04/18636-Browser-Components-Policies/">Browser Components: Policies</a>
-	
-    </h1>
-  
 
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">CMU</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Browser Security</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">18636</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/studynotes//" class="article-tag-list-link color5">学习笔记</a>
-        		</li>
-      		
-		</ul>
-	</div>
 
 
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	
-<a href="/2024/09/03/18636-Browser-Security-Introduction/" class="archive-article-date">
-        <time datetime="2024-09-04T03:38:28.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2024-09-03</time>
-</a>
-
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-	
-	  <a class="archive-article-title" href="/2024/09/03/18636-Browser-Security-Introduction/">Browser Security Introduction</a>
-	
-    </h1>
-  
-
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">CMU</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Browser Security</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">18636</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/studynotes//" class="article-tag-list-link color5">学习笔记</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
-  
-
-    
 
 
           </div>
@@ -566,9 +554,9 @@
 	var yiliaConfig = {
 		mathjax: true,
 		isHome: false,
-		isPost: false,
+		isPost: true,
 		isArchive: false,
-		isTag: true,
+		isTag: false,
 		isCategory: false,
 		open_in_new: false,
 		toc_hide_index: true,
