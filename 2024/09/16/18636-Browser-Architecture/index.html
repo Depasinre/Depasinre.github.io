@@ -10,15 +10,15 @@
   <meta name="generator" content="hexo-theme-yilia-plus">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   
-  <meta name="description" content="This Note contains:   Security problems and mitigation strategies">
+  <meta name="description" content="This Note contains:   Security problems and mitigation strategies Modern browser security issues Monolithic browsers and their issues Notable CVEs (Microsoft IE, Mozilla Firefox) Three proposals and a">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Browser Architecture">
 <meta property="og:url" content="https://depasinre.github.io/2024/09/16/18636-Browser-Architecture/index.html">
 <meta property="og:site_name" content="Turrim ; Chime">
-<meta property="og:description" content="This Note contains:   Security problems and mitigation strategies">
+<meta property="og:description" content="This Note contains:   Security problems and mitigation strategies Modern browser security issues Monolithic browsers and their issues Notable CVEs (Microsoft IE, Mozilla Firefox) Three proposals and a">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2024-09-16T18:13:21.000Z">
-<meta property="article:modified_time" content="2024-09-19T11:42:12.021Z">
+<meta property="article:modified_time" content="2025-01-21T01:56:51.005Z">
 <meta property="article:author" content="Depasinre">
 <meta property="article:tag" content="CMU">
 <meta property="article:tag" content="Browser Security">
@@ -235,7 +235,7 @@
       <!-- 百度字体平台:http://fontstore.baidu.com/static/editor/index.html -->
       <i class="icon-statistics"></i>
       <span class="post-meta-item-text"> 字数统计:</span>
-      <span class="post-count">667字</span>
+      <span class="post-count">887字</span>
     </span>
   </span>
 
@@ -244,7 +244,7 @@
     <span class="post-meta-item-icon">
       <i class="icon-book icon"></i>
       <span class="post-meta-item-text"> 阅读时长≈</span>
-      <span class="post-count">4分</span>
+      <span class="post-count">5分</span>
     </span>
   </span>
 </div>
@@ -258,91 +258,218 @@
     <p>This Note contains: </p>
 <ul>
 <li>Security problems and mitigation strategies</li>
-<li></li>
+<li>Modern browser security issues</li>
+<li>Monolithic browsers and their issues</li>
+<li>Notable CVEs (Microsoft IE, Mozilla Firefox)</li>
+<li>Three proposals and a real browser example (OP, Chrome, Gazelle)</li>
+<li>Secure browsing design in the OP web browser</li>
+<li>Formal methods, auditing, and model checking</li>
+<li>Comparison with Chromium (Chrome) architecture</li>
 </ul>
 <a id="more"></a>
 
 <!-- toc -->
 
-
-
+<ul>
+<li><a href="#1-history-of-the-web">1. History of the Web</a></li>
+<li><a href="#2-modern-browser-context">2. Modern Browser Context</a></li>
+<li><a href="#3-case-studies-cve-examples">3. Case Studies: CVE Examples</a></li>
+<li><a href="#4-browser-design-proposals-op-chrome-gazelle">4. Browser Design Proposals: OP, Chrome, Gazelle</a><ul>
+<li><a href="#41-secure-web-browsing-with-the-op-browser">4.1 Secure Web Browsing with the OP Browser</a></li>
+</ul>
+</li>
+<li><a href="#5-formal-verification-and-auditing">5. Formal Verification and Auditing</a></li>
+<li><a href="#6-pros-and-cons-of-the-op-design">6. Pros and Cons of the OP Design</a></li>
+<li><a href="#7-chromium-chrome-architectural-overview">7. Chromium (Chrome) Architectural Overview</a></li>
+<li><a href="#8-security-evaluation">8. Security Evaluation</a></li>
+</ul>
 <!-- tocstop -->
 
-<p>Recall history of the web</p>
-<p>By 2000s the web is fully dynamic</p>
-<p>Ajax: Async JavaScript and XML</p>
-<p>Plugin: </p>
-<p>Modern browser: </p>
-<p>Browsers Maintain a complex distributed execution environment for programs from the web</p>
-<p>Infrastructure is too old. Same Software architecture designed for browsing static pages</p>
-<p>Patches and more patches</p>
-<p>Monolithic browsers: </p>
-<p>No architectural help for security</p>
-<p>Components often have full privileges of user</p>
-<p>No isolation: Failure/insecurity of one component affects other components</p>
-<p>Not following least privilege principle.</p>
-<p>CVE of Microsoft Internet Explorer (IE)</p>
-<p>A dew consecutive CVEs among a very long list of them.</p>
-<p>CVE of Mozilla Firefox.</p>
-<p>Examine two proposals + one real browser<br>OP, Chrome, Gazelle</p>
-<p>Secure web browsing with the OP web browser</p>
-<p>Goal: Limit the damage of web attacks</p>
-<p>Approach:<br>OS design principles<br>Formal method for verification<br>Auditing</p>
-<p>OP Design</p>
-<p>Decompose monolithic design into browser subsystems</p>
-<p>Run in separate OS-level processes</p>
-<p>Use messages passing</p>
-<p>All message through browser kernel</p>
-<p>Components are monitored</p>
-<p>Host OS sandboxing</p>
-<p>SELinux</p>
-<p>Modified Linux kernel that enforces MAC</p>
-<p>Web Instance</p>
-<p>Communication through the browser kernel<br>HTML rending engine and the plugins communicate directly with a vnc server</p>
-<p>Svnc server renders the elements locally</p>
-<p>Design enables security<br>Partitioning and constrained communication enable new security mechanisms<br>Clean separation of browser functionality and security</p>
-<p>Use a type safe language to reduce the chance of memory correction attacks<br>policy<br>plugin security policies<br>Formal methods</p>
-<p>Certify SOP + URL address bar invariant under the assumption that a component is compromised</p>
-<p>Plugin<br>Each plugin runs in its own process</p>
-<p>Security policies:<br>Provider domain policy<br>embedded plugin has the origin of content provider’s domain, not the embedding page’s domain</p>
-<p>Freedom policy<br>can access any network resource but gibe up DOM and local storage access</p>
-<p>Model checking OP design</p>
-<p>Define transition rules for the major events</p>
-<p>A transition rule</p>
-<p>An execution trace</p>
-<p>Define properties of traces</p>
-<p>Ask Model checker to check properties</p>
-<p>From initial state, can the system reach a state where the URL is updated by an attacker? </p>
-<p>Design vs implementation</p>
-<p>Suppose we prove that URL bar cannot be modified by an attacker for the model</p>
-<p>Is OP browser secure against URL bar spoofing attacks</p>
-<p>It depends:<br>Model is true to implementation: Does not miss key details<br>Implementation is correct w.r.t the model</p>
-<p>Implementation transition steps wrong, e.g., has a buffer overrun</p>
-<p>What about we verified the source code of OP?<br>the complier could have errors and generate buggy machine code</p>
-<p>Logs for auditing attacks<br>Build dependency graphs to reveal causal relation<br>Audit algorithm traverses the graph and find relevant slices<br>Challenges: Too much data or too little data</p>
-<p>Pros:<br>partitioning and constrained communication enable new security mechanisms<br>clean separation of browser functionality and security<br>Use a  type safe language to reduce the chance of memory correction attacks<br>Policy: Plugin security polices<br>Formal methods<br>Audit</p>
-<p>Cons:<br>Complexity, performance<br>Formal verification is not on source code<br>Audit can be difficult</p>
-<p>Chromium<br>Modularize Browser<br>Don’t run all parts of browser with full privileges<br>Some parts more likely to be hacked than others<br>Use Privilege separation<br>Limit impact of main exploits<br>Divided</p>
-<p><strong><strong>**</strong></strong>D<em>SD*SD</em></p>
-<p>Chrome Arch<br>Modular design<br>sandbox</p>
-<p>Render engine:<br>Render HTTP responses into bitmaps<br>Parse HTML, CSS, SVG, XML, etc.</p>
-<p>Manage of cookies, history, cache<br>Network stack<br>File System</p>
-<p>Enforce xxxxx</p>
-<p>SandBox<br>Goal: What runs inside of sandbox can’t affect outside world, exxcept via exposed API<br>Block access to all objects, resources<br>Allow certain System calls</p>
-<p>Approach:<br>Start process establish inter process<br>Xxxxx</p>
-<p>Plugin: </p>
-<p>Pose a Dilemma: widely used, but not under browser’s control<br>in browser kernel? No: Bad for reliability and security</p>
-<p>In rendering engine to be sandboxed?<br>can’t do it: not compatibility with existing plug-ins<br>At most one plug-in instance per browser</p>
-<p>Put in its own process, one per plug-in type, has full user privilege</p>
-<p>xxx</p>
-<p>xxx</p>
-<p>Security evaluation<br>Look at past vulnerabilities in other browsers.</p>
-<p>Results: Modular design can only mitgate certain attacks<br>Vulnerabilitirs caused by arbitrary code injectuoin in rendering engines</p>
-<p>can be mitigated</p>
-<p>Insufficient validation of system calls to browser kernel</p>
-<p>cannot be mitigated by sandboxing</p>
-<p>XXE (XML eXternal Entity): cause file theft</p>
-<p>Is only prevented after modifying browser kernel to block request  to file://</p>
+<h2><span id="1-history-of-the-web">1. History of the Web</span></h2><ul>
+<li>Recall History of the Web:<ul>
+<li>Initially, the web was a collection of static pages.</li>
+<li>By the 2000s, the web became fully dynamic.</li>
+</ul>
+</li>
+<li>Key Milestones:<ul>
+<li><strong>Ajax:</strong> Asynchronous JavaScript and XML enabled dynamic content.</li>
+<li><strong>Plugins:</strong> Became common, though they introduced new challenges.</li>
+</ul>
+</li>
+</ul>
+<hr>
+<h2><span id="2-modern-browser-context">2. Modern Browser Context</span></h2><ul>
+<li><strong>Modern Browsers:</strong><ul>
+<li>Maintain a complex distributed execution environment for web programs.</li>
+<li>Built on an outdated infrastructure originally designed for static content.</li>
+<li>Rely on continuous patches and updates.</li>
+</ul>
+</li>
+<li><strong>Security Challenges:</strong><ul>
+<li>Monolithic Design:<ul>
+<li>Lack of architectural support for security.</li>
+<li>Components often run with full user privileges.</li>
+<li>No isolation between components: a failure or vulnerability in one component can affect others.</li>
+<li>Violates the least privilege principle.</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<hr>
+<h2><span id="3-case-studies-cve-examples">3. Case Studies: CVE Examples</span></h2><ul>
+<li>Microsoft Internet Explorer (IE):<ul>
+<li>Notable series of consecutive CVEs among many.</li>
+</ul>
+</li>
+<li>Mozilla Firefox:<ul>
+<li>Also has multiple documented CVEs.</li>
+</ul>
+</li>
+</ul>
+<hr>
+<h2><span id="4-browser-design-proposals-op-chrome-gazelle">4. Browser Design Proposals: OP, Chrome, Gazelle</span></h2><h3><span id="41-secure-web-browsing-with-the-op-browser">4.1 Secure Web Browsing with the OP Browser</span></h3><p><strong>Goal:</strong><br>Limit the damage of web attacks.</p>
+<p><strong>Approach:</strong></p>
+<ul>
+<li>Employ OS design principles.</li>
+<li>Utilize formal methods for verification.</li>
+<li>Implement robust auditing mechanisms.</li>
+</ul>
+<p><strong>Key Components of OP Design:</strong></p>
+<ul>
+<li>Modularization:<ul>
+<li>Decomposes the monolithic design into separate browser subsystems.</li>
+<li>Runs subsystems in separate OS-level processes.</li>
+<li>Communication is handled via message passing through a central browser kernel.</li>
+</ul>
+</li>
+<li>Monitoring and Sandboxing:<ul>
+<li>The kernel monitors all inter-process messages.</li>
+<li>Uses host OS sandboxing (e.g., SELinux) and a modified Linux kernel that enforces Mandatory Access Control (MAC).</li>
+</ul>
+</li>
+<li>Web Instance Communication:<ul>
+<li>The HTML rendering engine and plugins communicate directly with a VNC server.</li>
+<li>The VNC server renders elements locally, enhancing isolation.</li>
+</ul>
+</li>
+<li>Security Benefits:<ul>
+<li>Partitioned design and constrained communication channels enable new security mechanisms.</li>
+<li>Clean separation between browser functionality and security controls.</li>
+<li>Implementation in a type-safe language reduces risks of memory corruption attacks.</li>
+</ul>
+</li>
+<li>Security Policies:<ul>
+<li>For Plugins:<ul>
+<li>Provider Domain Policy: An embedded plugin inherits the origin of the content provider rather than the embedding page.</li>
+<li>Freedom Policy: Allows plugins access to network resources at the expense of DOM and local storage access.</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<hr>
+<h2><span id="5-formal-verification-and-auditing">5. Formal Verification and Auditing</span></h2><p><strong>Model Checking the OP Design:</strong></p>
+<ul>
+<li>Transition Rules:<ul>
+<li>Define rules for major events in the system.</li>
+<li>An execution trace is constructed from these rules.</li>
+</ul>
+</li>
+<li>Property Verification:<ul>
+<li>Define properties (e.g., ensuring an attacker cannot update the URL bar).</li>
+<li>Use a model checker to verify if a state violating these properties is reachable from the initial state.</li>
+</ul>
+</li>
+</ul>
+<p><strong>Design vs. Implementation:</strong></p>
+<ul>
+<li>Even if the model ensures that the URL bar cannot be modified by an attacker, the real-world security of the browser depends on:<ul>
+<li>Faithfulness of the model to the implementation.</li>
+<li>Accuracy of the implementation with respect to the model (e.g., avoiding buffer overruns in implementation steps).</li>
+<li>Potential errors in the compiler that might generate buggy machine code.</li>
+</ul>
+</li>
+</ul>
+<p><strong>Auditing Attacks:</strong></p>
+<ul>
+<li>Use logs to build dependency graphs revealing causal relationships.</li>
+<li>Audit algorithms traverse these graphs to identify relevant attack slices.</li>
+<li><strong>Challenges:</strong> Managing the volume of data (too much or too little).</li>
+</ul>
+<hr>
+<h2><span id="6-pros-and-cons-of-the-op-design">6. Pros and Cons of the OP Design</span></h2><p><strong>Pros:</strong></p>
+<ul>
+<li>Partitioning and constrained communication enable new security mechanisms.</li>
+<li>Clean separation of browser functionality and security.</li>
+<li>Use of a type-safe language reduces memory corruption attack risks.</li>
+<li>Implementation of plugin-specific security policies.</li>
+<li>Application of formal methods for verifying security invariants.</li>
+<li>Comprehensive auditing capability.</li>
+</ul>
+<p><strong>Cons:</strong></p>
+<ul>
+<li>Increased complexity and potential performance overhead.</li>
+<li>Formal verification is conducted on models rather than the actual source code.</li>
+<li>Auditing can be challenging due to data volume and complexity.</li>
+</ul>
+<hr>
+<h2><span id="7-chromium-chrome-architectural-overview">7. Chromium (Chrome) Architectural Overview</span></h2><p><strong>Key Design Principles:</strong></p>
+<ul>
+<li>Modular Design:<ul>
+<li>Separates components to prevent the entire browser from running with full privileges.</li>
+<li>Implements privilege separation to limit the impact of potential exploits.</li>
+</ul>
+</li>
+<li>Sandboxing:<ul>
+<li>Critical to ensure that what runs inside the sandbox cannot affect the outside world except through controlled APIs.</li>
+<li>Sandboxing blocks access to most system objects and resources while allowing specific, controlled system calls.</li>
+</ul>
+</li>
+</ul>
+<p><strong>Major Components:</strong></p>
+<ul>
+<li>Render Engine:<ul>
+<li>Parses and renders HTTP responses into bitmaps.</li>
+<li>Handles HTML, CSS, SVG, XML, etc.</li>
+</ul>
+</li>
+<li>Network Stack, Cookie/History/Cache Manager, and File System:<ul>
+<li>Manage various browser functionalities while enforcing security policies.</li>
+</ul>
+</li>
+</ul>
+<p><strong>Plugin Handling:</strong></p>
+<ul>
+<li>Dilemma:<ul>
+<li>Plugins are widely used but not under the direct control of the browser.</li>
+</ul>
+</li>
+<li>Common Approaches:<ul>
+<li>Running plugins in the browser kernel is avoided due to security and reliability concerns.</li>
+<li>Rendering engines remain sandboxed for compatibility issues.</li>
+<li>Typically, one plugin instance per browser, or plugins run in separate processes (often with full user privileges).</li>
+</ul>
+</li>
+</ul>
+<hr>
+<h2><span id="8-security-evaluation">8. Security Evaluation</span></h2><p><strong>Lessons from Past Vulnerabilities:</strong></p>
+<ul>
+<li>Modular Design Benefits:<ul>
+<li>Helps mitigate certain types of attacks.</li>
+</ul>
+</li>
+<li>Limitations:<ul>
+<li>Vulnerabilities due to arbitrary code injection into rendering engines can still occur.</li>
+<li>Some issues, such as insufficient validation of system calls to the browser kernel, cannot be fully mitigated by sandboxing alone.</li>
+</ul>
+</li>
+<li>Example – XXE (XML eXternal Entity) Attacks:<ul>
+<li>Can lead to file theft.</li>
+<li>Mitigation requires modifications to the browser kernel to block requests to <code>file://</code> URIs.</li>
+</ul>
+</li>
+</ul>
 
     
 
