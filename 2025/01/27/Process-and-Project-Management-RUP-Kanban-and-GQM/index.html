@@ -6,22 +6,24 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="https://Depasinre.github.io">
-  <title>10-31 Coding Gym | 空澄みのカモと</title>
+  <title>Process and Project Management: RUP, Kanban and GQM | 空澄みのカモと</title>
   <meta name="generator" content="hexo-theme-yilia-plus">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   
-  <meta name="description" content="This note includes multiple leetcode algorithm problems we discuss in Coding Gym at 10&#x2F;31, including topic:   Stack &amp; Queue Monotonicity Tree Heap">
+  <meta name="description" content="This Note contains:   RUP GQM Kanban">
 <meta property="og:type" content="article">
-<meta property="og:title" content="10-31 Coding Gym">
-<meta property="og:url" content="https://depasinre.github.io/2024/10/31/10-31-Coding-Gym/index.html">
+<meta property="og:title" content="Process and Project Management: RUP, Kanban and GQM">
+<meta property="og:url" content="https://depasinre.github.io/2025/01/27/Process-and-Project-Management-RUP-Kanban-and-GQM/index.html">
 <meta property="og:site_name" content="空澄みのカモと">
-<meta property="og:description" content="This note includes multiple leetcode algorithm problems we discuss in Coding Gym at 10&#x2F;31, including topic:   Stack &amp; Queue Monotonicity Tree Heap">
+<meta property="og:description" content="This Note contains:   RUP GQM Kanban">
 <meta property="og:locale" content="en_US">
-<meta property="article:published_time" content="2024-11-01T01:15:56.000Z">
-<meta property="article:modified_time" content="2024-11-01T02:38:35.378Z">
+<meta property="article:published_time" content="2025-01-28T03:59:45.000Z">
+<meta property="article:modified_time" content="2025-01-28T04:11:44.048Z">
 <meta property="article:author" content="Depasinre">
-<meta property="article:tag" content="Interview Preparation">
-<meta property="article:tag" content="LeetCode">
+<meta property="article:tag" content="CMU">
+<meta property="article:tag" content="Process and Project Management">
+<meta property="article:tag" content="Software Engineering">
+<meta property="article:tag" content="Development Method">
 <meta name="twitter:card" content="summary">
   
     <link rel="alternative" href="/atom.xml" title="空澄みのカモと" type="application/atom+xml">
@@ -222,14 +224,14 @@
               class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-10-31-Coding-Gym" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-Process-and-Project-Management-RUP-Kanban-and-GQM" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
   
   
     <h1 class="article-title" itemprop="name">
-      10-31 Coding Gym
+      Process and Project Management: RUP, Kanban and GQM
     </h1>
   
 
@@ -241,8 +243,8 @@
               <i class="icon-smile icon"></i> 阅读数：<span id="busuanzi_value_page_pv"></span>次
         </span>
 
-<a href="/2024/10/31/10-31-Coding-Gym/" class="archive-article-date">
-        <time datetime="2024-11-01T01:15:56.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2024-10-31</time>
+<a href="/2025/01/27/Process-and-Project-Management-RUP-Kanban-and-GQM/" class="archive-article-date">
+        <time datetime="2025-01-28T03:59:45.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2025-01-27</time>
 </a>
 
   
@@ -255,7 +257,7 @@
       <!-- 百度字体平台:http://fontstore.baidu.com/static/editor/index.html -->
       <i class="icon-statistics"></i>
       <span class="post-meta-item-text"> 字数统计:</span>
-      <span class="post-count">996字</span>
+      <span class="post-count">5.7k字</span>
     </span>
   </span>
 
@@ -264,7 +266,7 @@
     <span class="post-meta-item-icon">
       <i class="icon-book icon"></i>
       <span class="post-meta-item-text"> 阅读时长≈</span>
-      <span class="post-count">6分</span>
+      <span class="post-count">26分</span>
     </span>
   </span>
 </div>
@@ -275,101 +277,851 @@
   
   <div class="article-entry" itemprop="articleBody">
     
-    <p>This note includes multiple leetcode algorithm problems we discuss in Coding Gym at 10/31, including topic: </p>
+    <p>This Note contains: </p>
 <ul>
-<li>Stack &amp; Queue</li>
-<li>Monotonicity</li>
-<li>Tree</li>
-<li>Heap</li>
+<li>RUP</li>
+<li>GQM</li>
+<li>Kanban</li>
 </ul>
 <a id="more"></a>
 
 <!-- toc -->
 
 <ul>
-<li><a href="#1-min-stack">1. Min Stack</a><ul>
-<li><a href="#my-solution">My Solution</a></li>
+<li><a href="#1-what-is-the-rational-unified-process-rup"><strong>1. What is the Rational Unified Process (RUP)?</strong></a></li>
+<li><a href="#2-six-best-practices-of-rup"><strong>2. Six Best Practices of RUP</strong></a></li>
+<li><a href="#3-rup-process-overview"><strong>3. RUP Process Overview</strong></a><ul>
+<li><a href="#phases-of-rup-time-dimension"><strong>Phases of RUP (Time Dimension)</strong></a></li>
+<li><a href="#iterations"><strong>Iterations</strong></a></li>
 </ul>
 </li>
-<li><a href="#2-next-greater-element-i">2. Next Greater Element I</a><ul>
-<li><a href="#my-solution-1">My Solution</a></li>
+<li><a href="#4-core-workflows-static-dimension"><strong>4. Core Workflows (Static Dimension)</strong></a></li>
+<li><a href="#5-tools-supporting-rup"><strong>5. Tools Supporting RUP</strong></a></li>
+<li><a href="#6-history-of-rup"><strong>6. History of RUP</strong></a></li>
+<li><a href="#7-introduction-to-the-goal-question-metric-gqm-approach"><strong>7. Introduction to the Goal Question Metric (GQM) Approach</strong></a></li>
+<li><a href="#8-what-is-the-goal-question-metric-gqm-approach"><strong>8. What is the Goal Question Metric (GQM) Approach?</strong></a></li>
+<li><a href="#9-three-levels-of-gqm-model"><strong>9. Three Levels of GQM Model</strong></a></li>
+<li><a href="#10-structure-of-a-gqm-model"><strong>10. Structure of a GQM Model</strong></a></li>
+<li><a href="#11-the-gqm-process-how-it-works"><strong>11. The GQM Process: How It Works</strong></a></li>
+<li><a href="#12-applications-of-gqm"><strong>12. Applications of GQM</strong></a></li>
+<li><a href="#13-introduction-to-kanban-for-agile-teams"><strong>13. Introduction to Kanban for Agile Teams</strong></a></li>
+<li><a href="#14-the-kanban-board"><strong>14. The Kanban Board</strong></a></li>
+<li><a href="#15-visual-control-system"><strong>15. Visual Control System</strong></a></li>
+<li><a href="#16-work-in-process-wip-limits"><strong>16. Work in Process (WIP) Limits</strong></a></li>
+<li><a href="#17-constraints-in-kanban"><strong>17. Constraints in Kanban</strong></a></li>
+<li><a href="#18-flow-over-utilization"><strong>18. Flow Over Utilization</strong></a></li>
+<li><a href="#19-planning-for-variability"><strong>19. Planning for Variability</strong></a></li>
+<li><a href="#20-no-estimates-or-iterations"><strong>20. No Estimates or Iterations?</strong></a></li>
+<li><a href="#21-when-to-use-kanban"><strong>21. When to Use Kanban?</strong></a></li>
+<li><a href="#22-kanban-in-the-enterprise"><strong>22. Kanban in the Enterprise</strong></a><ul>
+<li><a href="#中文版">中文版</a></li>
 </ul>
 </li>
-<li><a href="#3-daily-temperatures">3. Daily Temperatures</a><ul>
-<li><a href="#my-solution-2">My Solution</a></li>
+<li><a href="#1-什么是-rational-unified-processrup"><strong>1. 什么是 Rational Unified Process（RUP）？</strong></a></li>
+<li><a href="#2-rup-的六大最佳实践six-best-practices-of-rup"><strong>2. RUP 的六大最佳实践（Six Best Practices of RUP）</strong></a><ul>
+<li><a href="#1-迭代式开发develop-software-iteratively"><strong>1. 迭代式开发（Develop Software Iteratively）</strong></a></li>
+<li><a href="#2-需求管理manage-requirements"><strong>2. 需求管理（Manage Requirements）</strong></a></li>
+<li><a href="#3-组件化架构use-component-based-architectures"><strong>3. 组件化架构（Use Component-Based Architectures）</strong></a></li>
+<li><a href="#4-可视化建模visually-model-software"><strong>4. 可视化建模（Visually Model Software）</strong></a></li>
+<li><a href="#5-软件质量验证verify-software-quality"><strong>5. 软件质量验证（Verify Software Quality）</strong></a></li>
+<li><a href="#6-控制软件变更control-changes-to-software"><strong>6. 控制软件变更（Control Changes to Software）</strong></a></li>
 </ul>
 </li>
+<li><a href="#3-rup-过程概述rup-process-overview"><strong>3. RUP 过程概述（RUP Process Overview）</strong></a><ul>
+<li><a href="#rup-的四个阶段phases-of-rup-time-dimension"><strong>RUP 的四个阶段（Phases of RUP - Time Dimension）</strong></a></li>
+<li><a href="#rup-的迭代iterations"><strong>RUP 的迭代（Iterations）</strong></a></li>
+</ul>
+</li>
+<li><a href="#4-核心工作流core-workflows-static-dimension"><strong>4. 核心工作流（Core Workflows - Static Dimension）</strong></a><ul>
+<li><a href="#六大核心工程工作流six-core-engineering-workflows"><strong>六大核心工程工作流（Six Core Engineering Workflows）</strong></a></li>
+<li><a href="#三大支持性工作流three-supporting-workflows"><strong>三大支持性工作流（Three Supporting Workflows）</strong></a></li>
+</ul>
+</li>
+<li><a href="#5-rup-相关工具tools-supporting-rup"><strong>5. RUP 相关工具（Tools Supporting RUP）</strong></a></li>
+<li><a href="#6-rup-的历史history-of-rup"><strong>6. RUP 的历史（History of RUP）</strong></a></li>
+<li><a href="#7-gqm-方法简介-introduction-to-the-goal-question-metric-gqm-approach"><strong>7. GQM 方法简介 (Introduction to the Goal Question Metric (GQM) Approach)</strong></a></li>
+<li><a href="#8-什么是-gqm-方法-what-is-the-goal-question-metric-gqm-approach"><strong>8. 什么是 GQM 方法 (What is the Goal Question Metric (GQM) Approach)?</strong></a></li>
+<li><a href="#9-gqm-模型的三个层次-three-levels-of-gqm-model"><strong>9. GQM 模型的三个层次 (Three Levels of GQM Model)</strong></a></li>
+<li><a href="#10-gqm-模型的结构-structure-of-a-gqm-model"><strong>10. GQM 模型的结构 (Structure of a GQM Model)</strong></a></li>
+<li><a href="#11-gqm-过程-the-gqm-process-how-it-works"><strong>11. GQM 过程 (The GQM Process: How It Works)</strong></a></li>
+<li><a href="#12-gqm-的应用-applications-of-gqm"><strong>12. GQM 的应用 (Applications of GQM)</strong></a></li>
+<li><a href="#13-敏捷团队中的-kanban-介绍-introduction-to-kanban-for-agile-teams"><strong>13. 敏捷团队中的 Kanban 介绍 (Introduction to Kanban for Agile Teams)</strong></a></li>
+<li><a href="#14-kanban-看板-the-kanban-board"><strong>14. Kanban 看板 (The Kanban Board)</strong></a></li>
+<li><a href="#15-可视化控制系统-visual-control-system"><strong>15. 可视化控制系统 (Visual Control System)</strong></a></li>
+<li><a href="#16-在制品-wip-限制-work-in-process-wip-limits"><strong>16. 在制品 (WIP) 限制 (Work in Process (WIP) Limits)</strong></a></li>
+<li><a href="#17-kanban-的约束管理-constraints-in-kanban"><strong>17. Kanban 的约束管理 (Constraints in Kanban)</strong></a></li>
+<li><a href="#18-流动性优先而非资源利用率-flow-over-utilization"><strong>18. 流动性优先，而非资源利用率 (Flow Over Utilization)</strong></a></li>
+<li><a href="#19-变更管理与灵活性-planning-for-variability"><strong>19. 变更管理与灵活性 (Planning for Variability)</strong></a></li>
+<li><a href="#20-kanban-是否需要估算和迭代-no-estimates-or-iterations"><strong>20. Kanban 是否需要估算和迭代? (No Estimates or Iterations?)</strong></a></li>
+<li><a href="#21-何时使用-kanban-when-to-use-kanban"><strong>21. 何时使用 Kanban? (When to Use Kanban?)</strong></a></li>
+<li><a href="#22-企业中的-kanban-kanban-in-the-enterprise"><strong>22. 企业中的 Kanban (Kanban in the Enterprise)</strong></a></li>
 </ul>
 <!-- tocstop -->
 
-<h2><span id="1-min-stack">1. Min Stack</span></h2><p>Design a stack that supports push, pop, top, and retrieving the minimum element in constant time.</p>
-<p>Implement the <code>MinStack</code> class:</p>
-<ul>
-<li><code>MinStack()</code> initializes the stack object.</li>
-<li><code>void push(int val)</code> pushes the element <code>val</code> onto the stack.</li>
-<li><code>void pop()</code> removes the element on the top of the stack.</li>
-<li><code>int top()</code> gets the top element of the stack.</li>
-<li><code>int getMin()</code> retrieves the minimum element in the stack.</li>
+<h3><span id="1-what-is-the-rational-unified-process-rup"><strong>1. What is the Rational Unified Process (RUP)?</strong></span></h3><ul>
+<li>A <strong>software engineering process</strong> that assigns tasks and responsibilities within a development organization.</li>
+<li>Aims to produce <strong>high-quality software</strong> that meets end-user needs within a <strong>predictable schedule and budget</strong>.</li>
+<li><strong>Enhances team productivity</strong> by providing access to guidelines, templates, and tool mentors.</li>
+<li><strong>Emphasizes models over documents</strong>, promoting <strong>Unified Modeling Language (UML)</strong>.</li>
+<li><strong>Configurable process</strong>, adaptable for small and large teams.</li>
 </ul>
-<p>You must implement a solution with <code>O(1)</code> time complexity for each function.</p>
-<p><strong>Example 1:</strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">Input</span><br><span class="line">[&quot;MinStack&quot;,&quot;push&quot;,&quot;push&quot;,&quot;push&quot;,&quot;getMin&quot;,&quot;pop&quot;,&quot;top&quot;,&quot;getMin&quot;]</span><br><span class="line">[[],[-2],[0],[-3],[],[],[],[]]</span><br><span class="line"></span><br><span class="line">Output</span><br><span class="line">[null,null,null,null,-3,null,0,-2]</span><br><span class="line"></span><br><span class="line">Explanation</span><br><span class="line">MinStack minStack &#x3D; new MinStack();</span><br><span class="line">minStack.push(-2);</span><br><span class="line">minStack.push(0);</span><br><span class="line">minStack.push(-3);</span><br><span class="line">minStack.getMin(); &#x2F;&#x2F; return -3</span><br><span class="line">minStack.pop();</span><br><span class="line">minStack.top();    &#x2F;&#x2F; return 0</span><br><span class="line">minStack.getMin(); &#x2F;&#x2F; return -2</span><br></pre></td></tr></table></figure>
-
-
-
-<p><strong>Constraints:</strong></p>
-<ul>
-<li><code>-231 &lt;= val &lt;= 231 - 1</code></li>
-<li>Methods <code>pop</code>, <code>top</code> and <code>getMin</code> operations will always be called on <strong>non-empty</strong> stacks.</li>
-<li>At most <code>3 * 104</code> calls will be made to <code>push</code>, <code>pop</code>, <code>top</code>, and <code>getMin</code>.</li>
+<h3><span id="2-six-best-practices-of-rup"><strong>2. Six Best Practices of RUP</strong></span></h3><ol>
+<li><strong>Develop Software Iteratively</strong><ul>
+<li>Reduces risk by allowing continuous feedback.</li>
+<li>Each iteration ends with an <strong>executable release</strong>.</li>
+<li>Helps accommodate changes in requirements.</li>
 </ul>
-<h3><span id="my-solution">My Solution</span></h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> MinStack = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">this</span>.stack = [];</span><br><span class="line">    <span class="keyword">this</span>.min = <span class="literal">Infinity</span>;</span><br><span class="line">    </span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="comment">/** </span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param <span class="type">&#123;number&#125;</span> <span class="variable">val</span></span></span></span><br><span class="line"><span class="comment"> * <span class="doctag">@return <span class="type">&#123;void&#125;</span></span></span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line">MinStack.prototype.push = <span class="function"><span class="keyword">function</span>(<span class="params">val</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">let</span> obj = &#123;<span class="attr">val</span>: val, <span class="attr">currMin</span>: <span class="literal">null</span>&#125;;</span><br><span class="line">    <span class="keyword">this</span>.min = <span class="built_in">Math</span>.min(<span class="keyword">this</span>.min, val);</span><br><span class="line">    obj.currMin = <span class="keyword">this</span>.min;</span><br><span class="line">    <span class="keyword">this</span>.stack.push(obj); </span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@return <span class="type">&#123;void&#125;</span></span></span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line">MinStack.prototype.pop = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">let</span> obj = <span class="keyword">this</span>.stack.pop();</span><br><span class="line">    <span class="keyword">if</span>(<span class="keyword">this</span>.min === obj.val)&#123;</span><br><span class="line">        <span class="keyword">if</span>(<span class="keyword">this</span>.stack.length === <span class="number">0</span>)&#123;</span><br><span class="line">            <span class="keyword">this</span>.min = <span class="literal">Infinity</span>;</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            <span class="keyword">this</span>.min = <span class="keyword">this</span>.stack[<span class="keyword">this</span>.stack.length - <span class="number">1</span>].currMin;</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> obj.val;</span><br><span class="line">    </span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@return <span class="type">&#123;number&#125;</span></span></span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line">MinStack.prototype.top = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">this</span>.stack[<span class="keyword">this</span>.stack.length - <span class="number">1</span>].val;</span><br><span class="line">    </span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@return <span class="type">&#123;number&#125;</span></span></span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line">MinStack.prototype.getMin = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">this</span>.min;</span><br><span class="line">    </span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="comment">/** </span></span><br><span class="line"><span class="comment"> * Your MinStack object will be instantiated and called as such:</span></span><br><span class="line"><span class="comment"> * var obj = new MinStack()</span></span><br><span class="line"><span class="comment"> * obj.push(val)</span></span><br><span class="line"><span class="comment"> * obj.pop()</span></span><br><span class="line"><span class="comment"> * var param_3 = obj.top()</span></span><br><span class="line"><span class="comment"> * var param_4 = obj.getMin()</span></span><br><span class="line"><span class="comment"> */</span></span><br></pre></td></tr></table></figure>
-
-
-
-<h2><span id="2-next-greater-element-i">2. Next Greater Element I</span></h2><p>The <strong>next greater element</strong> of some element <code>x</code> in an array is the <strong>first greater</strong> element that is <strong>to the right</strong> of <code>x</code> in the same array.</p>
-<p>You are given two <strong>distinct 0-indexed</strong> integer arrays <code>nums1</code> and <code>nums2</code>, where <code>nums1</code> is a subset of <code>nums2</code>.</p>
-<p>For each <code>0 &lt;= i &lt; nums1.length</code>, find the index <code>j</code> such that <code>nums1[i] == nums2[j]</code> and determine the <strong>next greater element</strong> of <code>nums2[j]</code> in <code>nums2</code>. If there is no next greater element, then the answer for this query is <code>-1</code>.</p>
-<p>Return <em>an array</em> <code>ans</code> <em>of length</em> <code>nums1.length</code> <em>such that</em> <code>ans[i]</code> <em>is the <strong>next greater element</strong> as described above.</em></p>
-<p><strong>Example 1:</strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">Input: nums1 &#x3D; [4,1,2], nums2 &#x3D; [1,3,4,2]</span><br><span class="line">Output: [-1,3,-1]</span><br><span class="line">Explanation: The next greater element for each value of nums1 is as follows:</span><br><span class="line">- 4 is underlined in nums2 &#x3D; [1,3,4,2]. There is no next greater element, so the answer is -1.</span><br><span class="line">- 1 is underlined in nums2 &#x3D; [1,3,4,2]. The next greater element is 3.</span><br><span class="line">- 2 is underlined in nums2 &#x3D; [1,3,4,2]. There is no next greater element, so the answer is -1.</span><br></pre></td></tr></table></figure>
-
-<p><strong>Example 2:</strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">Input: nums1 &#x3D; [2,4], nums2 &#x3D; [1,2,3,4]</span><br><span class="line">Output: [3,-1]</span><br><span class="line">Explanation: The next greater element for each value of nums1 is as follows:</span><br><span class="line">- 2 is underlined in nums2 &#x3D; [1,2,3,4]. The next greater element is 3.</span><br><span class="line">- 4 is underlined in nums2 &#x3D; [1,2,3,4]. There is no next greater element, so the answer is -1.</span><br></pre></td></tr></table></figure>
-
-
-
-<p><strong>Constraints:</strong></p>
-<ul>
-<li><code>1 &lt;= nums1.length &lt;= nums2.length &lt;= 1000</code></li>
-<li><code>0 &lt;= nums1[i], nums2[i] &lt;= 104</code></li>
-<li>All integers in <code>nums1</code> and <code>nums2</code> are <strong>unique</strong>.</li>
-<li>All the integers of <code>nums1</code> also appear in <code>nums2</code>.</li>
+</li>
+<li><strong>Manage Requirements</strong><ul>
+<li>Uses <strong>use cases</strong> and <strong>scenarios</strong> to define and track requirements.</li>
+<li>Ensures alignment between requirements, design, implementation, and testing.</li>
 </ul>
-<p><strong>Follow up:</strong> Could you find an <code>O(nums1.length + nums2.length)</code> solution?</p>
-<h3><span id="my-solution">My Solution</span></h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param <span class="type">&#123;number[]&#125;</span> <span class="variable">nums1</span></span></span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param <span class="type">&#123;number[]&#125;</span> <span class="variable">nums2</span></span></span></span><br><span class="line"><span class="comment"> * <span class="doctag">@return <span class="type">&#123;number[]&#125;</span></span></span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">var</span> nextGreaterElement = <span class="function"><span class="keyword">function</span>(<span class="params">nums1, nums2</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">let</span> monoStack = [];</span><br><span class="line"></span><br><span class="line">    <span class="keyword">let</span> result = <span class="keyword">new</span> <span class="built_in">Map</span>();</span><br><span class="line"></span><br><span class="line">    nums1.forEach(<span class="function">(<span class="params">value</span>) =&gt;</span> result.set(value, <span class="number">-1</span>));</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">let</span> i = <span class="number">0</span>; i &lt; nums2.length; i++)&#123;</span><br><span class="line">        <span class="keyword">while</span>(monoStack.length &gt; <span class="number">0</span> &amp;&amp; nums2[i] &gt; monoStack[monoStack.length - <span class="number">1</span>])&#123;</span><br><span class="line">            <span class="keyword">let</span> number = monoStack.pop();</span><br><span class="line">            result.set(number, nums2[i]);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span>(result.has(nums2[i]))&#123;</span><br><span class="line">            monoStack.push(nums2[i]);</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">let</span> resultArray = [];</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">let</span> i = <span class="number">0</span>; i &lt; nums1.length; i++)&#123;</span><br><span class="line">        resultArray.push(result.get(nums1[i]));</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> resultArray;</span><br><span class="line">    </span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-
-<h2><span id="3-daily-temperatures">3. Daily Temperatures</span></h2><p>Given an array of integers <code>temperatures</code> represents the daily temperatures, return <em>an array</em> <code>answer</code> <em>such that</em> <code>answer[i]</code> <em>is the number of days you have to wait after the</em> <code>ith</code> <em>day to get a warmer temperature</em>. If there is no future day for which this is possible, keep <code>answer[i] == 0</code> instead.</p>
-<p><strong>Example 1:</strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Input: temperatures &#x3D; [73,74,75,71,69,72,76,73]</span><br><span class="line">Output: [1,1,4,2,1,1,0,0]</span><br></pre></td></tr></table></figure>
-
-<p><strong>Example 2:</strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Input: temperatures &#x3D; [30,40,50,60]</span><br><span class="line">Output: [1,1,1,0]</span><br></pre></td></tr></table></figure>
-
-<p><strong>Example 3:</strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Input: temperatures &#x3D; [30,60,90]</span><br><span class="line">Output: [1,1,0]</span><br></pre></td></tr></table></figure>
-
-
-
-<p><strong>Constraints:</strong></p>
-<ul>
-<li><code>1 &lt;= temperatures.length &lt;= 105</code></li>
-<li><code>30 &lt;= temperatures[i] &lt;= 100</code></li>
+</li>
+<li><strong>Use Component-Based Architectures</strong><ul>
+<li>Focuses on <strong>early development of a robust architecture</strong>.</li>
+<li>Encourages <strong>software reuse</strong> and <strong>modular development</strong>.</li>
 </ul>
-<h3><span id="my-solution">My Solution</span></h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param <span class="type">&#123;number[]&#125;</span> <span class="variable">temperatures</span></span></span></span><br><span class="line"><span class="comment"> * <span class="doctag">@return <span class="type">&#123;number[]&#125;</span></span></span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">var</span> dailyTemperatures = <span class="function"><span class="keyword">function</span>(<span class="params">temperatures</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">let</span> stack = [];</span><br><span class="line">    <span class="keyword">let</span> result = <span class="keyword">new</span> <span class="built_in">Array</span>(temperatures.length).fill(<span class="number">0</span>);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">let</span> i = <span class="number">0</span>; i &lt; temperatures.length; i++)&#123;</span><br><span class="line">        <span class="keyword">while</span>(stack.length &gt; <span class="number">0</span> &amp;&amp; temperatures[i] &gt; stack[stack.length - <span class="number">1</span>].temp)&#123;</span><br><span class="line">            <span class="keyword">let</span> obj = stack.pop();</span><br><span class="line">            <span class="keyword">let</span> distance = i - obj.index;</span><br><span class="line">            result[obj.index] = distance;</span><br><span class="line">        &#125;</span><br><span class="line">        stack.push(&#123;<span class="attr">temp</span>: temperatures[i], <span class="attr">index</span>: i&#125;);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> result;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-
-
-
+</li>
+<li><strong>Visually Model Software</strong><ul>
+<li>Uses UML for <strong>graphical representation</strong> of software structure and behavior.</li>
+<li>Ensures clarity, consistency, and effective communication among team members.</li>
+</ul>
+</li>
+<li><strong>Verify Software Quality</strong><ul>
+<li>Incorporates <strong>continuous testing</strong> throughout development.</li>
+<li>Quality is assessed based on reliability, functionality, and performance.</li>
+</ul>
+</li>
+<li><strong>Control Changes to Software</strong><ul>
+<li>Provides a structured process for <strong>tracking and managing changes</strong>.</li>
+<li>Establishes <strong>secure workspaces</strong> and <strong>automated integration</strong>.</li>
+</ul>
+</li>
+</ol>
+<h3><span id="3-rup-process-overview"><strong>3. RUP Process Overview</strong></span></h3><ul>
+<li>Two Dimensions:<ul>
+<li><strong>Time Dimension</strong> (Phases &amp; Iterations)</li>
+<li><strong>Static Dimension</strong> (Activities, Artifacts, Workers, Workflows)</li>
+</ul>
+</li>
+</ul>
+<h4><span id="phases-of-rup-time-dimension"><strong>Phases of RUP (Time Dimension)</strong></span></h4><ol>
+<li><strong>Inception Phase</strong>: Define business case, project scope, and risks.</li>
+<li><strong>Elaboration Phase</strong>: Establish architecture, analyze risks, and refine requirements.</li>
+<li><strong>Construction Phase</strong>: Develop and integrate components; emphasize efficiency.</li>
+<li><strong>Transition Phase</strong>: Deliver software to users, conduct training, and fix issues.</li>
+</ol>
+<h4><span id="iterations"><strong>Iterations</strong></span></h4><ul>
+<li>Each phase consists of <strong>multiple iterations</strong>, allowing incremental improvements.</li>
+<li>Benefits of iterative development:<ul>
+<li><strong>Reduces risk</strong></li>
+<li><strong>Handles changes better</strong></li>
+<li><strong>Encourages software reuse</strong></li>
+<li><strong>Improves overall quality</strong></li>
+</ul>
+</li>
+</ul>
+<h3><span id="4-core-workflows-static-dimension"><strong>4. Core Workflows (Static Dimension)</strong></span></h3><ul>
+<li><strong>Six Core Engineering Workflows:</strong><ol>
+<li><strong>Business Modeling</strong>: Ensures software aligns with business needs.</li>
+<li><strong>Requirements</strong>: Captures use cases and defines system behavior.</li>
+<li><strong>Analysis &amp; Design</strong>: Develops architecture and design models.</li>
+<li><strong>Implementation</strong>: Organizes code into <strong>implementation subsystems</strong>.</li>
+<li><strong>Testing</strong>: Validates system reliability and functionality.</li>
+<li><strong>Deployment</strong>: Manages product release and user adoption.</li>
+</ol>
+</li>
+<li><strong>Three Supporting Workflows:</strong><ol>
+<li><strong>Project Management</strong>: Plans and monitors software development.</li>
+<li><strong>Configuration &amp; Change Management</strong>: Controls artifact versions and changes.</li>
+<li><strong>Environment</strong>: Provides the tools and processes for development.</li>
+</ol>
+</li>
+</ul>
+<h3><span id="5-tools-supporting-rup"><strong>5. Tools Supporting RUP</strong></span></h3><ul>
+<li><strong>Rational Requisite Pro</strong>: Requirement tracking.</li>
+<li><strong>Rational Rose</strong>: Visual modeling tool (UML).</li>
+<li><strong>Rational Clear Quest</strong>: Change request management.</li>
+<li><strong>Rational Team Test</strong>: Automated functional testing.</li>
+<li><strong>Rational ClearCase</strong>: Configuration management.</li>
+<li><strong>Rational SoDA</strong>: Automated documentation generation.</li>
+</ul>
+<h3><span id="6-history-of-rup"><strong>6. History of RUP</strong></span></h3><ul>
+<li><strong>Evolved from Objectory Process (by Ivar Jacobson, 1987)</strong>.</li>
+<li><strong>Merged with Rational Software and adopted UML</strong>.</li>
+<li><strong>Incorporated iterative development, architecture focus, and project management</strong>.</li>
+</ul>
+<h3><span id="7-introduction-to-the-goal-question-metric-gqm-approach"><strong>7. Introduction to the Goal Question Metric (GQM) Approach</strong></span></h3><ul>
+<li><strong>Purpose of Measurement in Software Development</strong>:<ul>
+<li>Helps in <strong>project planning</strong> (e.g., cost estimation).</li>
+<li>Assesses <strong>processes and products</strong> (e.g., error frequency, defect density).</li>
+<li>Supports <strong>decision-making</strong> on software quality improvement.</li>
+<li>Allows tracking progress and taking <strong>corrective actions</strong>.</li>
+</ul>
+</li>
+<li><strong>Effective Measurement Must Be</strong>:<ol>
+<li><strong>Goal-focused</strong> (i.e., must be tied to business or project objectives).</li>
+<li><strong>Applied across all life-cycle products, processes, and resources</strong>.</li>
+<li><strong>Interpreted in the context of organizational goals</strong>.</li>
+</ol>
+</li>
+</ul>
+<h3><span id="8-what-is-the-goal-question-metric-gqm-approach"><strong>8. What is the Goal Question Metric (GQM) Approach?</strong></span></h3><ul>
+<li><p><strong>Main Idea</strong>:</p>
+<ul>
+<li>Organizations should define <strong>goals</strong>, link them to specific <strong>questions</strong>, and then derive <strong>metrics</strong> to measure progress.</li>
+</ul>
+</li>
+<li><p><strong>Origins</strong>:</p>
+<ul>
+<li>Originally developed at NASA’s <strong>Goddard Space Flight Center</strong>.</li>
+<li>Evolved to be part of the <strong>Quality Improvement Paradigm</strong> and <strong>Experience Factory model</strong>.</li>
+</ul>
+</li>
+<li><p><strong>Key Output of GQM</strong>:</p>
+<ul>
+<li><p>A </p>
+<p>  measurement system</p>
+<p>   with:</p>
+<ol>
+<li>Defined <strong>goals</strong>.</li>
+<li><strong>Questions</strong> that break down goals into measurable aspects.</li>
+<li><strong>Metrics</strong> that provide quantifiable answers to those questions.</li>
+</ol>
+</li>
+</ul>
+</li>
+</ul>
+<h3><span id="9-three-levels-of-gqm-model"><strong>9. Three Levels of GQM Model</strong></span></h3><ol>
+<li><strong>Conceptual Level (GOAL)</strong>:<ul>
+<li>Defines objectives for:<ul>
+<li><strong>Products</strong> (e.g., software specifications, designs).</li>
+<li><strong>Processes</strong> (e.g., testing, development activities).</li>
+<li><strong>Resources</strong> (e.g., team members, tools, infrastructure).</li>
+</ul>
+</li>
+<li>Goals are defined with respect to <strong>quality models</strong> and specific viewpoints.</li>
+</ul>
+</li>
+<li><strong>Operational Level (QUESTION)</strong>:<ul>
+<li>Questions help assess <strong>goal achievement</strong>.</li>
+<li>They describe how to evaluate <strong>product/process quality</strong>.</li>
+<li>Example: <em>How many defects are found per testing cycle?</em></li>
+</ul>
+</li>
+<li><strong>Quantitative Level (METRIC)</strong>:<ul>
+<li><strong>Objective Metrics</strong>: Independent of perspective (e.g., number of defects, lines of code, staff hours).</li>
+<li><strong>Subjective Metrics</strong>: Depend on perspective (e.g., user satisfaction, readability of documentation).</li>
+</ul>
+</li>
+</ol>
+<h3><span id="10-structure-of-a-gqm-model"><strong>10. Structure of a GQM Model</strong></span></h3><ul>
+<li><strong>A hierarchical breakdown</strong>:<ul>
+<li><strong>Goals → Questions → Metrics</strong>.</li>
+<li>Goals are refined into <strong>several questions</strong>.</li>
+<li>Each question is <strong>answered using metrics</strong>.</li>
+<li>The same metric can be used for different questions.</li>
+</ul>
+</li>
+<li><strong>Example of a GQM Model for Change Request Processing</strong>:<ul>
+<li><strong>Goal</strong>: Improve the timeliness of processing change requests (from the project manager’s viewpoint).</li>
+<li>Questions:<ol>
+<li>What is the current change request processing speed?</li>
+<li>Is the performance improving?</li>
+<li>Are the required steps actually being followed?</li>
+</ol>
+</li>
+<li>Metrics:<ul>
+<li>Average cycle time.</li>
+<li>Standard deviation in processing time.</li>
+<li>Number of cases outside acceptable limits.</li>
+<li>Subjective ratings by project managers.</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3><span id="11-the-gqm-process-how-it-works"><strong>11. The GQM Process: How It Works</strong></span></h3><ol>
+<li><strong>Identify Goals</strong>:<ul>
+<li>Goals come from <strong>corporate strategies, policies, and business needs</strong>.</li>
+<li>Goals should align with <strong>quality improvement objectives</strong>.</li>
+</ul>
+</li>
+<li><strong>Define Questions</strong>:<ul>
+<li>Questions should help <strong>evaluate</strong> whether the goal is being met.</li>
+<li>At least three types:<ul>
+<li><strong>Characterization questions</strong> (e.g., How does the process work currently?).</li>
+<li><strong>Performance evaluation questions</strong> (e.g., Is the process getting better?).</li>
+<li><strong>Satisfaction questions</strong> (e.g., Is management satisfied with the improvements?).</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><strong>Define Metrics</strong>:<ul>
+<li>Use a combination of <strong>existing data</strong> and <strong>newly collected data</strong>.</li>
+<li>Consider <strong>objectivity</strong> (e.g., numerical data) vs. <strong>subjectivity</strong> (e.g., opinions, surveys).</li>
+<li>Ensure metrics support <strong>continuous improvement and learning</strong>.</li>
+</ul>
+</li>
+<li><strong>Data Collection &amp; Analysis</strong>:<ul>
+<li>Choose appropriate <strong>data collection methods</strong>.</li>
+<li>Ensure <strong>reliable interpretation</strong> using predefined rules.</li>
+</ul>
+</li>
+</ol>
+<h3><span id="12-applications-of-gqm"><strong>12. Applications of GQM</strong></span></h3><ul>
+<li><strong>Used in software quality and process improvement programs</strong>.</li>
+<li>Applied in companies like <strong>NASA, Hewlett-Packard, Motorola, and Coopers &amp; Lybrand</strong>.</li>
+<li>Can be integrated into broader <strong>software engineering strategies</strong> (e.g., Experience Factory model).</li>
+</ul>
+<h3><span id="13-introduction-to-kanban-for-agile-teams"><strong>13. Introduction to Kanban for Agile Teams</strong></span></h3><ul>
+<li><p><strong>Kanban is a lightweight framework</strong> for managing work, often integrated with Agile methodologies like Scrum.</p>
+</li>
+<li><p>Three primary steps</p>
+<p>  in implementing Kanban:</p>
+<ol>
+<li><strong>Visualize the process</strong> (using a Kanban board).</li>
+<li><strong>Limit Work in Process (WIP)</strong> (to improve efficiency).</li>
+<li><strong>Manage Lead Time</strong> (optimize flow and remove bottlenecks).</li>
+</ol>
+</li>
+</ul>
+<h3><span id="14-the-kanban-board"><strong>14. The Kanban Board</strong></span></h3><ul>
+<li>A <strong>visual tool</strong> that represents the <strong>flow of work</strong> through a process.</li>
+<li>Resembles a Scrum task board but has <strong>key differences</strong>:<ul>
+<li>Focuses on <strong>continuous flow</strong> rather than iterations.</li>
+<li>Uses <strong>WIP limits</strong> to control work quantity in each column.</li>
+<li>Allows for <strong>pull-based</strong> task management (work moves forward when capacity allows).</li>
+</ul>
+</li>
+<li><strong>Common Kanban Board Columns</strong>:<ul>
+<li><strong>Next</strong> (Ready for work)</li>
+<li><strong>Analysis</strong></li>
+<li><strong>Development</strong></li>
+<li><strong>Acceptance</strong></li>
+<li><strong>Production (Done)</strong></li>
+</ul>
+</li>
+</ul>
+<h3><span id="15-visual-control-system"><strong>15. Visual Control System</strong></span></h3><ul>
+<li>Kanban boards act as a <strong>Visual Control System</strong> that enhances transparency.</li>
+<li>Examples:<ul>
+<li><strong>Tool rack silhouettes</strong> show where tools belong.</li>
+<li><strong>Assignment boards</strong> track team members’ work using color-coded magnets.</li>
+</ul>
+</li>
+<li>Benefits:<ul>
+<li><strong>Improves communication</strong> across the team.</li>
+<li><strong>Identifies bottlenecks</strong> immediately.</li>
+<li><strong>Encourages self-organization</strong> without direct managerial intervention.</li>
+</ul>
+</li>
+</ul>
+<h3><span id="16-work-in-process-wip-limits"><strong>16. Work in Process (WIP) Limits</strong></span></h3><ul>
+<li><p><strong>Definition</strong>: WIP limits <strong>restrict</strong> the number of work items allowed in each column.</p>
+</li>
+<li><p><strong>Why is WIP Limiting Important?</strong></p>
+<ul>
+<li>Reduces <strong>Lead Time</strong> (total time from start to completion).</li>
+<li>Prevents <strong>task switching</strong>, which increases efficiency.</li>
+<li>Encourages <strong>teamwork</strong> by focusing on clearing bottlenecks.</li>
+</ul>
+</li>
+<li><p><strong>Little’s Law</strong> explains the relationship:<br>  $$<br>  {\text{Lead Time} = \frac{\text{WIP}}{\text{Cycle Time}}}<br>  $$</p>
+</li>
+</ul>
+<ul>
+<li><p>To <strong>reduce Lead Time</strong>, lower the WIP limit.</p>
+</li>
+<li><p><strong>Scrum vs. Kanban on WIP</strong>:</p>
+<ul>
+<li>Scrum <strong>implicitly</strong> controls WIP through sprint planning.</li>
+<li>Kanban <strong>explicitly</strong> limits WIP at each stage of work.</li>
+</ul>
+</li>
+</ul>
+<h3><span id="17-constraints-in-kanban"><strong>17. Constraints in Kanban</strong></span></h3><ul>
+<li><strong>WIP limits expose system constraints</strong> by highlighting stages where work piles up.</li>
+<li>When a constraint is identified:<ul>
+<li>The team <strong>stops pulling new work</strong> until the bottleneck is resolved.</li>
+<li>Encourages <strong>collaborative problem-solving</strong>.</li>
+</ul>
+</li>
+<li>Difference from Scrum:<ul>
+<li>Scrum addresses issues <strong>retrospectively</strong> (after a sprint).</li>
+<li>Kanban <strong>actively reacts</strong> to constraints in <strong>real-time</strong>.</li>
+</ul>
+</li>
+</ul>
+<h3><span id="18-flow-over-utilization"><strong>18. Flow Over Utilization</strong></span></h3><ul>
+<li>Traditional organizations focus on <strong>100% resource utilization</strong>.</li>
+<li>Kanban <strong>prioritizes flow</strong> over full utilization.</li>
+<li>Key concepts:<ul>
+<li><strong>Flow efficiency</strong> is more important than keeping people constantly busy.</li>
+<li>Specializing generalists (team members with overlapping skills) improve adaptability.</li>
+</ul>
+</li>
+</ul>
+<h3><span id="19-planning-for-variability"><strong>19. Planning for Variability</strong></span></h3><ul>
+<li>Software development is <strong>inherently variable</strong> (uncertain task durations, changing requirements).</li>
+<li>Kanban <strong>embraces variability</strong> instead of trying to eliminate it.</li>
+<li>Approach:<ul>
+<li>Use <strong>small batch sizes</strong> to accommodate changes.</li>
+<li>Adjust WIP limits based on observed throughput.</li>
+</ul>
+</li>
+</ul>
+<h3><span id="20-no-estimates-or-iterations"><strong>20. No Estimates or Iterations?</strong></span></h3><ul>
+<li><strong>Kanban doesn’t require fixed iterations</strong> (like Scrum’s sprints).</li>
+<li><strong>Does not rely on estimates</strong>:<ul>
+<li>Focuses on <strong>tracking Lead Time</strong> instead.</li>
+<li>Uses <strong>historical data</strong> to predict delivery times.</li>
+</ul>
+</li>
+<li><strong>Comparison of Metrics</strong>:<ul>
+<li><strong>Scrum</strong>: Velocity (story points per sprint).</li>
+<li><strong>Kanban</strong>: Lead Time (average time to complete a task).</li>
+</ul>
+</li>
+</ul>
+<h3><span id="21-when-to-use-kanban"><strong>21. When to Use Kanban?</strong></span></h3><ul>
+<li>Best suited for teams that:<ul>
+<li>Have <strong>highly variable workloads</strong>.</li>
+<li>Need <strong>continuous delivery</strong> rather than fixed iterations.</li>
+<li>Want to <strong>optimize efficiency</strong> by limiting WIP.</li>
+</ul>
+</li>
+<li>Can be used alongside <strong>Scrum (Scrumban)</strong> to balance predictability and flexibility.</li>
+</ul>
+<h3><span id="22-kanban-in-the-enterprise"><strong>22. Kanban in the Enterprise</strong></span></h3><ul>
+<li>Kanban is <strong>scalable</strong> to large organizations.</li>
+<li>Benefits in enterprise settings:<ul>
+<li>Improves <strong>predictability</strong> and <strong>due date performance</strong>.</li>
+<li>Helps <strong>manage dependencies</strong> between teams.</li>
+<li>Enhances <strong>collaboration</strong> across different business units.</li>
+</ul>
+</li>
+</ul>
+<h2><span id="中文版">中文版</span></h2><h3><span id="1-什么是-rational-unified-processrup"><strong>1. 什么是 Rational Unified Process（RUP）？</strong></span></h3><ul>
+<li><strong>软件工程过程（Software Engineering Process）</strong>：RUP 是一种<strong>软件工程过程</strong>，用于在开发组织中<strong>分配任务和责任</strong>，确保高效的软件开发。</li>
+<li>目标（Aims）：<ul>
+<li>目标是开发出<strong>高质量软件</strong>（high-quality software）。</li>
+<li>该软件要满足<strong>最终用户的需求</strong>（meets end-user needs）。</li>
+<li>要求在<strong>可预测的时间表和预算</strong>（predictable schedule and budget）内完成开发。</li>
+</ul>
+</li>
+<li>提高团队生产力（Enhances team productivity）：<ul>
+<li>通过提供<strong>指南（guidelines）</strong>、<strong>模板（templates）</strong> 和<strong>工具指导（tool mentors）</strong>来提高开发效率。</li>
+</ul>
+</li>
+<li>模型优先（Emphasizes models over documents）：<ul>
+<li>强调使用<strong>模型化方法</strong>，而非传统的文档驱动开发。</li>
+<li>推广使用<strong>统一建模语言（UML，Unified Modeling Language）</strong> 来可视化系统设计和架构。</li>
+</ul>
+</li>
+<li>可配置性（Configurable process）：<ul>
+<li>RUP 是一种<strong>可配置的开发过程</strong>（configurable process）。</li>
+<li>适用于<strong>小型团队（small teams）</strong> 和<strong>大型企业（large teams）</strong>，可以根据不同的项目需求进行调整。</li>
+</ul>
+</li>
+</ul>
+<h3><span id="2-rup-的六大最佳实践six-best-practices-of-rup"><strong>2. RUP 的六大最佳实践（Six Best Practices of RUP）</strong></span></h3><h4><span id="1-迭代式开发develop-software-iteratively"><strong>1. 迭代式开发（Develop Software Iteratively）</strong></span></h4><ul>
+<li>降低风险（Reduces risk）：<ul>
+<li>采用迭代开发可以<strong>持续获取用户反馈</strong>，并在早期识别和解决问题，从而降低项目风险。</li>
+</ul>
+</li>
+<li>每次迭代结束都会产生一个可执行版本（Each iteration ends with an executable release）：<ul>
+<li>迭代结束后，团队会交付一个<strong>可运行的版本</strong>，确保每个阶段都有实际产出。</li>
+</ul>
+</li>
+<li>适应需求变更（Helps accommodate changes in requirements）：<ul>
+<li>迭代开发支持<strong>需求变更</strong>，可以根据用户反馈或市场需求随时调整功能。</li>
+</ul>
+</li>
+</ul>
+<h4><span id="2-需求管理manage-requirements"><strong>2. 需求管理（Manage Requirements）</strong></span></h4><ul>
+<li>使用用例和场景（Uses use cases and scenarios）：<ul>
+<li>用<strong>用例（Use Cases）</strong> 和<strong>场景（Scenarios）</strong> 来定义和跟踪软件需求。</li>
+</ul>
+</li>
+<li>确保需求、设计、实现和测试保持一致（Ensures alignment between requirements, design, implementation, and testing）：<ul>
+<li>需求管理贯穿整个开发过程，确保需求、设计、实现和测试相互匹配，避免出现偏差。</li>
+</ul>
+</li>
+</ul>
+<h4><span id="3-组件化架构use-component-based-architectures"><strong>3. 组件化架构（Use Component-Based Architectures）</strong></span></h4><ul>
+<li>关注早期架构开发（Focuses on early development of a robust architecture）：<ul>
+<li>在早期就设计并稳定<strong>软件架构</strong>，为后续开发提供坚实基础。</li>
+</ul>
+</li>
+<li>鼓励软件复用（Encourages software reuse）：<ul>
+<li>采用<strong>组件化（Component-Based）</strong> 方式，使不同项目可以<strong>复用已有的组件</strong>，降低开发成本，提高效率。</li>
+</ul>
+</li>
+<li>支持模块化开发（Encourages modular development）：<ul>
+<li>软件被拆分成多个<strong>独立的模块</strong>，提升可维护性和可扩展性。</li>
+</ul>
+</li>
+</ul>
+<h4><span id="4-可视化建模visually-model-software"><strong>4. 可视化建模（Visually Model Software）</strong></span></h4><ul>
+<li>采用 UML 进行建模（Uses UML for graphical representation）：<ul>
+<li>使用<strong>UML（Unified Modeling Language，统一建模语言</strong> 来创建软件的 <strong>结构和行为图</strong>。</li>
+</ul>
+</li>
+<li>确保清晰度、一致性和有效沟通（Ensures clarity, consistency, and effective communication）：<ul>
+<li>UML <strong>可视化</strong> 软件设计，<strong>减少沟通误解</strong>，确保开发人员、架构师和测试人员的<strong>一致理解</strong>。</li>
+</ul>
+</li>
+</ul>
+<h4><span id="5-软件质量验证verify-software-quality"><strong>5. 软件质量验证（Verify Software Quality）</strong></span></h4><ul>
+<li>在整个开发过程中进行持续测试（Incorporates continuous testing throughout development）：<ul>
+<li>质量控制不是等软件完成后才开始，而是贯穿整个开发生命周期。</li>
+</ul>
+</li>
+<li>质量评估标准（Quality is assessed based on reliability, functionality, and performance）：<ul>
+<li>质量检查包括：<ul>
+<li><strong>可靠性（Reliability）</strong>：软件能否长期稳定运行。</li>
+<li><strong>功能性（Functionality）</strong>：软件是否符合需求规格。</li>
+<li><strong>性能（Performance）</strong>：软件是否高效运行。</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h4><span id="6-控制软件变更control-changes-to-software"><strong>6. 控制软件变更（Control Changes to Software）</strong></span></h4><ul>
+<li>提供结构化流程（Provides a structured process for tracking and managing changes）：<ul>
+<li>RUP 提供了一套<strong>标准化的变更管理流程</strong>，帮助团队有效管理变更，减少版本冲突。</li>
+</ul>
+</li>
+<li>建立安全工作环境（Establishes secure workspaces and automated integration）：<ul>
+<li>采用<strong>版本控制（Version Control）</strong>和<strong>自动化集成（Automated Integration）</strong>技术，保证变更不会影响系统稳定性。</li>
+</ul>
+</li>
+</ul>
+<h3><span id="3-rup-过程概述rup-process-overview"><strong>3. RUP 过程概述（RUP Process Overview）</strong></span></h3><p>RUP 由<strong>两个维度（Two Dimensions）</strong> 组成：</p>
+<ol>
+<li><strong>时间维度（Time Dimension）</strong>：包括<strong>阶段（Phases）</strong> 和 <strong>迭代（Iterations）</strong>。</li>
+<li><strong>静态维度（Static Dimension）</strong>：包括<strong>活动（Activities）、工件（Artifacts）、角色（Workers）、工作流（Workflows）</strong>。</li>
+</ol>
+<h4><span id="rup-的四个阶段phases-of-rup-time-dimension"><strong>RUP 的四个阶段（Phases of RUP - Time Dimension）</strong></span></h4><ol>
+<li><strong>初始阶段（Inception Phase）</strong>：<ul>
+<li>确定<strong>商业目标（Business Case）</strong>、<strong>项目范围（Project Scope）</strong> 和<strong>关键风险（Risks）</strong>。</li>
+</ul>
+</li>
+<li><strong>细化阶段（Elaboration Phase）</strong>：<ul>
+<li>确立<strong>架构（Architecture）</strong>，分析<strong>风险（Risks）</strong>，细化<strong>需求（Requirements）</strong>。</li>
+</ul>
+</li>
+<li><strong>构建阶段（Construction Phase）</strong>：<ul>
+<li>进行<strong>开发和集成（Develop and Integrate Components）</strong>，强调开发<strong>高效性（Efficiency）</strong>。</li>
+</ul>
+</li>
+<li><strong>交付阶段（Transition Phase）</strong>：<ul>
+<li><strong>交付软件给最终用户（Deliver software to users）</strong>，提供<strong>用户培训（Training）</strong>，修复<strong>遗留问题（Fix Issues）</strong>。</li>
+</ul>
+</li>
+</ol>
+<h4><span id="rup-的迭代iterations"><strong>RUP 的迭代（Iterations）</strong></span></h4><ul>
+<li>每个阶段包含<strong>多个迭代（Multiple Iterations）</strong>，逐步改进产品。</li>
+<li>迭代开发的主要优势：<ul>
+<li><strong>降低风险（Reduces Risk）</strong>。</li>
+<li><strong>更好地处理变更（Handles Changes Better）</strong>。</li>
+<li><strong>促进软件复用（Encourages Software Reuse）</strong>。</li>
+<li><strong>提高整体质量（Improves Overall Quality）</strong>。</li>
+</ul>
+</li>
+</ul>
+<h3><span id="4-核心工作流core-workflows-static-dimension"><strong>4. 核心工作流（Core Workflows - Static Dimension）</strong></span></h3><h4><span id="六大核心工程工作流six-core-engineering-workflows"><strong>六大核心工程工作流（Six Core Engineering Workflows）</strong></span></h4><ol>
+<li><strong>业务建模（Business Modeling）</strong>：确保软件与<strong>业务需求一致</strong>。</li>
+<li><strong>需求（Requirements）</strong>：使用<strong>用例</strong> 记录系统功能需求。</li>
+<li><strong>分析与设计（Analysis &amp; Design）</strong>：创建<strong>架构和设计模型</strong>。</li>
+<li><strong>实现（Implementation）</strong>：管理代码和<strong>开发子系统</strong>。</li>
+<li><strong>测试（Testing）</strong>：<strong>验证系统可靠性和功能</strong>。</li>
+<li><strong>部署（Deployment）</strong>：管理<strong>软件发布</strong>和<strong>用户使用</strong>。</li>
+</ol>
+<h4><span id="三大支持性工作流three-supporting-workflows"><strong>三大支持性工作流（Three Supporting Workflows）</strong></span></h4><ol>
+<li><strong>项目管理（Project Management）</strong>：<strong>计划和监控开发过程</strong>。</li>
+<li><strong>配置与变更管理（Configuration &amp; Change Management）</strong>：<strong>控制版本和变更</strong>。</li>
+<li><strong>环境（Environment）</strong>：提供开发工具和基础设施支持。</li>
+</ol>
+<h3><span id="5-rup-相关工具tools-supporting-rup"><strong>5. RUP 相关工具（Tools Supporting RUP）</strong></span></h3><ul>
+<li><strong>Rational Requisite Pro</strong>：需求管理工具。</li>
+<li><strong>Rational Rose</strong>：UML 建模工具。</li>
+<li><strong>Rational ClearQuest</strong>：变更请求管理。</li>
+<li><strong>Rational TeamTest</strong>：自动化测试工具。</li>
+<li><strong>Rational ClearCase</strong>：版本控制管理。</li>
+<li><strong>Rational SoDA</strong>：文档自动生成工具。</li>
+</ul>
+<h3><span id="6-rup-的历史history-of-rup"><strong>6. RUP 的历史（History of RUP）</strong></span></h3><ul>
+<li><strong>1987 年</strong> Ivar Jacobson 提出了 <strong>Objectory 过程</strong>。</li>
+<li>后来<strong>与 Rational Software 合并</strong>，并采用<strong>UML</strong>。</li>
+<li>进一步<strong>引入迭代开发、架构设计和项目管理</strong>。</li>
+</ul>
+<h3><span id="7-gqm-方法简介-introduction-to-the-goal-question-metric-gqm-approach"><strong>7. GQM 方法简介 (Introduction to the Goal Question Metric (GQM) Approach)</strong></span></h3><ul>
+<li><strong>软件开发中的度量目的 (Purpose of Measurement in Software Development)</strong>:<ul>
+<li>帮助进行<strong>项目规划</strong> (例如, 进行成本估算)</li>
+<li>评估<strong>软件过程和产品</strong> (例如, 错误频率, 缺陷密度)</li>
+<li>支持<strong>质量改进的决策</strong></li>
+<li>允许<strong>跟踪进度</strong>, 并采取<strong>纠正措施</strong></li>
+</ul>
+</li>
+<li><strong>有效的度量方法必须具备以下特点 (Effective Measurement Must Be)</strong>:<ol>
+<li><strong>目标驱动 (Goal-focused)</strong> (即, 必须与业务目标或项目目标保持一致)</li>
+<li><strong>适用于整个生命周期 (Applied across all life-cycle products, processes, and resources)</strong></li>
+<li><strong>能够在组织目标的上下文中进行解释 (Interpreted in the context of organizational goals)</strong></li>
+</ol>
+</li>
+</ul>
+<h3><span id="8-什么是-gqm-方法-what-is-the-goal-question-metric-gqm-approach"><strong>8. 什么是 GQM 方法 (What is the Goal Question Metric (GQM) Approach)?</strong></span></h3><ul>
+<li><p><strong>核心思想 (Main Idea)</strong>:</p>
+<ul>
+<li>组织应先定义<strong>目标 (Goals)</strong>, 然后将目标映射到<strong>具体问题 (Questions)</strong>, 最后使用<strong>度量 (Metrics)</strong> 来衡量目标的实现情况</li>
+</ul>
+</li>
+<li><p><strong>起源 (Origins)</strong>:</p>
+<ul>
+<li>最初由 NASA <strong>戈达德航天中心 (Goddard Space Flight Center)</strong> 开发</li>
+<li>之后被扩展为<strong>质量改进范式 (Quality Improvement Paradigm, QIP)</strong> 和<strong>经验工厂模型 (Experience Factory Model)</strong> 的一部分</li>
+</ul>
+</li>
+<li><p><strong>GQM 的关键成果 (Key Output of GQM)</strong>:</p>
+<ul>
+<li><p>一个度量系统 (A measurement system)</p>
+<p>  ，包括:</p>
+<ol>
+<li><strong>明确的目标 (Defined Goals)</strong></li>
+<li><strong>能够将目标细化为可衡量方面的问题 (Questions that break down goals into measurable aspects)</strong></li>
+<li><strong>提供可量化答案的度量指标 (Metrics that provide quantifiable answers to those questions)</strong></li>
+</ol>
+</li>
+</ul>
+</li>
+</ul>
+<h3><span id="9-gqm-模型的三个层次-three-levels-of-gqm-model"><strong>9. GQM 模型的三个层次 (Three Levels of GQM Model)</strong></span></h3><ol>
+<li><strong>概念层 (Conceptual Level - GOAL)</strong>:<ul>
+<li>目标定义 (Defines objectives for):<ul>
+<li><strong>产品 (Products)</strong> (例如, 软件规范, 设计文档)</li>
+<li><strong>过程 (Processes)</strong> (例如, 测试, 开发活动)</li>
+<li><strong>资源 (Resources)</strong> (例如, 团队成员, 工具, 基础设施)</li>
+</ul>
+</li>
+<li>目标需要结合<strong>质量模型 (Quality Models)</strong> 和<strong>特定的视角 (Viewpoints)</strong> 进行定义</li>
+</ul>
+</li>
+<li><strong>操作层 (Operational Level - QUESTION)</strong>:<ul>
+<li>通过问题来<strong>评估目标的实现情况</strong></li>
+<li>问题用于分析<strong>产品、过程或资源</strong>的质量</li>
+<li>例如: <em>每个测试周期发现多少个缺陷? (How many defects are found per testing cycle?)</em></li>
+</ul>
+</li>
+<li><strong>量化层 (Quantitative Level - METRIC)</strong>:<ul>
+<li><strong>客观度量 (Objective Metrics)</strong>: 独立于主观因素 (例如, 缺陷数, 代码行数, 工时)</li>
+<li><strong>主观度量 (Subjective Metrics)</strong>: 受个人视角影响 (例如, 用户满意度, 代码可读性)</li>
+</ul>
+</li>
+</ol>
+<h3><span id="10-gqm-模型的结构-structure-of-a-gqm-model"><strong>10. GQM 模型的结构 (Structure of a GQM Model)</strong></span></h3><ul>
+<li><p><strong>GQM 采用层级结构 (A hierarchical breakdown)</strong>:</p>
+<ul>
+<li><strong>目标 → 问题 → 度量 (Goals → Questions → Metrics)</strong></li>
+<li>目标会被细化成多个<strong>关键问题</strong></li>
+<li>每个问题都会通过<strong>度量指标</strong>进行回答</li>
+<li><strong>同一个度量可以用于多个问题</strong></li>
+</ul>
+</li>
+<li><p><strong>示例: 变更请求处理的 GQM 模型 (Example of a GQM Model for Change Request Processing)</strong>:</p>
+<ul>
+<li><p><strong>目标 (Goal)</strong>: 提高变更请求处理的及时性 (Improve the timeliness of processing change requests)</p>
+</li>
+<li><p>问题 (Questions):</p>
+<ol>
+<li>当前变更请求的处理速度是多少? (What is the current change request processing speed?)</li>
+<li>变更处理流程的性能是否在提高? (Is the performance improving?)</li>
+<li>变更处理是否按照预期步骤执行? (Are the required steps actually being followed?)</li>
+</ol>
+</li>
+<li><p>度量 (Metrics):</p>
+<ul>
+<li>平均处理周期 (Average cycle time)</li>
+<li>处理时间的标准差 (Standard deviation in processing time)</li>
+<li>超出可接受范围的请求数量 (Number of cases outside acceptable limits)</li>
+<li>项目经理的主观评分 (Subjective ratings by project managers)</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3><span id="11-gqm-过程-the-gqm-process-how-it-works"><strong>11. GQM 过程 (The GQM Process: How It Works)</strong></span></h3><ol>
+<li><strong>确定目标 (Identify Goals)</strong>:<ul>
+<li>目标通常来源于<strong>企业战略、政策或业务需求 (corporate strategies, policies, and business needs)</strong></li>
+<li>目标应与<strong>质量改进目标 (quality improvement objectives)</strong> 保持一致</li>
+</ul>
+</li>
+<li><strong>定义问题 (Define Questions)</strong>:<ul>
+<li>关键问题用于评估目标是否达成</li>
+<li>至少包括以下三类问题:<ul>
+<li><strong>特性描述问题 (Characterization questions)</strong> (例如: 这个过程是如何运作的?)</li>
+<li><strong>性能评估问题 (Performance evaluation questions)</strong> (例如: 这个过程是否有所改进?)</li>
+<li><strong>满意度评估问题 (Satisfaction questions)</strong> (例如: 管理层是否对改进感到满意?)</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><strong>定义度量 (Define Metrics)</strong>:<ul>
+<li>结合<strong>已有数据 (existing data)</strong> 和<strong>新收集的数据 (newly collected data)</strong></li>
+<li>选择<strong>客观指标 (objective metrics)</strong> 和<strong>主观指标 (subjective metrics)</strong> 进行综合评估</li>
+<li>确保度量支持<strong>持续改进和学习 (continuous improvement and learning)</strong></li>
+</ul>
+</li>
+<li><strong>数据收集与分析 (Data Collection &amp; Analysis)</strong>:<ul>
+<li>选择<strong>合适的数据收集方法 (Choose appropriate data collection methods)</strong></li>
+<li>采用<strong>预定义的规则 (predefined rules)</strong> 确保数据的可靠性</li>
+</ul>
+</li>
+</ol>
+<h3><span id="12-gqm-的应用-applications-of-gqm"><strong>12. GQM 的应用 (Applications of GQM)</strong></span></h3><ul>
+<li><p><strong>用于软件质量和过程改进 (Used in software quality and process improvement programs)</strong></p>
+</li>
+<li><p>已成功应用于以下企业:</p>
+<ul>
+<li><strong>NASA (美国国家航空航天局)</strong></li>
+<li><strong>Hewlett-Packard (惠普)</strong></li>
+<li><strong>Motorola (摩托罗拉)</strong></li>
+<li><strong>Coopers &amp; Lybrand (库珀斯&amp;莱布兰)</strong></li>
+</ul>
+</li>
+<li><p><strong>可以集成到更广泛的软件工程策略中 (Can be integrated into broader software engineering strategies)</strong>，例如<strong>经验工厂模型 (Experience Factory model)</strong></p>
+</li>
+</ul>
+<h3><span id="13-敏捷团队中的-kanban-介绍-introduction-to-kanban-for-agile-teams"><strong>13. 敏捷团队中的 Kanban 介绍 (Introduction to Kanban for Agile Teams)</strong></span></h3><ul>
+<li><strong>Kanban 是一种轻量级框架 (Kanban is a lightweight framework)</strong>，用于管理工作流程，通常与<strong>Scrum 等敏捷方法结合使用</strong>。</li>
+<li><strong>实施 Kanban 的三大核心步骤 (Three primary steps in implementing Kanban)</strong>：<ol>
+<li><strong>可视化流程 (Visualize the process)</strong>：使用<strong>看板 (Kanban Board)</strong> 展示任务流转情况。</li>
+<li><strong>限制在制品 (Limit Work in Process, WIP)</strong>：控制每个阶段的工作数量，提高效率。</li>
+<li><strong>管理交付时间 (Manage Lead Time)</strong>：优化流动性，消除瓶颈。</li>
+</ol>
+</li>
+</ul>
+<h3><span id="14-kanban-看板-the-kanban-board"><strong>14. Kanban 看板 (The Kanban Board)</strong></span></h3><ul>
+<li><strong>Kanban 看板是一种可视化工具 (A visual tool that represents the flow of work through a process)</strong>，用于跟踪工作进度。</li>
+<li><strong>与 Scrum 任务板的主要区别 (Key differences from a Scrum task board)</strong>：<ul>
+<li><strong>专注于持续流动 (Continuous flow)</strong>，而非固定迭代 (Iterations)。</li>
+<li><strong>通过 WIP 限制 (Work In Process Limits) 控制任务数量</strong>，确保流程稳定。</li>
+<li><strong>采用拉动式管理 (Pull-based task management)</strong>，任务根据可用资源向前流动。</li>
+</ul>
+</li>
+<li><strong>典型的 Kanban 看板列 (Common Kanban Board Columns)</strong>：<ul>
+<li><strong>Next</strong> (准备开始)</li>
+<li><strong>Analysis</strong> (分析阶段)</li>
+<li><strong>Development</strong> (开发阶段)</li>
+<li><strong>Acceptance</strong> (验收阶段)</li>
+<li><strong>Production (Done)</strong> (生产完成)</li>
+</ul>
+</li>
+</ul>
+<h3><span id="15-可视化控制系统-visual-control-system"><strong>15. 可视化控制系统 (Visual Control System)</strong></span></h3><ul>
+<li><strong>Kanban 看板充当可视化控制系统 (Kanban boards act as a Visual Control System)</strong>，提供<strong>工作透明度</strong>。</li>
+<li>示例 (Examples)：<ul>
+<li><strong>工具架轮廓 (Tool rack silhouettes)</strong> 指示工具存放位置。</li>
+<li><strong>任务分配板 (Assignment boards)</strong> 通过<strong>彩色磁铁</strong>跟踪团队成员的任务状态。</li>
+</ul>
+</li>
+<li>主要优势 (Benefits)：<ul>
+<li><strong>改善团队沟通 (Improves communication)</strong>。</li>
+<li><strong>立即发现瓶颈 (Identifies bottlenecks immediately)</strong>。</li>
+<li><strong>鼓励团队自组织 (Encourages self-organization)</strong>，无需项目经理干预。</li>
+</ul>
+</li>
+</ul>
+<h3><span id="16-在制品-wip-限制-work-in-process-wip-limits"><strong>16. 在制品 (WIP) 限制 (Work in Process (WIP) Limits)</strong></span></h3><ul>
+<li><p><strong>定义 (Definition)</strong>：</p>
+<ul>
+<li><strong>WIP 限制 (WIP limits)</strong> 限制每列 (工作阶段) 允许的任务数量，以防止过载。</li>
+</ul>
+</li>
+<li><p><strong>为什么要限制 WIP? (Why is WIP Limiting Important?)</strong></p>
+<ul>
+<li><strong>减少交付时间 (Reduces Lead Time)</strong>：从任务开始到完成的总时间减少。</li>
+<li><strong>避免任务切换 (Prevents task switching)</strong>：减少上下文切换，提高效率。</li>
+<li><strong>促进团队合作 (Encourages teamwork)</strong>：团队成员集中精力解决瓶颈，而非无序扩张任务。</li>
+</ul>
+</li>
+<li><p><strong>Little’s Law (李特尔法则) 解释 WIP 限制的影响 (Little’s Law explains the relationship)</strong>：<br>  $$<br>  {\text{Lead Time} = \frac{\text{WIP}}{\text{Cycle Time}}}<br>  $$</p>
+<ul>
+<li><strong>降低 WIP 限制</strong>，即可缩短交付时间。</li>
+</ul>
+</li>
+<li><p><strong>Scrum vs. Kanban 的 WIP 管理 (Scrum vs. Kanban on WIP)</strong></p>
+<ul>
+<li><strong>Scrum</strong>：通过<strong>Sprint 计划</strong>隐式管理 WIP。</li>
+<li><strong>Kanban</strong>：<strong>显式限制 WIP</strong>，确保任务流动稳定。</li>
+</ul>
+</li>
+</ul>
+<h3><span id="17-kanban-的约束管理-constraints-in-kanban"><strong>17. Kanban 的约束管理 (Constraints in Kanban)</strong></span></h3><ul>
+<li><strong>WIP 限制暴露系统瓶颈 (WIP limits expose system constraints)</strong>，显示任务积压的阶段。</li>
+<li>当发现瓶颈时：<ul>
+<li><strong>团队停止拉取新任务 (The team stops pulling new work)</strong>，直至问题解决。</li>
+<li><strong>鼓励团队协作解决问题 (Encourages collaborative problem-solving)</strong>。</li>
+</ul>
+</li>
+<li>与 Scrum 的不同 (Difference from Scrum)：<ul>
+<li>Scrum 通过<strong>迭代回顾 (Retrospective) 解决问题</strong>。</li>
+<li>Kanban 采用<strong>实时响应 (Real-time reaction)</strong>，即刻处理瓶颈。</li>
+</ul>
+</li>
+</ul>
+<h3><span id="18-流动性优先而非资源利用率-flow-over-utilization"><strong>18. 流动性优先，而非资源利用率 (Flow Over Utilization)</strong></span></h3><ul>
+<li>传统企业关注<strong>资源利用率 (100% resource utilization)</strong>，但 Kanban 强调<strong>流动性 (Flow Efficiency)</strong>。</li>
+<li>核心概念 (Key concepts)：<ul>
+<li><strong>流动性效率比人员利用率更重要 (Flow efficiency is more important than keeping people constantly busy)</strong>。</li>
+<li><strong>专业化的一般主义者 (Specializing generalists)</strong> 提高团队适应能力。</li>
+</ul>
+</li>
+</ul>
+<h3><span id="19-变更管理与灵活性-planning-for-variability"><strong>19. 变更管理与灵活性 (Planning for Variability)</strong></span></h3><ul>
+<li><strong>软件开发具有不确定性 (Software development is inherently variable)</strong>，包括<strong>任务周期长短不定, 需求变更</strong>。</li>
+<li>Kanban 采用<strong>拥抱变化 (Embraces variability)</strong> 的方法，而不是试图消除它。</li>
+<li>实现方式 (Approach)：<ul>
+<li><strong>使用小批量任务 (Use small batch sizes)</strong>，便于应对需求变更。</li>
+<li><strong>根据吞吐量动态调整 WIP 限制 (Adjust WIP limits based on observed throughput)</strong>。</li>
+</ul>
+</li>
+</ul>
+<h3><span id="20-kanban-是否需要估算和迭代-no-estimates-or-iterations"><strong>20. Kanban 是否需要估算和迭代? (No Estimates or Iterations?)</strong></span></h3><ul>
+<li><strong>Kanban 不依赖固定迭代 (Kanban doesn’t require fixed iterations)</strong>，与 Scrum 的 Sprint 方式不同。</li>
+<li><strong>不依赖估算 (Does not rely on estimates)</strong>：<ul>
+<li>采用<strong>跟踪交付时间 (Tracking Lead Time)</strong> 进行预测。</li>
+<li><strong>使用历史数据 (Uses historical data)</strong> 计算交付节奏。</li>
+</ul>
+</li>
+<li><strong>度量方式对比 (Comparison of Metrics)</strong>：<ul>
+<li><strong>Scrum</strong>：使用 <strong>Velocity (速度)</strong>，即每个 Sprint 交付的 Story Points。</li>
+<li><strong>Kanban</strong>：使用 <strong>Lead Time (交付时间)</strong>，即任务从开始到完成的平均时间。</li>
+</ul>
+</li>
+</ul>
+<h3><span id="21-何时使用-kanban-when-to-use-kanban"><strong>21. 何时使用 Kanban? (When to Use Kanban?)</strong></span></h3><ul>
+<li>适用于以下团队：<ul>
+<li><strong>工作负载高度变化 (Highly variable workloads)</strong>。</li>
+<li><strong>需要持续交付 (Continuous delivery)</strong>，而非固定周期发布。</li>
+<li><strong>希望优化效率 (Want to optimize efficiency)</strong>，减少任务堆积。</li>
+</ul>
+</li>
+<li><strong>Scrumban (Scrum + Kanban) 组合模式</strong>：<ul>
+<li>结合 Scrum 的<strong>结构化规划</strong> 和 Kanban 的<strong>灵活流动</strong>，平衡<strong>可预测性和灵活性</strong>。</li>
+</ul>
+</li>
+</ul>
+<h3><span id="22-企业中的-kanban-kanban-in-the-enterprise"><strong>22. 企业中的 Kanban (Kanban in the Enterprise)</strong></span></h3><ul>
+<li><strong>Kanban 具有可扩展性 (Kanban is scalable to large organizations)</strong>，适用于跨部门、跨团队管理工作流。</li>
+<li>在企业环境中的优势 (Benefits in enterprise settings)：<ul>
+<li><strong>提高可预测性 (Improves predictability)</strong>，更容易规划交付时间。</li>
+<li><strong>优化团队之间的依赖管理 (Helps manage dependencies between teams)</strong>。</li>
+<li><strong>加强跨业务部门协作 (Enhances collaboration across different business units)</strong>。</li>
+</ul>
+</li>
+</ul>
 
     
 
@@ -384,7 +1136,7 @@
         </li>
         <li>
           <strong>本文链接：</strong>
-          <a href="https:/Depasinre.github.io/2024/10/31/10-31-Coding-Gym/" title="10-31 Coding Gym" target="_blank">https:/Depasinre.github.io/2024/10/31/10-31-Coding-Gym/</a>
+          <a href="https:/Depasinre.github.io/2025/01/27/Process-and-Project-Management-RUP-Kanban-and-GQM/" title="Process and Project Management: RUP, Kanban and GQM" target="_blank">https:/Depasinre.github.io/2025/01/27/Process-and-Project-Management-RUP-Kanban-and-GQM/</a>
         </li>
         
         <li>
@@ -406,11 +1158,19 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Interview Preparation</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">CMU</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">LeetCode</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Process and Project Management</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Software Engineering</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">Development Method</a>
         		</li>
       		
 		</ul>
@@ -477,7 +1237,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-     <!-- <img src="//pan.baidu.com/share/qrcode?url=https://depasinre.github.io/2024/10/31/10-31-Coding-Gym/" alt="微信分享二维码"> -->
+     <!-- <img src="//pan.baidu.com/share/qrcode?url=https://depasinre.github.io/2025/01/27/Process-and-Project-Management-RUP-Kanban-and-GQM/" alt="微信分享二维码"> -->
     </div>
 </div>
 
@@ -492,18 +1252,9 @@
 
 <nav id="article-nav">
   
-    <a href="/2025/01/02/TypeScript-Node-React-Project-Problem-Collection/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          使用Typescript, Node, React, Webpack搭建全栈项目中遇到的问题
-        
-      </div>
-    </a>
   
-  
-    <a href="/2024/10/02/LeetCode-%E5%AD%A6%E4%B9%A0-2/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">LeetCode 学习 - 2</div>
+    <a href="/2025/01/02/TypeScript-Node-React-Project-Problem-Collection/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">使用Typescript, Node, React, Webpack搭建全栈项目中遇到的问题</div>
       <i class="icon-circle-right"></i>
     </a>
   

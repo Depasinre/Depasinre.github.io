@@ -6,22 +6,16 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="https://Depasinre.github.io">
-  <title>10-31 Coding Gym | 空澄みのカモと</title>
+  <title>Tag: Process and Project Management | 空澄みのカモと</title>
   <meta name="generator" content="hexo-theme-yilia-plus">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   
-  <meta name="description" content="This note includes multiple leetcode algorithm problems we discuss in Coding Gym at 10&#x2F;31, including topic:   Stack &amp; Queue Monotonicity Tree Heap">
-<meta property="og:type" content="article">
-<meta property="og:title" content="10-31 Coding Gym">
-<meta property="og:url" content="https://depasinre.github.io/2024/10/31/10-31-Coding-Gym/index.html">
+  <meta property="og:type" content="website">
+<meta property="og:title" content="空澄みのカモと">
+<meta property="og:url" content="https://depasinre.github.io/tags/Process-and-Project-Management/index.html">
 <meta property="og:site_name" content="空澄みのカモと">
-<meta property="og:description" content="This note includes multiple leetcode algorithm problems we discuss in Coding Gym at 10&#x2F;31, including topic:   Stack &amp; Queue Monotonicity Tree Heap">
 <meta property="og:locale" content="en_US">
-<meta property="article:published_time" content="2024-11-01T01:15:56.000Z">
-<meta property="article:modified_time" content="2024-11-01T02:38:35.378Z">
 <meta property="article:author" content="Depasinre">
-<meta property="article:tag" content="Interview Preparation">
-<meta property="article:tag" content="LeetCode">
 <meta name="twitter:card" content="summary">
   
     <link rel="alternative" href="/atom.xml" title="空澄みのカモと" type="application/atom+xml">
@@ -222,201 +216,65 @@
               class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-10-31-Coding-Gym" class="article article-type-post " itemscope itemprop="blogPost">
-  <div class="article-inner">
+            
+  
+  
     
-      <header class="article-header">
+    
+      
+      
+      <section class="archives-wrap">
+        <div class="archive-year-wrap">
+          <a href="/archives/2025" class="archive-year">2025</a>
+        </div>
+        <div class="archives">
+    
+    <article class="archive-article archive-type-post">
+  <div class="archive-article-inner">
+    <header class="archive-article-header">
+      	<div class="article-meta">
+	      	
+<a href="/2025/01/27/Process-and-Project-Management-RUP-Kanban-and-GQM/" class="archive-article-date">
+        <time datetime="2025-01-28T03:59:45.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2025-01-27</time>
+</a>
+
+        </div>
+    	 
   
-  
-    <h1 class="article-title" itemprop="name">
-      10-31 Coding Gym
+    <h1 itemprop="name">
+	
+	  <a class="archive-article-title" href="/2025/01/27/Process-and-Project-Management-RUP-Kanban-and-GQM/">Process and Project Management: RUP, Kanban and GQM</a>
+	
     </h1>
   
 
 
-  
-  
-        
-        <span id="busuanzi_container_page_pv" style='display:none' class="archive-article-date">
-              <i class="icon-smile icon"></i> 阅读数：<span id="busuanzi_value_page_pv"></span>次
-        </span>
-
-<a href="/2024/10/31/10-31-Coding-Gym/" class="archive-article-date">
-        <time datetime="2024-11-01T01:15:56.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2024-10-31</time>
-</a>
-
-  
-  
-    
-<div style="margin-top:10px;">
-  <span class="post-time">
-    <span class="post-meta-item-icon">
-      <!-- fonts.scss -->
-      <!-- 百度字体平台:http://fontstore.baidu.com/static/editor/index.html -->
-      <i class="icon-statistics"></i>
-      <span class="post-meta-item-text"> 字数统计:</span>
-      <span class="post-count">996字</span>
-    </span>
-  </span>
-
-  <span class="post-time">
-    &nbsp; | &nbsp;
-    <span class="post-meta-item-icon">
-      <i class="icon-book icon"></i>
-      <span class="post-meta-item-text"> 阅读时长≈</span>
-      <span class="post-count">6分</span>
-    </span>
-  </span>
-</div>
-
-
-  
-  </header>
-  
-  <div class="article-entry" itemprop="articleBody">
-    
-    <p>This note includes multiple leetcode algorithm problems we discuss in Coding Gym at 10/31, including topic: </p>
-<ul>
-<li>Stack &amp; Queue</li>
-<li>Monotonicity</li>
-<li>Tree</li>
-<li>Heap</li>
-</ul>
-<a id="more"></a>
-
-<!-- toc -->
-
-<ul>
-<li><a href="#1-min-stack">1. Min Stack</a><ul>
-<li><a href="#my-solution">My Solution</a></li>
-</ul>
-</li>
-<li><a href="#2-next-greater-element-i">2. Next Greater Element I</a><ul>
-<li><a href="#my-solution-1">My Solution</a></li>
-</ul>
-</li>
-<li><a href="#3-daily-temperatures">3. Daily Temperatures</a><ul>
-<li><a href="#my-solution-2">My Solution</a></li>
-</ul>
-</li>
-</ul>
-<!-- tocstop -->
-
-<h2><span id="1-min-stack">1. Min Stack</span></h2><p>Design a stack that supports push, pop, top, and retrieving the minimum element in constant time.</p>
-<p>Implement the <code>MinStack</code> class:</p>
-<ul>
-<li><code>MinStack()</code> initializes the stack object.</li>
-<li><code>void push(int val)</code> pushes the element <code>val</code> onto the stack.</li>
-<li><code>void pop()</code> removes the element on the top of the stack.</li>
-<li><code>int top()</code> gets the top element of the stack.</li>
-<li><code>int getMin()</code> retrieves the minimum element in the stack.</li>
-</ul>
-<p>You must implement a solution with <code>O(1)</code> time complexity for each function.</p>
-<p><strong>Example 1:</strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">Input</span><br><span class="line">[&quot;MinStack&quot;,&quot;push&quot;,&quot;push&quot;,&quot;push&quot;,&quot;getMin&quot;,&quot;pop&quot;,&quot;top&quot;,&quot;getMin&quot;]</span><br><span class="line">[[],[-2],[0],[-3],[],[],[],[]]</span><br><span class="line"></span><br><span class="line">Output</span><br><span class="line">[null,null,null,null,-3,null,0,-2]</span><br><span class="line"></span><br><span class="line">Explanation</span><br><span class="line">MinStack minStack &#x3D; new MinStack();</span><br><span class="line">minStack.push(-2);</span><br><span class="line">minStack.push(0);</span><br><span class="line">minStack.push(-3);</span><br><span class="line">minStack.getMin(); &#x2F;&#x2F; return -3</span><br><span class="line">minStack.pop();</span><br><span class="line">minStack.top();    &#x2F;&#x2F; return 0</span><br><span class="line">minStack.getMin(); &#x2F;&#x2F; return -2</span><br></pre></td></tr></table></figure>
-
-
-
-<p><strong>Constraints:</strong></p>
-<ul>
-<li><code>-231 &lt;= val &lt;= 231 - 1</code></li>
-<li>Methods <code>pop</code>, <code>top</code> and <code>getMin</code> operations will always be called on <strong>non-empty</strong> stacks.</li>
-<li>At most <code>3 * 104</code> calls will be made to <code>push</code>, <code>pop</code>, <code>top</code>, and <code>getMin</code>.</li>
-</ul>
-<h3><span id="my-solution">My Solution</span></h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> MinStack = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">this</span>.stack = [];</span><br><span class="line">    <span class="keyword">this</span>.min = <span class="literal">Infinity</span>;</span><br><span class="line">    </span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="comment">/** </span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param <span class="type">&#123;number&#125;</span> <span class="variable">val</span></span></span></span><br><span class="line"><span class="comment"> * <span class="doctag">@return <span class="type">&#123;void&#125;</span></span></span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line">MinStack.prototype.push = <span class="function"><span class="keyword">function</span>(<span class="params">val</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">let</span> obj = &#123;<span class="attr">val</span>: val, <span class="attr">currMin</span>: <span class="literal">null</span>&#125;;</span><br><span class="line">    <span class="keyword">this</span>.min = <span class="built_in">Math</span>.min(<span class="keyword">this</span>.min, val);</span><br><span class="line">    obj.currMin = <span class="keyword">this</span>.min;</span><br><span class="line">    <span class="keyword">this</span>.stack.push(obj); </span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@return <span class="type">&#123;void&#125;</span></span></span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line">MinStack.prototype.pop = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">let</span> obj = <span class="keyword">this</span>.stack.pop();</span><br><span class="line">    <span class="keyword">if</span>(<span class="keyword">this</span>.min === obj.val)&#123;</span><br><span class="line">        <span class="keyword">if</span>(<span class="keyword">this</span>.stack.length === <span class="number">0</span>)&#123;</span><br><span class="line">            <span class="keyword">this</span>.min = <span class="literal">Infinity</span>;</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            <span class="keyword">this</span>.min = <span class="keyword">this</span>.stack[<span class="keyword">this</span>.stack.length - <span class="number">1</span>].currMin;</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> obj.val;</span><br><span class="line">    </span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@return <span class="type">&#123;number&#125;</span></span></span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line">MinStack.prototype.top = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">this</span>.stack[<span class="keyword">this</span>.stack.length - <span class="number">1</span>].val;</span><br><span class="line">    </span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@return <span class="type">&#123;number&#125;</span></span></span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line">MinStack.prototype.getMin = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">this</span>.min;</span><br><span class="line">    </span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="comment">/** </span></span><br><span class="line"><span class="comment"> * Your MinStack object will be instantiated and called as such:</span></span><br><span class="line"><span class="comment"> * var obj = new MinStack()</span></span><br><span class="line"><span class="comment"> * obj.push(val)</span></span><br><span class="line"><span class="comment"> * obj.pop()</span></span><br><span class="line"><span class="comment"> * var param_3 = obj.top()</span></span><br><span class="line"><span class="comment"> * var param_4 = obj.getMin()</span></span><br><span class="line"><span class="comment"> */</span></span><br></pre></td></tr></table></figure>
-
-
-
-<h2><span id="2-next-greater-element-i">2. Next Greater Element I</span></h2><p>The <strong>next greater element</strong> of some element <code>x</code> in an array is the <strong>first greater</strong> element that is <strong>to the right</strong> of <code>x</code> in the same array.</p>
-<p>You are given two <strong>distinct 0-indexed</strong> integer arrays <code>nums1</code> and <code>nums2</code>, where <code>nums1</code> is a subset of <code>nums2</code>.</p>
-<p>For each <code>0 &lt;= i &lt; nums1.length</code>, find the index <code>j</code> such that <code>nums1[i] == nums2[j]</code> and determine the <strong>next greater element</strong> of <code>nums2[j]</code> in <code>nums2</code>. If there is no next greater element, then the answer for this query is <code>-1</code>.</p>
-<p>Return <em>an array</em> <code>ans</code> <em>of length</em> <code>nums1.length</code> <em>such that</em> <code>ans[i]</code> <em>is the <strong>next greater element</strong> as described above.</em></p>
-<p><strong>Example 1:</strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">Input: nums1 &#x3D; [4,1,2], nums2 &#x3D; [1,3,4,2]</span><br><span class="line">Output: [-1,3,-1]</span><br><span class="line">Explanation: The next greater element for each value of nums1 is as follows:</span><br><span class="line">- 4 is underlined in nums2 &#x3D; [1,3,4,2]. There is no next greater element, so the answer is -1.</span><br><span class="line">- 1 is underlined in nums2 &#x3D; [1,3,4,2]. The next greater element is 3.</span><br><span class="line">- 2 is underlined in nums2 &#x3D; [1,3,4,2]. There is no next greater element, so the answer is -1.</span><br></pre></td></tr></table></figure>
-
-<p><strong>Example 2:</strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">Input: nums1 &#x3D; [2,4], nums2 &#x3D; [1,2,3,4]</span><br><span class="line">Output: [3,-1]</span><br><span class="line">Explanation: The next greater element for each value of nums1 is as follows:</span><br><span class="line">- 2 is underlined in nums2 &#x3D; [1,2,3,4]. The next greater element is 3.</span><br><span class="line">- 4 is underlined in nums2 &#x3D; [1,2,3,4]. There is no next greater element, so the answer is -1.</span><br></pre></td></tr></table></figure>
-
-
-
-<p><strong>Constraints:</strong></p>
-<ul>
-<li><code>1 &lt;= nums1.length &lt;= nums2.length &lt;= 1000</code></li>
-<li><code>0 &lt;= nums1[i], nums2[i] &lt;= 104</code></li>
-<li>All integers in <code>nums1</code> and <code>nums2</code> are <strong>unique</strong>.</li>
-<li>All the integers of <code>nums1</code> also appear in <code>nums2</code>.</li>
-</ul>
-<p><strong>Follow up:</strong> Could you find an <code>O(nums1.length + nums2.length)</code> solution?</p>
-<h3><span id="my-solution">My Solution</span></h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param <span class="type">&#123;number[]&#125;</span> <span class="variable">nums1</span></span></span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param <span class="type">&#123;number[]&#125;</span> <span class="variable">nums2</span></span></span></span><br><span class="line"><span class="comment"> * <span class="doctag">@return <span class="type">&#123;number[]&#125;</span></span></span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">var</span> nextGreaterElement = <span class="function"><span class="keyword">function</span>(<span class="params">nums1, nums2</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">let</span> monoStack = [];</span><br><span class="line"></span><br><span class="line">    <span class="keyword">let</span> result = <span class="keyword">new</span> <span class="built_in">Map</span>();</span><br><span class="line"></span><br><span class="line">    nums1.forEach(<span class="function">(<span class="params">value</span>) =&gt;</span> result.set(value, <span class="number">-1</span>));</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">let</span> i = <span class="number">0</span>; i &lt; nums2.length; i++)&#123;</span><br><span class="line">        <span class="keyword">while</span>(monoStack.length &gt; <span class="number">0</span> &amp;&amp; nums2[i] &gt; monoStack[monoStack.length - <span class="number">1</span>])&#123;</span><br><span class="line">            <span class="keyword">let</span> number = monoStack.pop();</span><br><span class="line">            result.set(number, nums2[i]);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span>(result.has(nums2[i]))&#123;</span><br><span class="line">            monoStack.push(nums2[i]);</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">let</span> resultArray = [];</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">let</span> i = <span class="number">0</span>; i &lt; nums1.length; i++)&#123;</span><br><span class="line">        resultArray.push(result.get(nums1[i]));</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> resultArray;</span><br><span class="line">    </span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-
-<h2><span id="3-daily-temperatures">3. Daily Temperatures</span></h2><p>Given an array of integers <code>temperatures</code> represents the daily temperatures, return <em>an array</em> <code>answer</code> <em>such that</em> <code>answer[i]</code> <em>is the number of days you have to wait after the</em> <code>ith</code> <em>day to get a warmer temperature</em>. If there is no future day for which this is possible, keep <code>answer[i] == 0</code> instead.</p>
-<p><strong>Example 1:</strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Input: temperatures &#x3D; [73,74,75,71,69,72,76,73]</span><br><span class="line">Output: [1,1,4,2,1,1,0,0]</span><br></pre></td></tr></table></figure>
-
-<p><strong>Example 2:</strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Input: temperatures &#x3D; [30,40,50,60]</span><br><span class="line">Output: [1,1,1,0]</span><br></pre></td></tr></table></figure>
-
-<p><strong>Example 3:</strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Input: temperatures &#x3D; [30,60,90]</span><br><span class="line">Output: [1,1,0]</span><br></pre></td></tr></table></figure>
-
-
-
-<p><strong>Constraints:</strong></p>
-<ul>
-<li><code>1 &lt;= temperatures.length &lt;= 105</code></li>
-<li><code>30 &lt;= temperatures[i] &lt;= 100</code></li>
-</ul>
-<h3><span id="my-solution">My Solution</span></h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param <span class="type">&#123;number[]&#125;</span> <span class="variable">temperatures</span></span></span></span><br><span class="line"><span class="comment"> * <span class="doctag">@return <span class="type">&#123;number[]&#125;</span></span></span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">var</span> dailyTemperatures = <span class="function"><span class="keyword">function</span>(<span class="params">temperatures</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">let</span> stack = [];</span><br><span class="line">    <span class="keyword">let</span> result = <span class="keyword">new</span> <span class="built_in">Array</span>(temperatures.length).fill(<span class="number">0</span>);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">let</span> i = <span class="number">0</span>; i &lt; temperatures.length; i++)&#123;</span><br><span class="line">        <span class="keyword">while</span>(stack.length &gt; <span class="number">0</span> &amp;&amp; temperatures[i] &gt; stack[stack.length - <span class="number">1</span>].temp)&#123;</span><br><span class="line">            <span class="keyword">let</span> obj = stack.pop();</span><br><span class="line">            <span class="keyword">let</span> distance = i - obj.index;</span><br><span class="line">            result[obj.index] = distance;</span><br><span class="line">        &#125;</span><br><span class="line">        stack.push(&#123;<span class="attr">temp</span>: temperatures[i], <span class="attr">index</span>: i&#125;);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> result;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-
-
-
-
-    
-
-    
-
-    
-    <div class="declare"> 
-      <ul class="post-copyright">
-        <li>
-          <strong>本文作者：</strong>
-          Depasinre
-        </li>
-        <li>
-          <strong>本文链接：</strong>
-          <a href="https:/Depasinre.github.io/2024/10/31/10-31-Coding-Gym/" title="10-31 Coding Gym" target="_blank">https:/Depasinre.github.io/2024/10/31/10-31-Coding-Gym/</a>
-        </li>
-        
-        <li>
-          <strong>版权声明： </strong>
+        <div class="article-info info-on-right">
           
-          本博客所有文章除特别声明外，均采用 <a href="https://github.com/JoeyBling/hexo-theme-yilia-plus/blob/master/LICENSE" rel="external nofollow" target="_blank">MIT</a> 许可协议。转载请注明出处！
-        </li>
-        
-      </ul>
-    </div>
-    
-
-  </div>
-  <div class="article-info article-info-index">
-    
-    
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Interview Preparation</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">CMU</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">LeetCode</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Process and Project Management</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Software Engineering</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">Development Method</a>
         		</li>
       		
 		</ul>
 	</div>
 
-    
+          
 	<div class="article-category tagcloud">
 		<i class="icon-book icon"></i>
 		<ul class="article-tag-list">
@@ -429,114 +287,17 @@
 	</div>
 
 
-    
-
-    
-    
-<div class="share-btn share-icons tooltip-left">
-  <div class="tooltip tooltip-east">
-    <span class="tooltip-item">
-      <a href="javascript:;" class="share-sns share-outer">
-        <i class="icon icon-share"></i>
-      </a>
-    </span>
-    <span class="tooltip-content">
-      <div class="share-wrap">
-        <div class="share-icons">
-          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
-            <i class="icon icon-weibo"></i>
-          </a>
-          <!-- <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
-            <i class="icon icon-weixin"></i>
-          </a> -->
-          <a class="qq share-sns" href="javascript:;" data-type="qq">
-            <i class="icon icon-qq"></i>
-          </a>
-          <a class="douban share-sns" href="javascript:;" data-type="douban">
-            <i class="icon icon-douban"></i>
-          </a>
-          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
-            <i class="icon icon-qzone"></i>
-          </a>
-          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
-            <i class="icon icon-facebook"></i>
-          </a>
-          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
-            <i class="icon icon-twitter"></i>
-          </a>
-          <a class="google share-sns" href="javascript:;" data-type="google">
-            <i class="icon icon-google"></i>
-          </a>
         </div>
-      </div>
-    </span>
-  </div>
-</div>
-
-<div class="page-modal wx-share js-wx-box">
-    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
-    <p>扫一扫，分享到微信</p>
-    <div class="wx-qrcode">
-     <!-- <img src="//pan.baidu.com/share/qrcode?url=https://depasinre.github.io/2024/10/31/10-31-Coding-Gym/" alt="微信分享二维码"> -->
-    </div>
-</div>
-
-<div class="mask js-mask"></div>
-
-    
-    <div class="clearfix"></div>
-  </div>
+        <div class="clearfix"></div>
+    </header>
   </div>
 </article>
-
-
-<nav id="article-nav">
-  
-    <a href="/2025/01/02/TypeScript-Node-React-Project-Problem-Collection/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          使用Typescript, Node, React, Webpack搭建全栈项目中遇到的问题
-        
-      </div>
-    </a>
   
   
-    <a href="/2024/10/02/LeetCode-%E5%AD%A6%E4%B9%A0-2/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">LeetCode 学习 - 2</div>
-      <i class="icon-circle-right"></i>
-    </a>
+    </div></section>
   
-</nav>
 
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-
-
-
-
-
-
-
-
+    
 
 
           </div>
@@ -577,9 +338,9 @@
 	var yiliaConfig = {
 		mathjax: true,
 		isHome: false,
-		isPost: true,
+		isPost: false,
 		isArchive: false,
-		isTag: false,
+		isTag: true,
 		isCategory: false,
 		open_in_new: false,
 		toc_hide_index: true,
