@@ -24,8 +24,11 @@
 <meta property="og:image" content="https://assets.leetcode.com/uploads/2021/02/19/symtree2.jpg">
 <meta property="og:image" content="https://assets.leetcode.com/uploads/2021/02/19/tree1.jpg">
 <meta property="og:image" content="https://assets.leetcode.com/uploads/2021/04/09/pathsum3-1-tree.jpg">
+<meta property="og:image" content="https://assets.leetcode.com/uploads/2021/02/19/tree.jpg">
+<meta property="og:image" content="https://assets.leetcode.com/uploads/2021/02/18/btree1.jpg">
+<meta property="og:image" content="https://assets.leetcode.com/uploads/2021/02/18/btree.jpg">
 <meta property="article:published_time" content="2025-05-14T02:04:39.000Z">
-<meta property="article:modified_time" content="2025-06-12T08:30:30.667Z">
+<meta property="article:modified_time" content="2025-06-14T06:36:41.017Z">
 <meta property="article:author" content="Depasinre">
 <meta property="article:tag" content="LeetCode">
 <meta name="twitter:card" content="summary">
@@ -262,7 +265,7 @@
       <!-- 百度字体平台:http://fontstore.baidu.com/static/editor/index.html -->
       <i class="icon-statistics"></i>
       <span class="post-meta-item-text"> 字数统计:</span>
-      <span class="post-count">2.1k字</span>
+      <span class="post-count">3k字</span>
     </span>
   </span>
 
@@ -271,7 +274,7 @@
     <span class="post-meta-item-icon">
       <i class="icon-book icon"></i>
       <span class="post-meta-item-text"> 阅读时长≈</span>
-      <span class="post-count">12分</span>
+      <span class="post-count">18分</span>
     </span>
   </span>
 </div>
@@ -323,6 +326,18 @@
 </li>
 <li><a href="#9-path-sum-iii">9. Path Sum III</a><ul>
 <li><a href="#my-solution-8">My Solution</a></li>
+</ul>
+</li>
+<li><a href="#10-construct-binary-tree-from-preorder-and-inorder-traversal">10. Construct Binary Tree from Preorder and Inorder Traversal</a><ul>
+<li><a href="#my-solution-9">My Solution</a></li>
+</ul>
+</li>
+<li><a href="#11-convert-sorted-array-to-binary-search-tree">11. Convert Sorted Array to Binary Search Tree</a><ul>
+<li><a href="#my-solution-10">My Solution</a></li>
+</ul>
+</li>
+<li><a href="#12-course-schedule">12. Course Schedule</a><ul>
+<li><a href="#my-solution-11">My Solution</a></li>
 </ul>
 </li>
 </ul>
@@ -504,6 +519,68 @@
 <h3><span id="my-solution">My Solution</span></h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Definition for a binary tree node.</span></span><br><span class="line"><span class="comment"> * function TreeNode(val, left, right) &#123;</span></span><br><span class="line"><span class="comment"> *     this.val = (val===undefined ? 0 : val)</span></span><br><span class="line"><span class="comment"> *     this.left = (left===undefined ? null : left)</span></span><br><span class="line"><span class="comment"> *     this.right = (right===undefined ? null : right)</span></span><br><span class="line"><span class="comment"> * &#125;</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param <span class="type">&#123;TreeNode&#125;</span> <span class="variable">root</span></span></span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param <span class="type">&#123;number&#125;</span> <span class="variable">targetSum</span></span></span></span><br><span class="line"><span class="comment"> * <span class="doctag">@return <span class="type">&#123;number&#125;</span></span></span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">var</span> pathSum = <span class="function"><span class="keyword">function</span>(<span class="params">root, targetSum</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">const</span> prefixSumCount = <span class="keyword">new</span> <span class="built_in">Map</span>();</span><br><span class="line">    prefixSumCount.set(<span class="number">0</span>, <span class="number">1</span>); <span class="comment">// the empty path</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">const</span> dfs = <span class="function">(<span class="params">root, currSum</span>) =&gt;</span> &#123;</span><br><span class="line">        <span class="keyword">if</span>(!root) <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">        currSum += root.val;</span><br><span class="line">        <span class="keyword">let</span> res = prefixSumCount.get(currSum - targetSum) || <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span>(prefixSumCount.get(currSum))&#123;</span><br><span class="line">            prefixSumCount.set(currSum, prefixSumCount.get(currSum) + <span class="number">1</span>);</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            prefixSumCount.set(currSum, <span class="number">1</span>);</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        res += dfs(root.left, currSum);</span><br><span class="line">        res += dfs(root.right, currSum);</span><br><span class="line"></span><br><span class="line">        prefixSumCount.set(currSum, prefixSumCount.get(currSum) - <span class="number">1</span>);</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> res;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> dfs(root, <span class="number">0</span>);</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
 
 
+
+<h2><span id="10-construct-binary-tree-from-preorder-and-inorder-traversal">10. Construct Binary Tree from Preorder and Inorder Traversal</span></h2><p>Given two integer arrays <code>preorder</code> and <code>inorder</code> where <code>preorder</code> is the preorder traversal of a binary tree and <code>inorder</code> is the inorder traversal of the same tree, construct and return <em>the binary tree</em>.</p>
+<p><strong>Example 1:</strong></p>
+<p><img src="https://assets.leetcode.com/uploads/2021/02/19/tree.jpg" alt="img"></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Input: preorder &#x3D; [3,9,20,15,7], inorder &#x3D; [9,3,15,20,7]</span><br><span class="line">Output: [3,9,20,null,null,15,7]</span><br></pre></td></tr></table></figure>
+
+<p><strong>Example 2:</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Input: preorder &#x3D; [-1], inorder &#x3D; [-1]</span><br><span class="line">Output: [-1]</span><br></pre></td></tr></table></figure>
+
+<p><strong>Constraints:</strong></p>
+<ul>
+<li><code>1 &lt;= preorder.length &lt;= 3000</code></li>
+<li><code>inorder.length == preorder.length</code></li>
+<li><code>-3000 &lt;= preorder[i], inorder[i] &lt;= 3000</code></li>
+<li><code>preorder</code> and <code>inorder</code> consist of <strong>unique</strong> values.</li>
+<li>Each value of <code>inorder</code> also appears in <code>preorder</code>.</li>
+<li><code>preorder</code> is <strong>guaranteed</strong> to be the preorder traversal of the tree.</li>
+<li><code>inorder</code> is <strong>guaranteed</strong> to be the inorder traversal of the tree.</li>
+</ul>
+<h3><span id="my-solution">My Solution</span></h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Definition for a binary tree node.</span></span><br><span class="line"><span class="comment"> * function TreeNode(val, left, right) &#123;</span></span><br><span class="line"><span class="comment"> *     this.val = (val===undefined ? 0 : val)</span></span><br><span class="line"><span class="comment"> *     this.left = (left===undefined ? null : left)</span></span><br><span class="line"><span class="comment"> *     this.right = (right===undefined ? null : right)</span></span><br><span class="line"><span class="comment"> * &#125;</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param <span class="type">&#123;number[]&#125;</span> <span class="variable">preorder</span></span></span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param <span class="type">&#123;number[]&#125;</span> <span class="variable">inorder</span></span></span></span><br><span class="line"><span class="comment"> * <span class="doctag">@return <span class="type">&#123;TreeNode&#125;</span></span></span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">var</span> buildTree = <span class="function"><span class="keyword">function</span>(<span class="params">preorder, inorder</span>) </span>&#123;</span><br><span class="line">    <span class="comment">// 数组为空代表子树不存在</span></span><br><span class="line">    <span class="keyword">if</span> (preorder.length === <span class="number">0</span>) <span class="keyword">return</span> <span class="literal">null</span>;</span><br><span class="line">    </span><br><span class="line">    <span class="comment">// 前序遍历的第一个节点是根节点</span></span><br><span class="line">    <span class="keyword">const</span> rootVal = preorder[<span class="number">0</span>];</span><br><span class="line">    </span><br><span class="line">    <span class="comment">// 中序遍历的根节点左边是左子树, 右边是右子树</span></span><br><span class="line">    <span class="keyword">const</span> inorderRootIndex = inorder.indexOf(rootVal);</span><br><span class="line">    <span class="keyword">const</span> inorderLeft = inorder.slice(<span class="number">0</span>, inorderRootIndex);</span><br><span class="line">    <span class="keyword">const</span> inorderRight = inorder.slice(inorderRootIndex + <span class="number">1</span>);</span><br><span class="line">	</span><br><span class="line">    <span class="comment">// 去除第一位的前序遍历, 前中序遍历左子树一样长度的数组是前序遍历的左子树, 剩余为右子树</span></span><br><span class="line">    <span class="keyword">const</span> preorderLeft = preorder.slice(<span class="number">1</span>, inorderRootIndex + <span class="number">1</span>);</span><br><span class="line">    <span class="keyword">const</span> preorderRight = preorder.slice(inorderRootIndex + <span class="number">1</span>);</span><br><span class="line">	</span><br><span class="line">    <span class="comment">// 对左子树和右子树递归构建</span></span><br><span class="line">    <span class="keyword">const</span> root = <span class="keyword">new</span> TreeNode(rootVal, buildTree(preorderLeft,inorderLeft),  buildTree(preorderRight, inorderRight));</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> root;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+
+
+<h2><span id="11-convert-sorted-array-to-binary-search-tree">11. Convert Sorted Array to Binary Search Tree</span></h2><p>Given an integer array <code>nums</code> where the elements are sorted in <strong>ascending order</strong>, convert <em>it to a</em> <strong>height-balanced</strong> <em>binary search tree</em>.</p>
+<p><strong>Example 1:</strong></p>
+<p><img src="https://assets.leetcode.com/uploads/2021/02/18/btree1.jpg" alt="img"></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Input: nums &#x3D; [-10,-3,0,5,9]</span><br><span class="line">Output: [0,-3,9,-10,null,5]</span><br><span class="line">Explanation: [0,-10,5,null,-3,null,9] is also accepted:</span><br></pre></td></tr></table></figure>
+
+<p><strong>Example 2:</strong></p>
+<p><img src="https://assets.leetcode.com/uploads/2021/02/18/btree.jpg" alt="img"></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Input: nums &#x3D; [1,3]</span><br><span class="line">Output: [3,1]</span><br><span class="line">Explanation: [1,null,3] and [3,1] are both height-balanced BSTs.</span><br></pre></td></tr></table></figure>
+
+<p><strong>Constraints:</strong></p>
+<ul>
+<li><code>1 &lt;= nums.length &lt;= 104</code></li>
+<li><code>-104 &lt;= nums[i] &lt;= 104</code></li>
+<li><code>nums</code> is sorted in a <strong>strictly increasing</strong> order.</li>
+</ul>
+<h3><span id="my-solution">My Solution</span></h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Definition for a binary tree node.</span></span><br><span class="line"><span class="comment"> * function TreeNode(val, left, right) &#123;</span></span><br><span class="line"><span class="comment"> *     this.val = (val===undefined ? 0 : val)</span></span><br><span class="line"><span class="comment"> *     this.left = (left===undefined ? null : left)</span></span><br><span class="line"><span class="comment"> *     this.right = (right===undefined ? null : right)</span></span><br><span class="line"><span class="comment"> * &#125;</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param <span class="type">&#123;number[]&#125;</span> <span class="variable">nums</span></span></span></span><br><span class="line"><span class="comment"> * <span class="doctag">@return <span class="type">&#123;TreeNode&#125;</span></span></span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">var</span> sortedArrayToBST = <span class="function"><span class="keyword">function</span>(<span class="params">nums</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">const</span> build = <span class="function">(<span class="params">left, right</span>)=&gt;</span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(left &gt; right) <span class="keyword">return</span> <span class="literal">null</span>;</span><br><span class="line">        <span class="keyword">const</span> rootValIndex = <span class="built_in">Math</span>.floor((left + right) / <span class="number">2</span>);</span><br><span class="line">        <span class="keyword">const</span> newLeftInterval = [left, rootValIndex - <span class="number">1</span>]</span><br><span class="line">        <span class="keyword">const</span> newRightInterval = [rootValIndex + <span class="number">1</span>, right];</span><br><span class="line"></span><br><span class="line">        <span class="keyword">const</span> root = <span class="keyword">new</span> TreeNode(</span><br><span class="line">            nums[rootValIndex],</span><br><span class="line">            build(newLeftInterval[<span class="number">0</span>], newLeftInterval[<span class="number">1</span>]),</span><br><span class="line">            build(newRightInterval[<span class="number">0</span>], newRightInterval[<span class="number">1</span>])</span><br><span class="line">            )</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> root;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> build(<span class="number">0</span>, nums.length - <span class="number">1</span>);</span><br><span class="line">    </span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<h2><span id="12-course-schedule">12. Course Schedule</span></h2><p>There are a total of <code>numCourses</code> courses you have to take, labeled from <code>0</code> to <code>numCourses - 1</code>. You are given an array <code>prerequisites</code> where <code>prerequisites[i] = [ai, bi]</code> indicates that you <strong>must</strong> take course <code>bi</code> first if you want to take course <code>ai</code>.</p>
+<ul>
+<li>For example, the pair <code>[0, 1]</code>, indicates that to take course <code>0</code> you have to first take course <code>1</code>.</li>
+</ul>
+<p>Return <code>true</code> if you can finish all courses. Otherwise, return <code>false</code>.</p>
+<p><strong>Example 1:</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Input: numCourses &#x3D; 2, prerequisites &#x3D; [[1,0]]</span><br><span class="line">Output: true</span><br><span class="line">Explanation: There are a total of 2 courses to take. </span><br><span class="line">To take course 1 you should have finished course 0. So it is possible.</span><br></pre></td></tr></table></figure>
+
+<p><strong>Example 2:</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Input: numCourses &#x3D; 2, prerequisites &#x3D; [[1,0],[0,1]]</span><br><span class="line">Output: false</span><br><span class="line">Explanation: There are a total of 2 courses to take. </span><br><span class="line">To take course 1 you should have finished course 0, and to take course 0 you should also have finished course 1. So it is impossible.</span><br></pre></td></tr></table></figure>
+
+<p><strong>Constraints:</strong></p>
+<ul>
+<li><code>1 &lt;= numCourses &lt;= 2000</code></li>
+<li><code>0 &lt;= prerequisites.length &lt;= 5000</code></li>
+<li><code>prerequisites[i].length == 2</code></li>
+<li><code>0 &lt;= ai, bi &lt; numCourses</code></li>
+<li>All the pairs prerequisites[i] are <strong>unique</strong>.</li>
+</ul>
+<h3><span id="my-solution">My Solution</span></h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param <span class="type">&#123;number&#125;</span> <span class="variable">numCourses</span></span></span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param <span class="type">&#123;number[][]&#125;</span> <span class="variable">prerequisites</span></span></span></span><br><span class="line"><span class="comment"> * <span class="doctag">@return <span class="type">&#123;boolean&#125;</span></span></span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">var</span> canFinish = <span class="function"><span class="keyword">function</span>(<span class="params">numCourses, prerequisites</span>) </span>&#123;</span><br><span class="line">    <span class="comment">// 转换为邻接表</span></span><br><span class="line">    <span class="keyword">const</span> adjs = <span class="keyword">new</span> <span class="built_in">Map</span>();</span><br><span class="line">    prerequisites.forEach(<span class="function">(<span class="params">edge</span>) =&gt;</span> &#123;</span><br><span class="line">        <span class="keyword">let</span> adj = adjs.get(edge[<span class="number">0</span>]);</span><br><span class="line">        <span class="keyword">if</span>(!adj) &#123;</span><br><span class="line">            adjs.set(edge[<span class="number">0</span>], [edge[<span class="number">1</span>]]);</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            adj.push(edge[<span class="number">1</span>]);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;)</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 使用dfs 遍历邻接表</span></span><br><span class="line">    <span class="keyword">const</span> visited = <span class="keyword">new</span> <span class="built_in">Map</span>();</span><br><span class="line"></span><br><span class="line">    <span class="keyword">const</span> dfs = <span class="function">(<span class="params">node</span>)=&gt;</span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(visited.get(node) &amp;&amp; visited.get(node) === <span class="number">1</span>)&#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            <span class="comment">// 正在进行检查</span></span><br><span class="line">            visited.set(node, <span class="number">1</span>);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">let</span> adjNodes = adjs.get(node);</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">let</span> child <span class="keyword">of</span> (adjNodes || []))&#123;</span><br><span class="line">            <span class="comment">// 如果一个节点已经确定了安全无环, 跳过不进行递归</span></span><br><span class="line">            <span class="keyword">if</span>(visited.get(child) === <span class="number">2</span>) <span class="keyword">continue</span>;</span><br><span class="line"></span><br><span class="line">            <span class="keyword">if</span>(dfs(child))&#123;</span><br><span class="line">                <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">// 检查完毕, 安全无环</span></span><br><span class="line">        visited.set(node, <span class="number">2</span>);</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">let</span> containCycle = <span class="literal">false</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">let</span> key <span class="keyword">of</span> adjs.keys())&#123;</span><br><span class="line">        <span class="keyword">if</span>(dfs(key))&#123;</span><br><span class="line">            containCycle = <span class="literal">true</span>;</span><br><span class="line">            <span class="keyword">break</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">return</span> !containCycle;</span><br><span class="line">    </span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+
     
 
     
@@ -620,6 +697,15 @@
 
 
 <nav id="article-nav">
+  
+    <a href="/2025/06/14/Javascript-Typescript-Map-Operation/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          JavaScript / Typescript 哈希表操作
+        
+      </div>
+    </a>
   
   
     <a href="/2025/01/28/Process-and-Project-Management-RUP-Kanban-and-GQM/" id="article-nav-older" class="article-nav-link-wrap">
@@ -891,6 +977,18 @@
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">Development Method</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">Javascript</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">Typescript</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">JavaScript</a>
               </li>
             
             <div class="clearfix"></div>

@@ -6,16 +6,22 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="https://Depasinre.github.io">
-  <title>Archives: 2024/10 | 空澄みのカモと</title>
+  <title>Javascript / Typescript 数组操作 | 空澄みのカモと</title>
   <meta name="generator" content="hexo-theme-yilia-plus">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   
-  <meta property="og:type" content="website">
-<meta property="og:title" content="空澄みのカモと">
-<meta property="og:url" content="https://depasinre.github.io/archives/2024/10/index.html">
+  <meta name="description" content="这篇笔记包含了 JavaScript 内置的数据结构Array 的默认操作函数">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Javascript &#x2F; Typescript 数组操作">
+<meta property="og:url" content="https://depasinre.github.io/2025/06/14/Javascript-Typescript-Array-Operation/index.html">
 <meta property="og:site_name" content="空澄みのカモと">
+<meta property="og:description" content="这篇笔记包含了 JavaScript 内置的数据结构Array 的默认操作函数">
 <meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2025-06-14T04:01:17.000Z">
+<meta property="article:modified_time" content="2025-06-14T04:15:11.609Z">
 <meta property="article:author" content="Depasinre">
+<meta property="article:tag" content="Javascript">
+<meta property="article:tag" content="Typescript">
 <meta name="twitter:card" content="summary">
   
     <link rel="alternative" href="/atom.xml" title="空澄みのカモと" type="application/atom+xml">
@@ -216,57 +222,331 @@
               class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
+            <article id="post-Javascript-Typescript-Array-Operation" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
   
   
-    
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2024" class="archive-year">2024</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	
-<a href="/2024/10/03/LeetCode-%E5%AD%A6%E4%B9%A0-2/" class="archive-article-date">
-        <time datetime="2024-10-03T02:59:21.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2024-10-03</time>
-</a>
-
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-	
-	  <a class="archive-article-title" href="/2024/10/03/LeetCode-%E5%AD%A6%E4%B9%A0-2/">LeetCode 学习 - 2</a>
-	
+    <h1 class="article-title" itemprop="name">
+      Javascript / Typescript 数组操作
     </h1>
   
 
 
-        <div class="article-info info-on-right">
+  
+  
+        
+        <span id="busuanzi_container_page_pv" style='display:none' class="archive-article-date">
+              <i class="icon-smile icon"></i> 阅读数：<span id="busuanzi_value_page_pv"></span>次
+        </span>
+
+<a href="/2025/06/14/Javascript-Typescript-Array-Operation/" class="archive-article-date">
+        <time datetime="2025-06-14T04:01:17.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2025-06-14</time>
+</a>
+
+  
+  
+    
+<div style="margin-top:10px;">
+  <span class="post-time">
+    <span class="post-meta-item-icon">
+      <!-- fonts.scss -->
+      <!-- 百度字体平台:http://fontstore.baidu.com/static/editor/index.html -->
+      <i class="icon-statistics"></i>
+      <span class="post-meta-item-text"> 字数统计:</span>
+      <span class="post-count">548字</span>
+    </span>
+  </span>
+
+  <span class="post-time">
+    &nbsp; | &nbsp;
+    <span class="post-meta-item-icon">
+      <i class="icon-book icon"></i>
+      <span class="post-meta-item-text"> 阅读时长≈</span>
+      <span class="post-count">2分</span>
+    </span>
+  </span>
+</div>
+
+
+  
+  </header>
+  
+  <div class="article-entry" itemprop="articleBody">
+    
+    <p>这篇笔记包含了 JavaScript 内置的数据结构<code>Array</code> 的默认操作函数</p>
+<a id="more"></a>
+
+<!-- toc -->
+
+<ul>
+<li><a href="#创建数组">创建数组</a></li>
+<li><a href="#本属性">本属性</a></li>
+<li><a href="#添加-删除元素">添加 / 删除元素</a></li>
+<li><a href="#遍历">遍历</a></li>
+<li><a href="#排序与变换">排序与变换</a></li>
+<li><a href="#搜索元素">搜索元素</a></li>
+<li><a href="#其他">其他</a></li>
+</ul>
+<!-- tocstop -->
+
+<p>在 JavaScript 中，<code>Array</code> 是一种用于按顺序存储多个值的数据结构。每个值都有一个对应的索引（从 0 开始）。与对象相比，数组更适合用来处理有序列表或集合。</p>
+<ul>
+<li>数组可以包含任意类型的数据：数字、字符串、对象、甚至其他数组（嵌套数组）</li>
+<li>数组的长度可以动态变化</li>
+<li>大量内置方法方便增删改查</li>
+</ul>
+<h2><span id="创建数组">创建数组</span></h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> arr1 = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>];</span><br><span class="line"><span class="keyword">const</span> arr2 = <span class="keyword">new</span> <span class="built_in">Array</span>(<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>);</span><br><span class="line"><span class="keyword">const</span> arr3 = <span class="built_in">Array</span>.from(<span class="string">'hello'</span>); <span class="comment">// ['h', 'e', 'l', 'l', 'o']</span></span><br><span class="line"><span class="keyword">const</span> arr4 = <span class="built_in">Array</span>(<span class="number">5</span>).fill(<span class="number">0</span>);    <span class="comment">// [0, 0, 0, 0, 0]</span></span><br></pre></td></tr></table></figure>
+
+
+
+<h2><span id="本属性">本属性</span></h2><table>
+<thead>
+<tr>
+<th>名称</th>
+<th>作用</th>
+<th>示例</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>length</code></td>
+<td>长度</td>
+<td><code>arr.length</code></td>
+</tr>
+<tr>
+<td>索引访问</td>
+<td>取值</td>
+<td><code>arr[0]</code></td>
+</tr>
+</tbody></table>
+<h2><span id="添加-删除元素">添加 / 删除元素</span></h2><table>
+<thead>
+<tr>
+<th>方法</th>
+<th>作用</th>
+<th>示例</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>push()</code></td>
+<td>末尾添加</td>
+<td><code>arr.push(4)</code></td>
+</tr>
+<tr>
+<td><code>pop()</code></td>
+<td>末尾删除</td>
+<td><code>arr.pop()</code></td>
+</tr>
+<tr>
+<td><code>unshift()</code></td>
+<td>开头添加</td>
+<td><code>arr.unshift(0)</code></td>
+</tr>
+<tr>
+<td><code>shift()</code></td>
+<td>开头删除</td>
+<td><code>arr.shift()</code></td>
+</tr>
+<tr>
+<td><code>splice()</code></td>
+<td>插入/删除/替换</td>
+<td><code>arr.splice(1, 2, &#39;a&#39;)</code></td>
+</tr>
+<tr>
+<td><code>slice()</code></td>
+<td>截取（不改变原数组）</td>
+<td><code>arr.slice(1, 3)</code></td>
+</tr>
+</tbody></table>
+<h2><span id="遍历">遍历</span></h2><table>
+<thead>
+<tr>
+<th>方法</th>
+<th>作用</th>
+<th>示例</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>forEach()</code></td>
+<td>遍历</td>
+<td><code>arr.forEach(x =&gt; console.log(x))</code></td>
+</tr>
+<tr>
+<td><code>map()</code></td>
+<td>返回新数组</td>
+<td><code>arr.map(x =&gt; x * 2)</code></td>
+</tr>
+<tr>
+<td><code>filter()</code></td>
+<td>筛选</td>
+<td><code>arr.filter(x =&gt; x &gt; 2)</code></td>
+</tr>
+<tr>
+<td><code>reduce()</code></td>
+<td>累积</td>
+<td><code>arr.reduce((a,b) =&gt; a+b, 0)</code></td>
+</tr>
+<tr>
+<td><code>some()</code></td>
+<td>是否至少有一个符合</td>
+<td><code>arr.some(x =&gt; x &gt; 2)</code></td>
+</tr>
+<tr>
+<td><code>every()</code></td>
+<td>是否全部符合</td>
+<td><code>arr.every(x =&gt; x &gt; 2)</code></td>
+</tr>
+<tr>
+<td><code>find()</code></td>
+<td>找到第一个符合</td>
+<td><code>arr.find(x =&gt; x &gt; 2)</code></td>
+</tr>
+<tr>
+<td><code>findIndex()</code></td>
+<td>找到第一个符合索引</td>
+<td><code>arr.findIndex(x =&gt; x &gt; 2)</code></td>
+</tr>
+</tbody></table>
+<h2><span id="排序与变换">排序与变换</span></h2><table>
+<thead>
+<tr>
+<th>方法</th>
+<th>作用</th>
+<th>示例</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>sort()</code></td>
+<td>排序</td>
+<td><code>arr.sort((a,b) =&gt; a - b)</code></td>
+</tr>
+<tr>
+<td><code>reverse()</code></td>
+<td>反转</td>
+<td><code>arr.reverse()</code></td>
+</tr>
+<tr>
+<td><code>concat()</code></td>
+<td>合并</td>
+<td><code>arr.concat([4,5])</code></td>
+</tr>
+<tr>
+<td><code>join()</code></td>
+<td>转字符串</td>
+<td><code>arr.join(&#39;,&#39;)</code></td>
+</tr>
+<tr>
+<td><code>flat()</code></td>
+<td>扁平化</td>
+<td><code>[1, [2, [3]]].flat(2)</code></td>
+</tr>
+<tr>
+<td><code>flatMap()</code></td>
+<td>映射后扁平化</td>
+<td><code>arr.flatMap(x =&gt; [x, x * 2])</code></td>
+</tr>
+</tbody></table>
+<h2><span id="搜索元素">搜索元素</span></h2><table>
+<thead>
+<tr>
+<th>方法</th>
+<th>作用</th>
+<th>示例</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>indexOf()</code></td>
+<td>查找值的索引</td>
+<td><code>arr.indexOf(2)</code></td>
+</tr>
+<tr>
+<td><code>lastIndexOf()</code></td>
+<td>从后往前查索引</td>
+<td><code>arr.lastIndexOf(2)</code></td>
+</tr>
+<tr>
+<td><code>includes()</code></td>
+<td>是否包含</td>
+<td><code>arr.includes(2)</code></td>
+</tr>
+</tbody></table>
+<h2><span id="其他">其他</span></h2><table>
+<thead>
+<tr>
+<th>方法</th>
+<th>作用</th>
+<th>示例</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>fill()</code></td>
+<td>填充</td>
+<td><code>arr.fill(0, 1, 3)</code></td>
+</tr>
+<tr>
+<td><code>copyWithin()</code></td>
+<td>复制覆盖</td>
+<td><code>arr.copyWithin(0, 2)</code></td>
+</tr>
+<tr>
+<td><code>toString()</code></td>
+<td>转字符串</td>
+<td><code>arr.toString()</code></td>
+</tr>
+<tr>
+<td><code>Array.isArray()</code></td>
+<td>是否数组</td>
+<td><code>Array.isArray(arr)</code></td>
+</tr>
+</tbody></table>
+
+    
+
+    
+
+    
+    <div class="declare"> 
+      <ul class="post-copyright">
+        <li>
+          <strong>本文作者：</strong>
+          Depasinre
+        </li>
+        <li>
+          <strong>本文链接：</strong>
+          <a href="https:/Depasinre.github.io/2025/06/14/Javascript-Typescript-Array-Operation/" title="Javascript / Typescript 数组操作" target="_blank">https:/Depasinre.github.io/2025/06/14/Javascript-Typescript-Array-Operation/</a>
+        </li>
+        
+        <li>
+          <strong>版权声明： </strong>
           
+          本博客所有文章除特别声明外，均采用 <a href="https://github.com/JoeyBling/hexo-theme-yilia-plus/blob/master/LICENSE" rel="external nofollow" target="_blank">MIT</a> 许可协议。转载请注明出处！
+        </li>
+        
+      </ul>
+    </div>
+    
+
+  </div>
+  <div class="article-info article-info-index">
+    
+    
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Interview Preparation</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Javascript</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">LeetCode</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Typescript</a>
         		</li>
       		
 		</ul>
 	</div>
 
-          
+    
 	<div class="article-category tagcloud">
 		<i class="icon-book icon"></i>
 		<ul class="article-tag-list">
@@ -279,17 +559,105 @@
 	</div>
 
 
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
-  
+    
 
     
+    
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <!-- <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a> -->
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
+        </div>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+     <!-- <img src="//pan.baidu.com/share/qrcode?url=https://depasinre.github.io/2025/06/14/Javascript-Typescript-Array-Operation/" alt="微信分享二维码"> -->
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+
+    
+    <div class="clearfix"></div>
+  </div>
+  </div>
+</article>
+
+
+<nav id="article-nav">
+  
+  
+    <a href="/2025/06/14/Javascript-Typescript-Map-Operation/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">JavaScript / Typescript 哈希表操作</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+
+
+
+
+
+
+
+
 
 
           </div>
@@ -330,8 +698,8 @@
 	var yiliaConfig = {
 		mathjax: true,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,
